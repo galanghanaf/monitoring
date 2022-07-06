@@ -33,9 +33,9 @@ class ProfilAdmin extends CI_Controller
 
         if ($this->form_validation->run() != FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
             $data = array('password' => $passBaru);
-            $id = array('id_pegawai' => $this->session->userdata('hak_akses'));
+            $id = array('id' => $this->session->userdata('hak_akses'));
 
-            $this->Monitoring_model->update_data('data_pegawai', $data, $id);
+            $this->Monitoring_model->update_data('data_admin', $data, $id);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Password Berhasil Diubah, Silahkan Login Ulang!</strong>
             </div>');

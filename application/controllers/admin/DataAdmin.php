@@ -79,21 +79,21 @@ class DataAdmin extends CI_Controller
         if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
             $this->tambahData();
         } else {
-            $id_pegawai     = $this->input->post('id_pegawai');
-            $nama_pegawai   = $this->input->post('nama_pegawai');
+            $id             = $this->input->post('id');
+            $nama_admin     = $this->input->post('nama_admin');
             $hak_akses      = $this->input->post('hak_akses');
             $username       = $this->input->post('username');
             $password       = $this->input->post('password');
            
 
             $data = array(
-                'nama_pegawai'  => $nama_pegawai,
+                'nama_admin'    => $nama_admin,
                 'hak_akses'     => $hak_akses,
                 'username'      => $username,
                 'password'      => $password,
             );
 
-            $this->Monitoring_model->insert_data($data, 'data_pegawai');
+            $this->Monitoring_model->insert_data($data, 'data_admin');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
@@ -107,7 +107,7 @@ class DataAdmin extends CI_Controller
     public function updateData($id)
     {
         $data['title'] = 'Update Data Admin';
-        $data['dataadmin'] = $this->db->query("SELECT * FROM data_pegawai WHERE id_pegawai='$id'")->result();
+        $data['dataadmin'] = $this->db->query("SELECT * FROM data_admin WHERE id='$id'")->result();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formUpdateDataAdmin', $data);
@@ -119,14 +119,14 @@ class DataAdmin extends CI_Controller
         if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
             redirect('admin/dataadmin');
         } else {
-            $id_pegawai     = $this->input->post('id_pegawai');
-            $nama_pegawai   = $this->input->post('nama_pegawai');
+            $id             = $this->input->post('id');
+            $nama_admin     = $this->input->post('nama_admin');
             $hak_akses      = $this->input->post('hak_akses');
             $username       = $this->input->post('username');
             $password       = $this->input->post('password');
 
             $data = array(
-                'nama_pegawai'  => $nama_pegawai,
+                'nama_admin  '  => $nama_admin,
                 'hak_akses'     => $hak_akses,
                 'username'      => $username,
                 'password'      => $password,
@@ -134,10 +134,9 @@ class DataAdmin extends CI_Controller
             );
 
             $where = array(
-                'id_pegawai' => $id_pegawai
+                'id' => $id
             );
-            // disini kita akan mengupdate data_pegawai, yang dimana data tersebut berasal dari $data=array, sesuai dengan lokasi idnya yaitu $where
-            $this->Monitoring_model->update_data('data_pegawai', $data, $where);
+            $this->Monitoring_model->update_data('data_admin', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong>
             </div>');
@@ -147,7 +146,7 @@ class DataAdmin extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('nama_pegawai', 'Nama Admin', 'required');
+        $this->form_validation->set_rules('nama_admin', 'Nama Admin', 'required');
         $this->form_validation->set_rules('hak_akses', 'hak akses', 'required');
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
@@ -155,8 +154,8 @@ class DataAdmin extends CI_Controller
 
     public function deleteData($id)
     {
-        $where = array('id_pegawai' => $id);
-        $this->Monitoring_model->delete_data($where, 'data_pegawai');
+        $where = array('id' => $id);
+        $this->Monitoring_model->delete_data($where, 'data_admin');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
         redirect('admin/dataadmin');

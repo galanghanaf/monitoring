@@ -66,7 +66,7 @@ class TaskList extends CI_Controller
     }
     public function tambahData()
     {
-        $data['title'] = "Tambah Data Pegawai";
+        $data['title'] = "Tambah Data Task List ITOS-CTR";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formTambahTaskList', $data);

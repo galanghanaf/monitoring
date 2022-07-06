@@ -33,7 +33,7 @@ class Welcome extends CI_Controller
 		//function ini berfungsi untuk melakukan form_validation
 		if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke formLogin
 			$data['title'] = "Home";
-			$data['pegawai'] = $this->Monitoring_model->get_data('data_pegawai')->result();
+			$data['admin'] = $this->Monitoring_model->get_data('data_admin')->result();
 			$this->load->view('templatesAdmin/header', $data);
 			$this->load->view('welcome');
 		} else {
@@ -47,15 +47,15 @@ class Welcome extends CI_Controller
 				redirect('Welcome');
 			} else {
 				$this->session->set_userdata('hak_akses', $cek->hak_akses); //menyimpan session yang login
-				$this->session->set_userdata('nama_pegawai', $cek->nama_pegawai);
-				$this->session->set_userdata('id_pegawai', $cek->id_pegawai);
+				$this->session->set_userdata('nama_admin', $cek->nama_admin);
+				$this->session->set_userdata('id', $cek->id);
 
 				switch ($cek->hak_akses) {
 					case 1:
 						redirect('admin/dashboard');
 						break;
 					case 2:
-						redirect('pegawai/dashboard');
+						redirect('welcome');
 						break;
 					default:
 						break;

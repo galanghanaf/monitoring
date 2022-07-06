@@ -87,7 +87,7 @@
                         </div>
                     </div>
 
-                    <div class="alert alert-success font-weight-bold ">Selamat Datang <?php echo $this->session->userdata('nama_pegawai') ?>, Anda Login Sebagai Admin</div>
+                    <div class="alert alert-success font-weight-bold ">Selamat Datang <?php echo $this->session->userdata('nama_admin') ?>, Anda Login Sebagai Admin</div>
 
                 </div>
                 <!-- /.container-fluid -->

@@ -22,17 +22,17 @@
         <?php foreach ($dataadmin as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
-                <td class="text-center"><?php echo $t['nama_pegawai']; ?></td>
+                <td class="text-center"><?php echo $t['nama_admin']; ?></td>
                 <td class="text-center"><?php echo $t['username']; ?></td>
                 <td>
                     <center>
-                        <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/dataadmin/updateData/' . $t['id_pegawai']) ?>">
+                        <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/dataadmin/updateData/' . $t['id']) ?>">
                             <i class="fas fa-edit"></i></a>
                     </center>
                 </td>
                 <td>
                     <center>
-                        <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/dataadmin/deleteData/' . $t['id_pegawai']) ?>">
+                        <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/dataadmin/deleteData/' . $t['id']) ?>">
                             <i class="fas fa-trash"></i></a>
                     </center>
                 </td>

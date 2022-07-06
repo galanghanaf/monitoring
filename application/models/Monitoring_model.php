@@ -29,25 +29,25 @@ class Monitoring_model extends CI_Model
     }
     // End Task List
 
-     // Opening Task List
+     // Opening Data Admin
      public function getAllDataAdmin()
      {
  
-         return $this->db->get('data_pegawai')->result_array();
+         return $this->db->get('data_admin')->result_array();
      }
  
      public function getDataAdmin($limit, $start)
      {
  
-         return $this->db->get('data_pegawai', $limit, $start)->result_array();
+         return $this->db->get('data_admin', $limit, $start)->result_array();
      }
  
      public function countAllDataAdmin()
      {
  
-         return $this->db->get('data_pegawai')->num_rows();
+         return $this->db->get('data_admin')->num_rows();
      }
-     // End Task List
+     // End Data Admin
 
     // Opening Log Book
     public function getAllLogBook()
@@ -221,7 +221,7 @@ class Monitoring_model extends CI_Model
         $result = $this->db->where('username', $username)
             ->where('password', $password)
             ->limit(1)
-            ->get('data_pegawai');
+            ->get('data_admin');
 
         if ($result->num_rows() > 0) {
             return $result->row();
