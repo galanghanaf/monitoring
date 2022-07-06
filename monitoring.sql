@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2022 at 02:29 AM
+-- Generation Time: Jul 06, 2022 at 09:38 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -117,7 +117,6 @@ INSERT INTO `header_background` (`id`, `background1`, `background2`, `background
 
 CREATE TABLE `ipstatic` (
   `id` int(11) NOT NULL,
-  `status` varchar(50) NOT NULL,
   `vlan` varchar(50) NOT NULL,
   `up_link` varchar(50) NOT NULL,
   `port` varchar(50) NOT NULL,
@@ -138,10 +137,13 @@ CREATE TABLE `ipstatic` (
 -- Dumping data for table `ipstatic`
 --
 
-INSERT INTO `ipstatic` (`id`, `status`, `vlan`, `up_link`, `port`, `ip_address`, `mac_address`, `host_name`, `equipment`, `manufacture`, `model`, `serial_number`, `asset_number`, `area`, `user`, `password`) VALUES
-(1, '', '', '', '', '192.168.0.1', '', '', '', '', '', '', '', '', '', ''),
-(2, 'wa', '324', '234', '235', '253', 'asdf', 'asdf', 'wga', 'awge', 'awg', 'wage', 'wag', 'awg', 'wag', 'awg'),
-(4, '', '', '', '', '3424', 'awf', '', '', '', '', '', '', '', '', 'a23');
+INSERT INTO `ipstatic` (`id`, `vlan`, `up_link`, `port`, `ip_address`, `mac_address`, `host_name`, `equipment`, `manufacture`, `model`, `serial_number`, `asset_number`, `area`, `user`, `password`) VALUES
+(1, '', '', '', '8.8.8.8', '', '', '', '', '', '', '', '', '', ''),
+(2, '324', '234', '235', '253', 'asdf', 'asdf', 'wga', 'awge', 'awg', 'wage', 'wag', 'awg', 'wag', 'awg'),
+(4, '', '', '', '3424', 'awf', '', '', '', '', '', '', '', '', 'a2'),
+(5, '', '', '80', '8.8.8.8', 'asdf', '', '', '', '', '', '', '', '', ''),
+(6, '2342', '34252', '4524', 'galang.com', 'aweg', 'waefwaeg', 'aweg', 'weag', 'weaeg', 'aweg', 'weag', '', 'aweg', 'aweg'),
+(7, '13', '153', '', '1.1.1.1', 'afwag', '', 'w', 'awe', 'awg', 'weaeg', 'waeg', 'aweeg', 'aeweg', 'aweg');
 
 -- --------------------------------------------------------
 
@@ -174,6 +176,42 @@ INSERT INTO `logbook` (`id`, `name`, `department`, `equipment`, `asset_number`, 
 (4, 'qwadfq', 'qwfq', 'qwdq', 'qfwqd', 'qwe', 'rwqf', 'qwf', '2022-07-21', '0000-00-00', ''),
 (5, 'ewfqd', 'qegqedq', 'qwdwqf', 'qefeqf', 'gewwef', 'wefq', 'qwe', '2022-07-05', '0000-00-00', ''),
 (6, 'qwdqf', 'qwdfq', 'asdqwf', 'qerq', 'qwdqf', 'qw', '', '2022-07-05', '0000-00-00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mapping_network`
+--
+
+CREATE TABLE `mapping_network` (
+  `id` int(11) NOT NULL,
+  `description` varchar(150) NOT NULL,
+  `hostname` varchar(150) NOT NULL,
+  `model` varchar(150) NOT NULL,
+  `serial_number` varchar(150) NOT NULL,
+  `ip_address` varchar(150) NOT NULL,
+  `mac_address` varchar(150) NOT NULL,
+  `switch` varchar(150) NOT NULL,
+  `port` varchar(150) NOT NULL,
+  `rack` varchar(150) NOT NULL,
+  `location` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mapping_network`
+--
+
+INSERT INTO `mapping_network` (`id`, `description`, `hostname`, `model`, `serial_number`, `ip_address`, `mac_address`, `switch`, `port`, `rack`, `location`) VALUES
+(2, 'fioerjiojgosejgosiejhosejgoi', 'awegawf', 'awf', 'awef', 'ga', 'awegawhwaawfa', 'asd', 'awge', 'awge', 'awefwage'),
+(3, 'f', '', '', '', '', '', '', '', '', ''),
+(4, 'g', '', '', '', '', '', '', '', '', ''),
+(5, 'wef', '', '', '', '', '', '', '', '', ''),
+(6, 'wefw', '', '', '', '', '', '', '', '', ''),
+(7, 'wahg', '', '', '', '', '', '', '', '', ''),
+(8, 'waf', '', '', '', '', '', '', '', '', ''),
+(9, 'awhb', '', '', '', '', '', '', '', '', ''),
+(10, 'aweg', '', '', '', '', '', '', '', '', ''),
+(11, 'vv', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -360,12 +398,13 @@ CREATE TABLE `task_list` (
 --
 
 INSERT INTO `task_list` (`id`, `description`, `requester`, `start_date`, `due_date`, `status`, `notes`) VALUES
-(1, 'Moving Server Room', 'Network', '2022-07-05', '2022-07-25', 'In Progress', 'Improvement Server'),
+(1, 'Moving Server Roomagewafeawgewafawe', 'Networkawgeeawgawgaweg', '2022-07-05', '2022-07-25', 'In Progress', 'Improvement Serverewagawgwagweahwa3r2g'),
 (3, 'rweq', 'fwef', '2022-07-05', '2022-07-05', 'Completed', 'fsad'),
 (4, 'awfe', 'awef', '2022-07-05', '2022-07-05', 'In Progress', 'awfe'),
 (5, 'awef', 'gwaeg', '2022-07-20', '2022-07-13', 'In Progress', 'fawefg'),
 (6, 'fegwa', 'ewafaf', '2022-07-06', '2022-07-20', 'In Progress', 'waefgweag'),
-(7, 'zzzzz', 'waeg', '2022-07-13', '2022-07-20', 'In Progress', 'awef');
+(7, 'zzzzz', 'waeg', '2022-07-13', '2022-07-20', 'In Progress', 'awef'),
+(8, 'awegwiojfoijgoiwfawg', 'waegwahewarawgwgaw', '2022-07-06', '2022-07-05', NULL, 'ewaghwafawfawgawgwaehawrawfawf');
 
 -- --------------------------------------------------------
 
@@ -530,6 +569,12 @@ ALTER TABLE `logbook`
   ADD UNIQUE KEY `serial_number` (`serial_number`);
 
 --
+-- Indexes for table `mapping_network`
+--
+ALTER TABLE `mapping_network`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `portfolio`
 --
 ALTER TABLE `portfolio`
@@ -628,7 +673,7 @@ ALTER TABLE `team5`
 -- AUTO_INCREMENT for table `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `hak_akses`
@@ -652,13 +697,19 @@ ALTER TABLE `header_background`
 -- AUTO_INCREMENT for table `ipstatic`
 --
 ALTER TABLE `ipstatic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `logbook`
 --
 ALTER TABLE `logbook`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `mapping_network`
+--
+ALTER TABLE `mapping_network`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `portfolio`
@@ -712,7 +763,7 @@ ALTER TABLE `potongan_gaji`
 -- AUTO_INCREMENT for table `task_list`
 --
 ALTER TABLE `task_list`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `team`

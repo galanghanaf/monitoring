@@ -29,6 +29,26 @@ class Monitoring_model extends CI_Model
     }
     // End Task List
 
+     // Opening Task List
+     public function getAllDataAdmin()
+     {
+ 
+         return $this->db->get('data_pegawai')->result_array();
+     }
+ 
+     public function getDataAdmin($limit, $start)
+     {
+ 
+         return $this->db->get('data_pegawai', $limit, $start)->result_array();
+     }
+ 
+     public function countAllDataAdmin()
+     {
+ 
+         return $this->db->get('data_pegawai')->num_rows();
+     }
+     // End Task List
+
     // Opening Log Book
     public function getAllLogBook()
     {
