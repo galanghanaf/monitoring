@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Ip Addres</label>
-                                    <input type="number" name="ip_address" class="form-control">
+                                    <input type="text" name="ip_address" class="form-control">
                                     <?php echo form_error('ip_address', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">

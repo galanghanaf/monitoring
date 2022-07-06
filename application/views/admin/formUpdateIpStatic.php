@@ -12,23 +12,58 @@
                             <?php foreach ($ipstatic as $t) : ?>
                                 <!--foreach/perulangan berguna untuk mengambil data dari query table-->
                                 <!-- Disini kita baca datanya dengan method POST sesuai pada controllers/admin/dataJabatan-->
-                                <?php echo form_open_multipart('admin/logbook/updateDataAksi') ?>
+                                <?php echo form_open_multipart('admin/ipstatic/updateDataAksi') ?>
 
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Vlan</label>
                                     <input type="hidden" name="id" class="form-control" value="<?php echo $t->id ?>">
-                                    <input type="text" name="name" class="form-control" value="<?php echo $t->name ?>">
-                                    <?php echo form_error('name', '<div class="text small text-danger"></div>') ?>
+                                    <input type="text" name="vlan" class="form-control" value="<?php echo $t->vlan ?>">
+                                    <?php echo form_error('vlan', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Department</label>
-                                    <input type="text" name="department" class="form-control" value="<?php echo $t->department ?>">
-                                    <?php echo form_error('department', '<div class="text small text-danger"></div>') ?>
+                                    <label>Up Link</label>
+                                    <input type="text" name="up_link" class="form-control" value="<?php echo $t->up_link ?>">
+                                    <?php echo form_error('up_link', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Port</label>
+                                    <input type="text" name="port" class="form-control" value="<?php echo $t->port ?>">
+                                    <?php echo form_error('port', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ip Address</label>
+                                    <input type="text" name="ip_address" class="form-control" value="<?php echo $t->ip_address ?>">
+                                    <?php echo form_error('ip_address', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mac Address</label>
+                                    <input type="text" name="mac_address" class="form-control" value="<?php echo $t->mac_address ?>">
+                                    <?php echo form_error('mac_address', '<divs class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hostname</label>
+                                    <input type="text" name="host_name" class="form-control" value="<?php echo $t->host_name ?>">
+                                    <?php echo form_error('host_name', '<divs class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Equipment</label>
                                     <input type="text" name="equipment" class="form-control" value="<?php echo $t->equipment ?>">
-                                    <?php echo form_error('equipment', '<div class="text small text-danger"></div>') ?>
+                                    <?php echo form_error('equipment', '<divs class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Manufacture</label>
+                                    <input type="date" name="manufacture" class="form-control" value="<?php echo $t->manufacture ?>">
+                                    <?php echo form_error('manufacture', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Model</label>
+                                    <input type="date" name="model" class="form-control" value="<?php echo $t->model ?>">
+                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Serial Number</label>
+                                    <input type="text" name="serial_number" class="form-control" value="<?php echo $t->serial_number ?>">
+                                    <?php echo form_error('serial_number', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Asset Number</label>
@@ -36,34 +71,19 @@
                                     <?php echo form_error('asset_number', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Serial Number</label>
-                                    <input type="text" name="serial_number" class="form-control" value="<?php echo $t->serial_number ?>">
-                                    <?php echo form_error('serial_number', '<divs class="text small text-danger"></div>') ?>
+                                    <label>Area</label>
+                                    <input type="text" name="area" class="form-control" value="<?php echo $t->area ?>">
+                                    <?php echo form_error('area', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ticket Show</label>
-                                    <input type="text" name="ticket_show" class="form-control" value="<?php echo $t->ticket_show ?>">
-                                    <?php echo form_error('ticket_show', '<divs class="text small text-danger"></div>') ?>
+                                    <label>User</label>
+                                    <input type="text" name="user" class="form-control" value="<?php echo $t->user ?>">
+                                    <?php echo form_error('user', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <input type="text" name="description" class="form-control" value="<?php echo $t->description ?>">
-                                    <?php echo form_error('description', '<divs class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Date</label>
-                                    <input type="date" name="date" class="form-control" value="<?php echo $t->date ?>">
-                                    <?php echo form_error('date', '<div class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Return</label>
-                                    <input type="date" name="return" class="form-control" value="<?php echo $t->return ?>">
-                                    <?php echo form_error('return', '<div class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Signature</label>
-                                    <input type="text" name="signature" class="form-control" value="<?php echo $t->signature ?>">
-                                    <?php echo form_error('signature', '<div class="text small text-danger"></div>') ?>
+                                    <label>Password</label>
+                                    <input type="text" name="password" class="form-control" value="<?php echo $t->password ?>">
+                                    <?php echo form_error('password', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
 

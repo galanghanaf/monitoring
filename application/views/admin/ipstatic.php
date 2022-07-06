@@ -35,7 +35,46 @@
         <?php foreach ($ipstatic as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
-                <td class="text-center"><?php echo $t['status']; ?></td>
+                <td class="text-center">
+                    <?php
+                   
+                    // Initialisierung der Ziele / Wenn Port leer -> ICMP (Ping), sonst Portcheck
+                    
+                    $ServerList = array(
+                    "Server1" => $t['ip_address'],
+                    "Port1" => $t['port']);
+                    
+                      
+                    for ($i = 1; $i <= (count($ServerList)/2); $i++) {
+                        
+                            $Server = $ServerList["Server".$i];
+                            $Port = $ServerList["Port".$i];
+                            
+                            echo $Server. " : ";
+                            echo $Port;
+                            
+                            // ICMP (Ping) oder Portcheck
+                            if ($Port <> "")
+                            {
+                                    if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30))
+                                            { echo " -=> Offline! <br/>"; }
+                                    else { echo " -=> Online! <br/>";
+                                            fclose($socket); }
+                            }
+                            else
+                            {
+                                    $str = exec("ping -n 1 -w 1 ".$Server, $input, $result);
+                                    if ($result == 0){
+                                            echo " -=> Online! <br/>";
+                                    }else{
+                                            echo " -=> Offline! <br/>";
+                                    }
+                            }
+                    }
+                    
+                    ?>
+
+                </td>
                 <td class="text-center"><?php echo $t['vlan']; ?></td>
                 <td class="text-center"><?php echo $t['up_link']; ?></td>
                 <td class="text-center"><?php echo $t['port']; ?></td>

@@ -80,7 +80,6 @@ class IpStatic extends CI_Controller
             $this->tambahData();
         } else {
             $id              = $this->input->post('id');
-            $status          = $this->input->post('status');
             $vlan            = $this->input->post('vlan');
             $up_link         = $this->input->post('up_link');
             $port            = $this->input->post('port');
@@ -97,7 +96,6 @@ class IpStatic extends CI_Controller
             $password        = $this->input->post('password');
 
             $data = array(
-                'status'        => $status,
                 'vlan'          => $vlan,
                 'up_link'       => $up_link,
                 'port'          => $port,
@@ -141,7 +139,6 @@ class IpStatic extends CI_Controller
             redirect('admin/ipstatic');
         } else {
             $id              = $this->input->post('id');
-            $status          = $this->input->post('status');
             $vlan            = $this->input->post('vlan');
             $up_link         = $this->input->post('up_link');
             $port            = $this->input->post('port');
@@ -158,7 +155,6 @@ class IpStatic extends CI_Controller
             $password        = $this->input->post('password');
 
             $data = array(
-                'status'        => $status,
                 'vlan'          => $vlan,
                 'up_link'       => $up_link,
                 'port'          => $port,
