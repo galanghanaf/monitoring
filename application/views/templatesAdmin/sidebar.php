@@ -43,7 +43,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Monitoring</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataInputGaji') ?>">Input Gaji</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataPenggajian') ?>">Data Gaji Pegawai</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/PotonganGaji') ?>">Potongan Gaji</a>
                     </div>

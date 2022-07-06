@@ -9,12 +9,6 @@ class Monitoring_model extends CI_Model
         return $this->db->get($table);
     }
 
-    public function getAllPegawai()
-    {
-
-        return $this->db->get('data_pegawai')->result_array();
-    }
-
     // Opening Task List
     public function getAllTaksList()
     {
@@ -52,17 +46,23 @@ class Monitoring_model extends CI_Model
     }
     // End Task List
 
-    public function getPegawai($limit, $start)
+    // Opening Log Book
+    public function getAllIpStatic()
     {
-
-        return $this->db->get('data_pegawai', $limit, $start)->result_array();
+        return $this->db->get('ipstatic')->result_array();
     }
 
-    public function countAllPegawai()
+    public function getIpStatic($limit, $start)
     {
-
-        return $this->db->get('data_pegawai')->num_rows();
+        return $this->db->get('ipstatic', $limit, $start)->result_array();
     }
+
+    public function countAllIpStatic()
+    {
+        return $this->db->get('ipstatic')->num_rows();
+    }
+    // End Task List
+
 
     public function getAllHeader()
     {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2022 at 11:52 AM
+-- Generation Time: Jul 06, 2022 at 02:29 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -117,6 +117,7 @@ INSERT INTO `header_background` (`id`, `background1`, `background2`, `background
 
 CREATE TABLE `ipstatic` (
   `id` int(11) NOT NULL,
+  `status` varchar(50) NOT NULL,
   `vlan` varchar(50) NOT NULL,
   `up_link` varchar(50) NOT NULL,
   `port` varchar(50) NOT NULL,
@@ -137,8 +138,10 @@ CREATE TABLE `ipstatic` (
 -- Dumping data for table `ipstatic`
 --
 
-INSERT INTO `ipstatic` (`id`, `vlan`, `up_link`, `port`, `ip_address`, `mac_address`, `host_name`, `equipment`, `manufacture`, `model`, `serial_number`, `asset_number`, `area`, `user`, `password`) VALUES
-(1, '0', '0', '0', '192.168.0.1', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `ipstatic` (`id`, `status`, `vlan`, `up_link`, `port`, `ip_address`, `mac_address`, `host_name`, `equipment`, `manufacture`, `model`, `serial_number`, `asset_number`, `area`, `user`, `password`) VALUES
+(1, '', '', '', '', '192.168.0.1', '', '', '', '', '', '', '', '', '', ''),
+(2, 'wa', '324', '234', '235', '253', 'asdf', 'asdf', 'wga', 'awge', 'awg', 'wage', 'wag', 'awg', 'wag', 'awg'),
+(4, '', '', '', '', '3424', 'awf', '', '', '', '', '', '', '', '', 'a23');
 
 -- --------------------------------------------------------
 
@@ -649,7 +652,7 @@ ALTER TABLE `header_background`
 -- AUTO_INCREMENT for table `ipstatic`
 --
 ALTER TABLE `ipstatic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `logbook`
