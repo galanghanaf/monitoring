@@ -8,7 +8,7 @@
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/tasklist/tambahData') ?>">
         <i class="fas fa-plus"> Tambah Task</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table id="myTable" class="display table table-bordered table-striped">
+    <table class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto" >
 
         <tr>
             <th class="text-center">No</th>
@@ -19,7 +19,9 @@
             <th class="text-center">Days Remaining</th>
             <th class="text-center">Status</th>
             <th class="text-center">Notes</th>
-            <th class="text-center">Action</th>
+            <th class="text-center">Update</th>
+            <th class="text-center">Delete</th>
+
         </tr>
 
         <?php foreach ($task_list as $t) : ?>
@@ -62,6 +64,12 @@
                     <center>
                         <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/tasklist/updateData/' . $t['id']) ?>">
                             <i class="fas fa-edit"></i></a>
+                       
+                    </center>
+                </td>
+                <td>
+                    <center>
+                      
                         <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/tasklist/deleteData/' . $t['id']) ?>">
                             <i class="fas fa-trash"></i></a>
                     </center>

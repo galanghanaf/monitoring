@@ -8,7 +8,7 @@
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/ipstatic/tambahData') ?>">
         <i class="fas fa-plus"> Tambah Data Ip Static</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table id="myTable" class="display table table-bordered table-striped">
+    <table class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
             <th class="text-center">No</th>
@@ -27,7 +27,9 @@
             <th class="text-center">Area</th>
             <th class="text-center">User</th>
             <th class="text-center">Password</th>
-            <th class="text-center">Action</th>
+            <th class="text-center">Update</th>
+            <th class="text-center">Delete</th>
+
         </tr>
 
         <?php foreach ($ipstatic as $t) : ?>
@@ -48,24 +50,23 @@
                             $Server = $ServerList["Server".$i];
                             $Port = $ServerList["Port".$i];
                             
-                            echo $Server. " : ";
-                            echo $Port;
+                           
                             
                             // ICMP (Ping) oder Portcheck
                             if ($Port <> "")
                             {
                                     if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30))
-                                            { echo " -=> Offline! <br/>"; }
-                                    else { echo " -=> Online! <br/>";
+                                            { echo "Offline!"; }
+                                    else { echo "Online!";
                                             fclose($socket); }
                             }
                             else
                             {
                                     $str = exec("ping -n 1 -w 1 ".$Server, $input, $result);
                                     if ($result == 0){
-                                            echo " -=> Online! <br/>";
+                                            echo "Online!";
                                     }else{
-                                            echo " -=> Offline! <br/>";
+                                            echo "Offline!";
                                     }
                             }
                     }
@@ -91,6 +92,10 @@
                     <center>
                         <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/ipstatic/updateData/' . $t['id']) ?>">
                             <i class="fas fa-edit"></i></a>
+                    </center>
+                </td>
+                <td>
+                    <center>
                         <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/ipstatic/deleteData/' . $t['id']) ?>">
                             <i class="fas fa-trash"></i></a>
                     </center>

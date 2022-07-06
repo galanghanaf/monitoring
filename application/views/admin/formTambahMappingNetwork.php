@@ -11,7 +11,11 @@
                         <div class="card-body">
                             <?php echo form_open_multipart('admin/ipstatic/tambahDataAksi') ?>
                             <form method="post" action="<?php echo base_url('admin/ipstatic/tambahDataAksi') ?>" enctype="multipart/form-data">
-                                
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <input type="text" name="status" class="form-control">
+                                    <?php echo form_error('status', '<div class="text small text-danger"></div>') ?>
+                                </div>
                                 <div class="form-group">
                                     <label>Vlan</label>
                                     <input type="number" name="vlan" class="form-control">

@@ -20,7 +20,7 @@ class IpStatic extends CI_Controller
 
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/dataip/index');
+        $config['base_url'] = site_url('admin/ipstatic/index');
         $config['total_rows'] = $this->monitoring->countAllIpStatic();
         $config['per_page'] = 5;
 
