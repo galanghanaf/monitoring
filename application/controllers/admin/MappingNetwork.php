@@ -63,6 +63,8 @@ class MappingNetwork extends CI_Controller
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/mappingnetwork', $data);
         $this->load->view('templatesAdmin/footer');
+
+        
     }
     public function tambahData()
     {
