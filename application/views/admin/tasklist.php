@@ -8,7 +8,7 @@
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/tasklist/tambahData') ?>">
         <i class="fas fa-plus"> Tambah Task</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto" >
+    <table  style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto" >
 
         <tr>
             <th class="text-center">No</th>
