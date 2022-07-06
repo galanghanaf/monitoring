@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2022 at 09:38 AM
+-- Generation Time: Jul 06, 2022 at 04:14 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,24 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pegawai`
+-- Table structure for table `data_admin`
 --
 
-CREATE TABLE `data_pegawai` (
-  `id_pegawai` int(11) NOT NULL,
-  `nama_pegawai` varchar(200) DEFAULT NULL,
-  `hak_akses` int(11) DEFAULT NULL,
+CREATE TABLE `data_admin` (
+  `id` int(11) NOT NULL,
+  `nama_admin` varchar(200) NOT NULL,
+  `hak_akses` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_pegawai`
+-- Dumping data for table `data_admin`
 --
 
-INSERT INTO `data_pegawai` (`id_pegawai`, `nama_pegawai`, `hak_akses`, `username`, `password`) VALUES
+INSERT INTO `data_admin` (`id`, `nama_admin`, `hak_akses`, `username`, `password`) VALUES
 (14, 'Admin', 1, 'admin', 'admin'),
-(17, 'Galang', 1, 'galang', 'galang');
+(17, 'Galang', 1, 'galang', 'galanghanafi');
 
 -- --------------------------------------------------------
 
@@ -144,6 +144,50 @@ INSERT INTO `ipstatic` (`id`, `vlan`, `up_link`, `port`, `ip_address`, `mac_addr
 (5, '', '', '80', '8.8.8.8', 'asdf', '', '', '', '', '', '', '', '', ''),
 (6, '2342', '34252', '4524', 'galang.com', 'aweg', 'waefwaeg', 'aweg', 'weag', 'weaeg', 'aweg', 'weag', '', 'aweg', 'aweg'),
 (7, '13', '153', '', '1.1.1.1', 'afwag', '', 'w', 'awe', 'awg', 'weaeg', 'waeg', 'aweeg', 'aeweg', 'aweg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `itot_asset`
+--
+
+CREATE TABLE `itot_asset` (
+  `id` int(11) NOT NULL,
+  `it` varchar(50) NOT NULL,
+  `ot` varchar(50) NOT NULL,
+  `plant_code` varchar(50) NOT NULL,
+  `cbu` varchar(50) NOT NULL,
+  `cost_ctr` varchar(50) NOT NULL,
+  `asset_number` varchar(50) NOT NULL,
+  `asset_description` varchar(50) NOT NULL,
+  `serial_number` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `computer_name` varchar(50) NOT NULL,
+  `qty` varchar(50) NOT NULL,
+  `acquis_val` varchar(50) NOT NULL,
+  `accum_dep` varchar(50) NOT NULL,
+  `book_val` varchar(50) NOT NULL,
+  `fixed_asset1` varchar(50) NOT NULL,
+  `fixed_asset2` varchar(50) NOT NULL,
+  `fixed_asset3` varchar(50) NOT NULL,
+  `in_use` varchar(50) NOT NULL,
+  `idle` varchar(50) NOT NULL DEFAULT '',
+  `damage` int(11) NOT NULL,
+  `label` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `ruangan` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `cap_date` int(11) NOT NULL,
+  `note` int(11) NOT NULL,
+  `network_ot` int(11) NOT NULL,
+  `network_it` int(11) NOT NULL,
+  `mac_address` int(11) NOT NULL,
+  `ip_address` int(11) NOT NULL,
+  `nead` int(11) NOT NULL,
+  `sccm` int(11) NOT NULL,
+  `sep` int(11) NOT NULL,
+  `os_version` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -530,10 +574,10 @@ INSERT INTO `team5` (`id_team`, `nama`, `npm`, `photo`) VALUES
 --
 
 --
--- Indexes for table `data_pegawai`
+-- Indexes for table `data_admin`
 --
-ALTER TABLE `data_pegawai`
-  ADD PRIMARY KEY (`id_pegawai`),
+ALTER TABLE `data_admin`
+  ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -670,10 +714,10 @@ ALTER TABLE `team5`
 --
 
 --
--- AUTO_INCREMENT for table `data_pegawai`
+-- AUTO_INCREMENT for table `data_admin`
 --
-ALTER TABLE `data_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+ALTER TABLE `data_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `hak_akses`

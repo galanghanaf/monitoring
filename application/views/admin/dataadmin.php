@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid ">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -8,7 +8,7 @@
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/dataadmin/tambahData') ?>">
         <i class="fas fa-plus"> Tambah Data Admin</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
             <th class="text-center">No</th>
