@@ -47,6 +47,23 @@ class Monitoring_model extends CI_Model
     // End Task List
 
     // Opening Log Book
+    public function getAllMappingNetwork()
+    {
+        return $this->db->get('mapping_network')->result_array();
+    }
+
+    public function getMappingNetwork($limit, $start)
+    {
+        return $this->db->get('mapping_network', $limit, $start)->result_array();
+    }
+
+    public function countAllMappingNetwork()
+    {
+        return $this->db->get('mapping_network')->num_rows();
+    }
+    // End Task List
+
+    // Opening Log Book
     public function getAllIpStatic()
     {
         return $this->db->get('ipstatic')->result_array();

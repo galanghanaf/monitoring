@@ -28,8 +28,6 @@
             <th class="text-center">User</th>
             <th class="text-center">Password</th>
             <th class="text-center">Action</th>
-
-
         </tr>
 
         <?php foreach ($ipstatic as $t) : ?>
@@ -89,7 +87,6 @@
                 <td class="text-center"><?php echo $t['area']; ?></td>
                 <td class="text-center"><?php echo $t['user']; ?></td>
                 <td class="text-center"><?php echo $t['password']; ?></td>
-
                 <td>
                     <center>
                         <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/ipstatic/updateData/' . $t['id']) ?>">
