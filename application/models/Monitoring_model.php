@@ -55,6 +55,25 @@ class Monitoring_model extends CI_Model
     }
     // End Data Admin
 
+    // Opening Location
+    public function getAllLocation()
+    {
+        return $this->db->get('area_location')->result_array();
+    }
+
+    public function getLocation($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('location', $keyword);
+        }
+        return $this->db->get('area_location', $limit, $start)->result_array();
+    }
+    public function countAllLocation()
+    {
+        return $this->db->get('area_location')->num_rows();
+    }
+    // End Log Book
+
     // Opening Log Book
     public function getAllLogBook()
     {
@@ -77,9 +96,9 @@ class Monitoring_model extends CI_Model
     {
         return $this->db->get('logbook')->num_rows();
     }
-    // End Task List
+    // End Log Book
 
-    // Opening Log Book
+    // Opening Mapping Network
     public function getAllMappingNetwork()
     {
         return $this->db->get('mapping_network')->result_array();
@@ -106,7 +125,7 @@ class Monitoring_model extends CI_Model
     {
         return $this->db->get('mapping_network')->num_rows();
     }
-    // End Task List
+    // End Mapping Network
 
     // Opening Ip Static
     public function getAllIpStatic()
@@ -126,7 +145,7 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('model', $keyword);
             $this->db->or_like('serial_number', $keyword);
             $this->db->or_like('asset_number', $keyword);
-            $this->db->or_like('area', $keyword);
+            $this->db->or_like('location', $keyword);
             $this->db->or_like('user', $keyword);
         }
         return $this->db->get('ipstatic', $limit, $start)->result_array();

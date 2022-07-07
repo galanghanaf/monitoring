@@ -28,7 +28,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Data</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/tasklist') ?>">Task List</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/location') ?>">Location</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book</a>
                     </div>
                 </div>
@@ -43,6 +43,8 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Monitoring</h6>
+                        <a class="collapse-item" href="<?php echo base_url('admin/tasklist') ?>">Task List</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstaticwithstatus') ?>">Ip Static with Status</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Mapping Network</a>
@@ -62,7 +64,7 @@
                         <h6 class="collapse-header">Asset</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">ITOT Asset</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/otasset') ?>">OT Asset</a>
-                        
+
 
                     </div>
                 </div>

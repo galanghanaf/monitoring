@@ -6,16 +6,16 @@
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/dataadmin/tambahData') ?>">
-        <i class="fas fa-plus"> Tambah Data Admin</i></a>
+        <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+    <table class="table table-bordered table-striped">
 
         <tr>
-            <th class="text-center">No</th>
-            <th class="text-center">Nama Admin</th>
-            <th class="text-center">Username</th>
-            <th class="text-center">Update</th>
-            <th class="text-center">Delete</th>
+            <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white">Nama Admin</th>
+            <th class="text-center bg-primary text-white">Username</th>
+            <th class="text-center bg-primary text-white">Update</th>
+            <th class="text-center bg-primary text-white">Delete</th>
 
         </tr>
 

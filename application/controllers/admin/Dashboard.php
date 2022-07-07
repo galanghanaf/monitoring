@@ -15,16 +15,16 @@ class Dashboard extends CI_Controller
     {
         $data['title'] = "Dashboard"; //untuk title pada dasboard
 
-        
+
         $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
         $data['admin'] = $admin->num_rows();
-        
-        $task_list = $this->db->query("SELECT * FROM task_list"); 
+
+        $task_list = $this->db->query("SELECT * FROM task_list");
         $data['task_list'] = $task_list->num_rows();
 
         $logbook = $this->db->query("SELECT * FROM logbook");
         $data['logbook'] = $logbook->num_rows();
-       
+
 
         $id = $this->session->userdata('id');
         $this->load->model('Monitoring_model', 'monitoring');

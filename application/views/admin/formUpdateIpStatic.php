@@ -71,9 +71,16 @@
                                     <?php echo form_error('asset_number', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Area</label>
-                                    <input type="text" name="area" class="form-control" value="<?php echo $t->area ?>">
-                                    <?php echo form_error('area', '<div class="text small text-danger"></div>') ?>
+                                    <label>Location</label>
+                                    <select name="location" class="form-control">
+                                        <option value="">Pilih Location</option>
+                                        <?php foreach ($location as $l) : ?>
+                                            <option value="<?php echo $l->location ?>">
+                                                <?php echo $l->location ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>User</label>

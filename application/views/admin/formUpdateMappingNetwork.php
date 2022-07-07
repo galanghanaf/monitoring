@@ -62,7 +62,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <input type="text" name="location" class="form-control" value="<?php echo $t->location ?>">
+                                    <select name="location" class="form-control">
+                                        <option value="">Pilih Location</option>
+                                        <?php foreach ($location as $l) : ?>
+                                            <option value="<?php echo $l->location ?>">
+                                                <?php echo $l->location ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
@@ -75,4 +82,7 @@
                     </div>
                 </div>
                 </div>
+                <br>
+                <br>
+                <br>
                 <!-- End of Main Content -->

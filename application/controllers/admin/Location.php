@@ -1,6 +1,6 @@
 <?php
 
-class DataAdmin extends CI_Controller
+class Location extends CI_Controller
 {
     public function __construct()
     {
@@ -13,16 +13,27 @@ class DataAdmin extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Data Admin";
+        $data['title'] = "Data Location";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
+        //Save Searching
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->userdata('keyword');
+        }
+
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/dataadmin/index');
-        $config['total_rows'] = $this->monitoring->countAllDataAdmin();
-        $config['per_page'] = 5;
+        $config['base_url'] = site_url('admin/location/index');
+        $this->db->like('location', $data['keyword']);
+        $this->db->from('area_location');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
+        $config['per_page'] = 10;
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -58,106 +69,93 @@ class DataAdmin extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['dataadmin'] = $this->monitoring->getDataAdmin($config['per_page'], $data['start']);
-        //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['location'] = $this->monitoring->getLocation($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/dataadmin', $data);
+        $this->load->view('admin/location', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahData()
     {
-        $data['title'] = "Tambah Data Admin";
+        $data['title'] = "Add Data Location";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formTambahDataAdmin', $data);
+        $this->load->view('admin/formTambahLocation', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahDataAksi()
     {
-        $this->_rules(); //function ini berfungsi untuk melakukan form_validation
-        if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
             $this->tambahData();
         } else {
             $id             = $this->input->post('id');
-            $nama_admin     = $this->input->post('nama_admin');
-            $hak_akses      = $this->input->post('hak_akses');
-            $username       = $this->input->post('username');
-            $password       = $this->input->post('password');
+            $location    = $this->input->post('location');
 
 
             $data = array(
-                'nama_admin'    => $nama_admin,
-                'hak_akses'     => $hak_akses,
-                'username'      => $username,
-                'password'      => $password,
+                'location'   => $location,
+
             );
 
-            $this->Monitoring_model->insert_data($data, 'data_admin');
+            $this->Monitoring_model->insert_data($data, 'area_location');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('admin/dataadmin');
+            redirect('admin/location');
         }
     }
-    /*
-    fungsi function ini untuk melakukan form_validation, tujuan untuk menentukan rules dari setiap input yang ada pada views 
-        //disini kita men set rules dengan required, artinya form wajib di isi
-    */
+
     public function updateData($id)
     {
-        $data['title'] = 'Update Data Admin';
-        $data['dataadmin'] = $this->db->query("SELECT * FROM data_admin WHERE id='$id'")->result();
+        $data['location'] = $this->db->query("SELECT * FROM area_location WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['title'] = "Update Location";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateDataAdmin', $data);
+        $this->load->view('admin/formUpdateLocation', $data);
         $this->load->view('templatesAdmin/footer');
     }
+
     public function updateDataAksi()
     {
-        $this->_rules(); //function ini berfungsi untuk melakukan form_validation
-        if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
-            redirect('admin/dataadmin');
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
+            redirect('admin/logbook');
         } else {
             $id             = $this->input->post('id');
-            $nama_admin     = $this->input->post('nama_admin');
-            $hak_akses      = $this->input->post('hak_akses');
-            $username       = $this->input->post('username');
-            $password       = $this->input->post('password');
+            $location    = $this->input->post('location');
+
 
             $data = array(
-                'nama_admin  '  => $nama_admin,
-                'hak_akses'     => $hak_akses,
-                'username'      => $username,
-                'password'      => $password,
+                'location'   => $location,
+
+
 
             );
-
             $where = array(
                 'id' => $id
             );
-            $this->Monitoring_model->update_data('data_admin', $data, $where);
+
+            $this->Monitoring_model->update_data('area_location', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Data Berhasil Diupdate!</strong>
-            </div>');
-            redirect('admin/dataadmin');
+            <strong>Data Berhasil Diupdate!</strong></div>');
+            redirect('admin/location');
         }
     }
 
     public function _rules()
     {
-        $this->form_validation->set_rules('nama_admin', 'Nama Admin', 'required');
-        $this->form_validation->set_rules('hak_akses', 'hak akses', 'required');
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->form_validation->set_rules('location', 'Location', 'required');
     }
 
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'data_admin');
+        $this->Monitoring_model->delete_data($where, 'area_location');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/dataadmin');
+        redirect('admin/location');
     }
 }

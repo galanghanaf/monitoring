@@ -39,7 +39,7 @@ class IpStatic extends CI_Controller
         $this->db->or_like('model',  $data['keyword']);
         $this->db->or_like('serial_number',  $data['keyword']);
         $this->db->or_like('asset_number',  $data['keyword']);
-        $this->db->or_like('area',  $data['keyword']);
+        $this->db->or_like('location',  $data['keyword']);
         $this->db->or_like('user',  $data['keyword']);
         $this->db->from('ipstatic');
         $config['total_rows'] = $this->db->count_all_results();
@@ -90,6 +90,7 @@ class IpStatic extends CI_Controller
     public function tambahData()
     {
         $data['title'] = "Tambah Data Ip Static";
+        $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formTambahIpStatic', $data);
@@ -114,7 +115,7 @@ class IpStatic extends CI_Controller
             $model           = $this->input->post('model');
             $serial_number   = $this->input->post('serial_number');
             $asset_number    = $this->input->post('asset_number');
-            $area            = $this->input->post('area');
+            $location        = $this->input->post('location');
             $user            = $this->input->post('user');
             $password        = $this->input->post('password');
 
@@ -130,7 +131,7 @@ class IpStatic extends CI_Controller
                 'model'         => $model,
                 'serial_number' => $serial_number,
                 'asset_number'  => $asset_number,
-                'area'          => $area,
+                'location'      => $location,
                 'user'          => $user,
                 'password'      => $password,
                 'model'         => $model,
@@ -146,6 +147,7 @@ class IpStatic extends CI_Controller
 
     public function updateData($id)
     {
+        $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['ipstatic'] = $this->db->query("SELECT * FROM ipstatic WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
         $data['title'] = "Update Data Ip Static";
         $this->load->view('templatesAdmin/header', $data);
@@ -173,7 +175,7 @@ class IpStatic extends CI_Controller
             $model           = $this->input->post('model');
             $serial_number   = $this->input->post('serial_number');
             $asset_number    = $this->input->post('asset_number');
-            $area            = $this->input->post('area');
+            $location        = $this->input->post('location');
             $user            = $this->input->post('user');
             $password        = $this->input->post('password');
 
@@ -189,7 +191,7 @@ class IpStatic extends CI_Controller
                 'model'         => $model,
                 'serial_number' => $serial_number,
                 'asset_number'  => $asset_number,
-                'area'          => $area,
+                'location'      => $location,
                 'user'          => $user,
                 'password'      => $password,
                 'model'         => $model,
