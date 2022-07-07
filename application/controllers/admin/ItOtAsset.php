@@ -67,6 +67,7 @@ class ItOtAsset extends CI_Controller
     public function tambahData()
     {
         $data['title'] = "Tambah Data ITOT Asset";
+        $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formTambahItOtAsset', $data);
@@ -102,7 +103,7 @@ class ItOtAsset extends CI_Controller
             $damage             = $this->input->post('damage');
             $label              = $this->input->post('label');
             $status             = $this->input->post('status');
-            $ruangan            = $this->input->post('ruangan');
+            $location           = $this->input->post('location');
             $user               = $this->input->post('user');
             $cap_date           = $this->input->post('cap_date');
             $note               = $this->input->post('note');
@@ -143,7 +144,7 @@ class ItOtAsset extends CI_Controller
                 'damage'            => $damage,
                 'label'             => $label,
                 'status'            => $status,
-                'ruangan'           => $ruangan,
+                'location'          => $location,
                 'user'              => $user,
                 'cap_date'          => $cap_date,
                 'note'              => $note,
@@ -170,6 +171,7 @@ class ItOtAsset extends CI_Controller
 
     public function updateData($id)
     {
+        $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['itotasset'] = $this->db->query("SELECT * FROM itot_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
         $data['title'] = "Update Data ITOT Asset";
         $this->load->view('templatesAdmin/header', $data);
@@ -208,7 +210,7 @@ class ItOtAsset extends CI_Controller
             $damage             = $this->input->post('damage');
             $label              = $this->input->post('label');
             $status             = $this->input->post('status');
-            $ruangan            = $this->input->post('ruangan');
+            $location           = $this->input->post('location');
             $user               = $this->input->post('user');
             $cap_date           = $this->input->post('cap_date');
             $note               = $this->input->post('note');
@@ -244,7 +246,7 @@ class ItOtAsset extends CI_Controller
                 'damage'            => $damage,
                 'label'             => $label,
                 'status'            => $status,
-                'ruangan'           => $ruangan,
+                'location'          => $location,
                 'user'              => $user,
                 'cap_date'          => $cap_date,
                 'note'              => $note,
@@ -276,7 +278,6 @@ class ItOtAsset extends CI_Controller
         $this->form_validation->set_rules('cbu', 'CBU', 'required');
         $this->form_validation->set_rules('asset_number', 'Asset Number', 'required');
         $this->form_validation->set_rules('asset_description', 'Asset Description', 'required');
-
     }
 
     public function deleteData($id)

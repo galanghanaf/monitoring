@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label>Location</label>
                                     <select name="location" class="form-control">
-                                        <option value="">Pilih Location</option>
+                                        <option value="<?php echo $t->location ?>"><?php echo $t->location ?></option>
                                         <?php foreach ($location as $l) : ?>
                                             <option value="<?php echo $l->location ?>">
                                                 <?php echo $l->location ?>

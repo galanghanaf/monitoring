@@ -47,7 +47,7 @@
             <th class="text-center">Damage</th>
             <th class="text-center">Label</th>
             <th class="text-center">Status</th>
-            <th class="text-center">Ruangan</th>
+            <th class="text-center">Location</th>
             <th class="text-center">User</th>
             <th class="text-center">Cap.date</th>
             <th class="text-center">Note</th>
@@ -117,7 +117,7 @@
                 <td class="text-center"><?php echo $t['model']; ?></td>
                 <td class="text-center"><?php echo $t['serial_number']; ?></td>
                 <td class="text-center"><?php echo $t['asset_number']; ?></td>
-                <td class="text-center"><?php echo $t['area']; ?></td>
+                <td class="text-center"><?php echo $t['location']; ?></td>
                 <td class="text-center"><?php echo $t['user']; ?></td>
                 <td class="text-center"><?php echo $t['password']; ?></td>
                 <td>

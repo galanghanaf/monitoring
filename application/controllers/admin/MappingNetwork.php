@@ -87,6 +87,7 @@ class MappingNetwork extends CI_Controller
     public function tambahData()
     {
         $data['title'] = "Tambah Data Mapping Network";
+        $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
@@ -135,6 +136,7 @@ class MappingNetwork extends CI_Controller
 
     public function updateData($id)
     {
+        $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['mappingnetwork'] = $this->db->query("SELECT * FROM mapping_network WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
         $data['title'] = "Update Data Mapping Network";

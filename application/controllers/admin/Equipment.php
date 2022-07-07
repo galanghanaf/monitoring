@@ -1,6 +1,6 @@
 <?php
 
-class LogBook extends CI_Controller
+class Equipment extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class LogBook extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Log Book IT Equipment";
+        $data['title'] = "Data Equipment";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
@@ -28,10 +28,9 @@ class LogBook extends CI_Controller
 
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/logbook/index');
-        $this->db->like('name', $data['keyword']);
-        $this->db->or_like('department', $data['keyword']);
-        $this->db->from('logbook');
+        $config['base_url'] = site_url('admin/equipment/index');
+        $this->db->like('equipment', $data['keyword']);
+        $this->db->from('equipment');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 10;
@@ -70,19 +69,18 @@ class LogBook extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['logbook'] = $this->monitoring->getLogBook($config['per_page'], $data['start'], $data['keyword']);
+        $data['equipment'] = $this->monitoring->getEquipment($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/logbook', $data);
+        $this->load->view('admin/equipment', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahData()
     {
-        $data['title'] = "Tambah Log Book IT Equipment";
-        $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
+        $data['title'] = "Add Data Equipment";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formTambahLogBook', $data);
+        $this->load->view('admin/formTambahEquipment', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahDataAksi()
@@ -93,46 +91,29 @@ class LogBook extends CI_Controller
             $this->tambahData();
         } else {
             $id             = $this->input->post('id');
-            $name    = $this->input->post('name');
-            $department      = $this->input->post('department');
-            $equipment     = $this->input->post('equipment');
-            $asset_number       = $this->input->post('asset_number');
-            $serial_number         = $this->input->post('serial_number');
-            $ticket_show          = $this->input->post('ticket_show');
-            $description       = $this->input->post('description');
-            $date         = $this->input->post('date');
-            $return          = $this->input->post('return');
-            $signature          = $this->input->post('signature');
+            $equipment    = $this->input->post('equipment');
+
 
             $data = array(
-                'name'   => $name,
-                'department'     => $department,
-                'equipment'    => $equipment,
-                'asset_number'      => $asset_number,
-                'serial_number'        => $serial_number,
-                'ticket_show'         => $ticket_show,
-                'description'    => $description,
-                'date'      => $date,
-                'return'        => $return,
-                'signature'         => $signature,
+                'equipment'   => $equipment,
+
             );
 
-            $this->Monitoring_model->insert_data($data, 'logbook');
+            $this->Monitoring_model->insert_data($data, 'equipment');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('admin/logbook');
+            redirect('admin/equipment');
         }
     }
 
     public function updateData($id)
     {
-        $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
-        $data['logbook'] = $this->db->query("SELECT * FROM logbook WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
-        $data['title'] = "Update Log Book IT Equipment";
+        $data['equipment'] = $this->db->query("SELECT * FROM equipment WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['title'] = "Update Equipment";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateLogBook', $data);
+        $this->load->view('admin/formUpdateEquipment', $data);
         $this->load->view('templatesAdmin/footer');
     }
 
@@ -141,31 +122,15 @@ class LogBook extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            redirect('admin/logbook');
+            redirect('admin/equipment');
         } else {
             $id             = $this->input->post('id');
-            $name    = $this->input->post('name');
-            $department      = $this->input->post('department');
-            $equipment     = $this->input->post('equipment');
-            $asset_number       = $this->input->post('asset_number');
-            $serial_number         = $this->input->post('serial_number');
-            $ticket_show          = $this->input->post('ticket_show');
-            $description       = $this->input->post('description');
-            $date         = $this->input->post('date');
-            $return          = $this->input->post('return');
-            $signature          = $this->input->post('signature');
+            $equipment    = $this->input->post('equipment');
+
 
             $data = array(
-                'name'   => $name,
-                'department'     => $department,
-                'equipment'    => $equipment,
-                'asset_number'      => $asset_number,
-                'serial_number'        => $serial_number,
-                'ticket_show'         => $ticket_show,
-                'description'    => $description,
-                'date'      => $date,
-                'return'        => $return,
-                'signature'         => $signature,
+                'equipment'   => $equipment,
+
 
 
             );
@@ -173,29 +138,24 @@ class LogBook extends CI_Controller
                 'id' => $id
             );
 
-            $this->Monitoring_model->update_data('logbook', $data, $where);
+            $this->Monitoring_model->update_data('equipment', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong></div>');
-            redirect('admin/logbook');
+            redirect('admin/equipment');
         }
     }
 
     public function _rules()
     {
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('department', 'Department', 'required');
         $this->form_validation->set_rules('equipment', 'Equipment', 'required');
-        $this->form_validation->set_rules('asset_number', 'Asset Number', 'required');
-        $this->form_validation->set_rules('serial_number', 'Serial Number', 'required');
-        $this->form_validation->set_rules('date', 'Date', 'required');
     }
 
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'logbook');
+        $this->Monitoring_model->delete_data($where, 'equipment');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/logbook');
+        redirect('admin/equipment');
     }
 }

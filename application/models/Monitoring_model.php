@@ -72,7 +72,26 @@ class Monitoring_model extends CI_Model
     {
         return $this->db->get('area_location')->num_rows();
     }
-    // End Log Book
+    // End Location
+
+    // Opening Equipment
+    public function getAllEquipment()
+    {
+        return $this->db->get('equipment')->result_array();
+    }
+
+    public function getEquipment($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('equipment', $keyword);
+        }
+        return $this->db->get('equipment', $limit, $start)->result_array();
+    }
+    public function countAllEquipment()
+    {
+        return $this->db->get('equipment')->num_rows();
+    }
+    // End Equipment
 
     // Opening Log Book
     public function getAllLogBook()
