@@ -6,7 +6,7 @@
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/logbook/tambahData') ?>">
-        <i class="fas fa-plus"> Tambah</i></a>
+        <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
     <div class="row">
         <div class="col-md">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <h6>Result : <?= $total_rows ?></h6>
-    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+    <table style="white-space:nowrap;" class="table-responsive table-hover table table-bordered" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>

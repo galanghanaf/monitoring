@@ -7,8 +7,8 @@
     </div>
 
 
-    <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/ipstatic/tambahData') ?>">
-        <i class="fas fa-plus"> Tambah Data Ip Static</i></a>
+    <a class="btn btn-sm btn-success mb-3 text-white" href="<?php echo base_url('admin/ipstatic/tambahData') ?>">
+        <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
 
     <div class="row">
@@ -24,30 +24,38 @@
             </form>
         </div>
     </div>
-    <h6> Total Data : <?= $total_rows ?></h6>
-    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+    <h6> Result : <?= $total_rows ?></h6>
+    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-hover" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
-            <th class="text-center">No</th>
-            <th class="text-center">Vlan</th>
-            <th class="text-center">Up Link</th>
-            <th class="text-center">Port</th>
-            <th class="text-center">Ip Address</th>
-            <th class="text-center">Mac Address</th>
-            <th class="text-center">Hostname</th>
-            <th class="text-center">Equipment</th>
-            <th class="text-center">Manufacture</th>
-            <th class="text-center">Model</th>
-            <th class="text-center">Serial Number</th>
-            <th class="text-center">Asset Number</th>
-            <th class="text-center">Area</th>
-            <th class="text-center">User</th>
-            <th class="text-center">Password</th>
-            <th class="text-center">Update</th>
-            <th class="text-center">Delete</th>
+            <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white">Vlan</th>
+            <th class="text-center bg-primary text-white">Up Link</th>
+            <th class="text-center bg-primary text-white">Port</th>
+            <th class="text-center bg-primary text-white">Ip Address</th>
+            <th class="text-center bg-primary text-white">Mac Address</th>
+            <th class="text-center bg-primary text-white">Hostname</th>
+            <th class="text-center bg-primary text-white">Equipment</th>
+            <th class="text-center bg-primary text-white">Manufacture</th>
+            <th class="text-center bg-primary text-white">Model</th>
+            <th class="text-center bg-primary text-white">Serial Number</th>
+            <th class="text-center bg-primary text-white">Asset Number</th>
+            <th class="text-center bg-primary text-white">Area</th>
+            <th class="text-center bg-primary text-white">User</th>
+            <th class="text-center bg-primary text-white">Password</th>
+            <th class="text-center bg-warning text-white">Update</th>
+            <th class="text-center bg-danger text-white">Delete</th>
 
         </tr>
-
+        <?php if (empty($ipstatic)) : ?>
+            <tr>
+                <td colspan="17">
+                    <div class="alert alert-danger" role="alert">
+                        Data not found!
+                    </div>
+                </td>
+            </tr>
+        <?php endif ?>
         <?php foreach ($ipstatic as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
@@ -68,7 +76,7 @@
                 <td class="text-center"><?php echo $t['password']; ?></td>
                 <td>
                     <center>
-                        <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/ipstatic/updateData/' . $t['id']) ?>">
+                        <a class="btn btn-sm btn-warning" href="<?php echo base_url('admin/ipstatic/updateData/' . $t['id']) ?>">
                             <i class="fas fa-edit"></i></a>
                     </center>
                 </td>
