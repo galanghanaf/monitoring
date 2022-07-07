@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2022 at 04:14 PM
+-- Generation Time: Jul 07, 2022 at 12:12 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -41,7 +41,7 @@ CREATE TABLE `data_admin` (
 
 INSERT INTO `data_admin` (`id`, `nama_admin`, `hak_akses`, `username`, `password`) VALUES
 (14, 'Admin', 1, 'admin', 'admin'),
-(17, 'Galang', 1, 'galang', 'galanghanafi');
+(17, 'Galang', 1, 'galang', 'galang');
 
 -- --------------------------------------------------------
 
@@ -155,38 +155,38 @@ CREATE TABLE `itot_asset` (
   `id` int(11) NOT NULL,
   `it` varchar(50) NOT NULL,
   `ot` varchar(50) NOT NULL,
-  `plant_code` varchar(50) NOT NULL,
-  `cbu` varchar(50) NOT NULL,
-  `cost_ctr` varchar(50) NOT NULL,
-  `asset_number` varchar(50) NOT NULL,
-  `asset_description` varchar(50) NOT NULL,
-  `serial_number` varchar(50) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `computer_name` varchar(50) NOT NULL,
+  `plant_code` varchar(100) NOT NULL,
+  `cbu` varchar(100) NOT NULL,
+  `cost_ctr` varchar(100) NOT NULL,
+  `asset_number` varchar(100) NOT NULL,
+  `asset_description` varchar(200) NOT NULL,
+  `serial_number` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `computer_name` varchar(200) NOT NULL,
   `qty` varchar(50) NOT NULL,
-  `acquis_val` varchar(50) NOT NULL,
-  `accum_dep` varchar(50) NOT NULL,
-  `book_val` varchar(50) NOT NULL,
-  `fixed_asset1` varchar(50) NOT NULL,
-  `fixed_asset2` varchar(50) NOT NULL,
-  `fixed_asset3` varchar(50) NOT NULL,
-  `in_use` varchar(50) NOT NULL,
-  `idle` varchar(50) NOT NULL DEFAULT '',
-  `damage` int(11) NOT NULL,
-  `label` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `ruangan` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  `cap_date` int(11) NOT NULL,
-  `note` int(11) NOT NULL,
-  `network_ot` int(11) NOT NULL,
-  `network_it` int(11) NOT NULL,
-  `mac_address` int(11) NOT NULL,
-  `ip_address` int(11) NOT NULL,
-  `nead` int(11) NOT NULL,
-  `sccm` int(11) NOT NULL,
-  `sep` int(11) NOT NULL,
-  `os_version` int(11) NOT NULL
+  `acquis_val` int(10) UNSIGNED NOT NULL,
+  `accum_dep` int(10) NOT NULL,
+  `book_val` int(10) UNSIGNED NOT NULL,
+  `fixed_asset1` int(11) UNSIGNED NOT NULL,
+  `fixed_asset2` int(11) UNSIGNED NOT NULL,
+  `fixed_asset3` int(11) UNSIGNED NOT NULL,
+  `in_use` int(10) UNSIGNED NOT NULL,
+  `idle` int(10) UNSIGNED NOT NULL,
+  `damage` int(11) UNSIGNED NOT NULL,
+  `label` int(11) UNSIGNED NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `ruangan` varchar(100) NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `cap_date` date NOT NULL,
+  `note` varchar(200) NOT NULL,
+  `network_ot` varchar(50) NOT NULL,
+  `network_it` varchar(50) NOT NULL,
+  `mac_address` varchar(100) NOT NULL,
+  `ip_address` varchar(50) NOT NULL,
+  `nead` varchar(50) NOT NULL,
+  `sccm` varchar(50) NOT NULL,
+  `sep` varchar(50) NOT NULL,
+  `os_version` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -214,12 +214,13 @@ CREATE TABLE `logbook` (
 --
 
 INSERT INTO `logbook` (`id`, `name`, `department`, `equipment`, `asset_number`, `serial_number`, `ticket_show`, `description`, `date`, `return`, `signature`) VALUES
-(1, 'Riyanti', 'HR', 'Laptop HP 2324', '60008628', '5CG7256BYJ', '', 'Pinjam s/d pengajuan new laptop', '2022-10-02', '2022-07-22', 'asfd'),
-(2, 'fwaef', 'waef', 'waef', 'weaf', 'awef', 'weaf', 'gewa', '2022-07-05', '0000-00-00', ''),
-(3, 'asd', 'asFQW', 'FWEQQ', 'ewFEFefw', 'wefasf', 'wegw', 'qwqwfq', '2022-07-05', '0000-00-00', ''),
-(4, 'qwadfq', 'qwfq', 'qwdq', 'qfwqd', 'qwe', 'rwqf', 'qwf', '2022-07-21', '0000-00-00', ''),
-(5, 'ewfqd', 'qegqedq', 'qwdwqf', 'qefeqf', 'gewwef', 'wefq', 'qwe', '2022-07-05', '0000-00-00', ''),
-(6, 'qwdqf', 'qwdfq', 'asdqwf', 'qerq', 'qwdqf', 'qw', '', '2022-07-05', '0000-00-00', '');
+(1, 'Asep', 'HR', 'Laptop HP 2324', '60008628', '5CG7256BYJ', '', 'Pinjam s/d pengajuan new laptop', '2022-10-02', '2022-07-22', 'asfd'),
+(2, 'asep', 'waef', 'waef', 'weaf', 'awef', 'weaf', 'gewa', '2022-07-05', '0000-00-00', ''),
+(3, 'asep', 'asFQW', 'FWEQQ', 'ewFEFefw', 'wefasf', 'wegw', 'qwqwfq', '2022-07-05', '0000-00-00', ''),
+(4, 'asep', 'qwfq', 'qwdq', 'qfwqd', 'qwe', 'rwqf', 'qwf', '2022-07-21', '0000-00-00', ''),
+(5, 'asep', 'qegqedq', 'qwdwqf', 'qefeqf', 'gewwef', 'wefq', 'qwe', '2022-07-05', '0000-00-00', ''),
+(6, 'qwdqf', 'qwdfq', 'asdqwf', 'qerq', 'qwdqf', 'qw', '', '2022-07-05', '0000-00-00', ''),
+(7, 'asep', 'waef', 'weafgw', 'waeg', 'weah', 'aweg', 'gwae', '2022-07-06', '2022-07-14', '');
 
 -- --------------------------------------------------------
 
@@ -443,7 +444,7 @@ CREATE TABLE `task_list` (
 
 INSERT INTO `task_list` (`id`, `description`, `requester`, `start_date`, `due_date`, `status`, `notes`) VALUES
 (1, 'Moving Server Roomagewafeawgewafawe', 'Networkawgeeawgawgaweg', '2022-07-05', '2022-07-25', 'In Progress', 'Improvement Serverewagawgwagweahwa3r2g'),
-(3, 'rweq', 'fwef', '2022-07-05', '2022-07-05', 'Completed', 'fsad'),
+(3, 'rweq', 'fwef', '2022-07-05', '2022-07-05', 'In Progress', 'fsad'),
 (4, 'awfe', 'awef', '2022-07-05', '2022-07-05', 'In Progress', 'awfe'),
 (5, 'awef', 'gwaeg', '2022-07-20', '2022-07-13', 'In Progress', 'fawefg'),
 (6, 'fegwa', 'ewafaf', '2022-07-06', '2022-07-20', 'In Progress', 'waefgweag'),
@@ -747,7 +748,7 @@ ALTER TABLE `ipstatic`
 -- AUTO_INCREMENT for table `logbook`
 --
 ALTER TABLE `logbook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `mapping_network`
