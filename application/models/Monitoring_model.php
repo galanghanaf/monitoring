@@ -29,25 +29,25 @@ class Monitoring_model extends CI_Model
     }
     // End Task List
 
-     // Opening Data Admin
-     public function getAllDataAdmin()
-     {
- 
-         return $this->db->get('data_admin')->result_array();
-     }
- 
-     public function getDataAdmin($limit, $start)
-     {
- 
-         return $this->db->get('data_admin', $limit, $start)->result_array();
-     }
- 
-     public function countAllDataAdmin()
-     {
- 
-         return $this->db->get('data_admin')->num_rows();
-     }
-     // End Data Admin
+    // Opening Data Admin
+    public function getAllDataAdmin()
+    {
+
+        return $this->db->get('data_admin')->result_array();
+    }
+
+    public function getDataAdmin($limit, $start)
+    {
+
+        return $this->db->get('data_admin', $limit, $start)->result_array();
+    }
+
+    public function countAllDataAdmin()
+    {
+
+        return $this->db->get('data_admin')->num_rows();
+    }
+    // End Data Admin
 
     // Opening Log Book
     public function getAllLogBook()
@@ -83,14 +83,24 @@ class Monitoring_model extends CI_Model
     }
     // End Task List
 
-    // Opening Log Book
+    // Opening Ip Static
     public function getAllIpStatic()
     {
         return $this->db->get('ipstatic')->result_array();
     }
 
-    public function getIpStatic($limit, $start)
+    public function getIpStatic($limit, $start, $keyword = null)
     {
+        if ($keyword) {
+            $this->db->like('ip_address', $keyword);
+            $this->db->or_like('port', $keyword);
+            $this->db->or_like('mac_address', $keyword);
+            $this->db->or_like('host_name', $keyword);
+            $this->db->or_like('equipment', $keyword);
+            $this->db->or_like('manufacture', $keyword);
+            $this->db->or_like('model', $keyword);
+            $this->db->or_like('serial_number', $keyword);
+        }
         return $this->db->get('ipstatic', $limit, $start)->result_array();
     }
 
@@ -98,7 +108,7 @@ class Monitoring_model extends CI_Model
     {
         return $this->db->get('ipstatic')->num_rows();
     }
-    // End Task List
+    // End Ip Static
 
     // Opening ITOT ASSET
     public function getAllItOtAsset()

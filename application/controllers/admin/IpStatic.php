@@ -18,11 +18,21 @@ class IpStatic extends CI_Controller
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
+        //Save Searching
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->set_userdata('keyword');
+        }
+
         //Pagination
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/ipstatic/index');
         $config['total_rows'] = $this->monitoring->countAllIpStatic();
         $config['per_page'] = 5;
+        //$data['total_rows'] = $config['total_rows']; //total data rows
+
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -58,7 +68,7 @@ class IpStatic extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['ipstatic'] = $this->monitoring->getIpStatic($config['per_page'], $data['start']);
+        $data['ipstatic'] = $this->monitoring->getIpStatic($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/ipstatic', $data);

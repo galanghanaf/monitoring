@@ -1,6 +1,6 @@
 <?php
 
-class ItOtAsset extends CI_Controller
+class OtAsset extends CI_Controller
 {
     public function __construct()
     {
@@ -13,15 +13,15 @@ class ItOtAsset extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "ITOT Asset";
+        $data['title'] = "OT Asset";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/itotasset/index');
-        $config['total_rows'] = $this->monitoring->countAllItOtAsset();
+        $config['base_url'] = site_url('admin/otasset/index');
+        $config['total_rows'] = $this->monitoring->countAllOtAsset();
         $config['per_page'] = 5;
 
         //styling
@@ -58,18 +58,18 @@ class ItOtAsset extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['itotasset'] = $this->monitoring->getItOtAsset($config['per_page'], $data['start']);
+        $data['otasset'] = $this->monitoring->getOtAsset($config['per_page'], $data['start']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/itotasset', $data);
+        $this->load->view('admin/otasset', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahData()
     {
-        $data['title'] = "Tambah Data ITOT Asset";
+        $data['title'] = "Tambah Data OT Asset";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formTambahItOtAsset', $data);
+        $this->load->view('admin/formTambahOtAsset', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahDataAksi()
@@ -160,21 +160,21 @@ class ItOtAsset extends CI_Controller
 
             );
 
-            $this->Monitoring_model->insert_data($data, 'itot_asset');
+            $this->Monitoring_model->insert_data($data, 'ot_asset');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('admin/itotasset');
+            redirect('admin/otasset');
         }
     }
 
     public function updateData($id)
     {
-        $data['itotasset'] = $this->db->query("SELECT * FROM itot_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
-        $data['title'] = "Update Data ITOT Asset";
+        $data['otasset'] = $this->db->query("SELECT * FROM ot_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['title'] = "Update Data OT Asset";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateItOtAsset', $data);
+        $this->load->view('admin/formUpdateOtAsset', $data);
         $this->load->view('templatesAdmin/footer');
     }
 
@@ -183,7 +183,7 @@ class ItOtAsset extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            redirect('admin/itotasset');
+            redirect('admin/otasset');
         } else {
             $id                 = $this->input->post('id');
             $it                 = $this->input->post('it');
@@ -263,10 +263,10 @@ class ItOtAsset extends CI_Controller
                 'id' => $id
             );
 
-            $this->Monitoring_model->update_data('itot_asset', $data, $where);
+            $this->Monitoring_model->update_data('ot_asset', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong></div>');
-            redirect('admin/itotasset');
+            redirect('admin/otasset');
         }
     }
 
@@ -282,9 +282,9 @@ class ItOtAsset extends CI_Controller
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'itot_asset');
+        $this->Monitoring_model->delete_data($where, 'ot_asset');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/itotasset');
+        redirect('admin/otasset');
     }
 }

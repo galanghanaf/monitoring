@@ -5,10 +5,28 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
+
+
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/ipstatic/tambahData') ?>">
         <i class="fas fa-plus"> Tambah Data Ip Static</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table  style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+
+    <div class="row">
+        <div class="col-md">
+            <form action="<?= base_url('admin/ipstatic') ?>" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Data Ip Static..." name="keyword" autocomplete="off" autofocus>
+                    <div class="input-group-append">
+                        <input class="btn btn-primary" type="submit" name="submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- <h6> Total Data : <?php // $total_rows
+                            ?></h6> -->
+    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
             <th class="text-center">No</th>
@@ -34,7 +52,7 @@
         <?php foreach ($ipstatic as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
-                
+
                 <td class="text-center"><?php echo $t['vlan']; ?></td>
                 <td class="text-center"><?php echo $t['up_link']; ?></td>
                 <td class="text-center"><?php echo $t['port']; ?></td>
