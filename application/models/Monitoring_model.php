@@ -55,8 +55,15 @@ class Monitoring_model extends CI_Model
         return $this->db->get('logbook')->result_array();
     }
 
-    public function getLogBook($limit, $start)
+    public function getLogBook($limit, $start, $keyword = null)
     {
+        if ($keyword) {
+            $this->db->like('name', $keyword);
+            $this->db->or_like('department', $keyword);
+            $this->db->or_like('equipment', $keyword);
+            $this->db->or_like('serial_number', $keyword);
+            $this->db->or_like('description', $keyword);
+        }
         return $this->db->get('logbook', $limit, $start)->result_array();
     }
 
@@ -100,6 +107,9 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('manufacture', $keyword);
             $this->db->or_like('model', $keyword);
             $this->db->or_like('serial_number', $keyword);
+            $this->db->or_like('asset_number', $keyword);
+            $this->db->or_like('area', $keyword);
+            $this->db->or_like('user', $keyword);
         }
         return $this->db->get('ipstatic', $limit, $start)->result_array();
     }

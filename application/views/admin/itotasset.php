@@ -8,7 +8,20 @@
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/itotasset/tambahData') ?>">
         <i class="fas fa-plus"> Tambah Data ITOT Asset</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table  style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+    <div class="row">
+        <div class="col-md">
+            <form action="<?= base_url('admin/ipstatic') ?>" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search IT/OT Asset..." name="keyword" autocomplete="off" autofocus>
+                    <div class="input-group-append">
+                        <input class="btn btn-primary" type="submit" name="submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
             <th class="text-center">No</th>
@@ -56,40 +69,40 @@
                 <td class="text-center"><?php echo ++$start; ?></td>
                 <td class="text-center">
                     <?php
-                   
+
                     // Initialisierung der Ziele / Wenn Port leer -> ICMP (Ping), sonst Portcheck
-                    
+
                     $ServerList = array(
-                    "Server1" => $t['ip_address'],
-                    "Port1" => $t['port']);
-                    
-                      
-                    for ($i = 1; $i <= (count($ServerList)/2); $i++) {
-                        
-                            $Server = $ServerList["Server".$i];
-                            $Port = $ServerList["Port".$i];
-                            
-                           
-                            
-                            // ICMP (Ping) oder Portcheck
-                            if ($Port <> "")
-                            {
-                                    if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30))
-                                            { echo "Offline!"; }
-                                    else { echo "Online!";
-                                            fclose($socket); }
+                        "Server1" => $t['ip_address'],
+                        "Port1" => $t['port']
+                    );
+
+
+                    for ($i = 1; $i <= (count($ServerList) / 2); $i++) {
+
+                        $Server = $ServerList["Server" . $i];
+                        $Port = $ServerList["Port" . $i];
+
+
+
+                        // ICMP (Ping) oder Portcheck
+                        if ($Port <> "") {
+                            if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30)) {
+                                echo "Offline!";
+                            } else {
+                                echo "Online!";
+                                fclose($socket);
                             }
-                            else
-                            {
-                                    $str = exec("ping -n 1 -w 1 ".$Server, $input, $result);
-                                    if ($result == 0){
-                                            echo "Online!";
-                                    }else{
-                                            echo "Offline!";
-                                    }
+                        } else {
+                            $str = exec("ping -n 1 -w 1 " . $Server, $input, $result);
+                            if ($result == 0) {
+                                echo "Online!";
+                            } else {
+                                echo "Offline!";
                             }
+                        }
                     }
-                    
+
                     ?>
 
                 </td>

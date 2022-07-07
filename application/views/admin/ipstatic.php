@@ -24,8 +24,7 @@
             </form>
         </div>
     </div>
-    <!-- <h6> Total Data : <?php // $total_rows
-                            ?></h6> -->
+    <h6> Total Data : <?= $total_rows ?></h6>
     <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>

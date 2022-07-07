@@ -18,10 +18,22 @@ class LogBook extends CI_Controller
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
+        //Save Searching
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->userdata('keyword');
+        }
+
         //Pagination
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/logbook/index');
-        $config['total_rows'] = $this->monitoring->countAllLogBook();
+        $this->db->like('name', $data['keyword']);
+        $this->db->or_like('department', $data['keyword']);
+        $this->db->from('logbook');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 5;
 
         //styling
@@ -58,7 +70,7 @@ class LogBook extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['logbook'] = $this->monitoring->getLogBook($config['per_page'], $data['start']);
+        $data['logbook'] = $this->monitoring->getLogBook($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/logbook', $data);
@@ -174,7 +186,6 @@ class LogBook extends CI_Controller
         $this->form_validation->set_rules('asset_number', 'Asset Number', 'required');
         $this->form_validation->set_rules('serial_number', 'Serial Number', 'required');
         $this->form_validation->set_rules('date', 'Date', 'required');
-
     }
 
     public function deleteData($id)
