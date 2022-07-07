@@ -18,10 +18,25 @@ class TaskList extends CI_Controller
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
+        //Save Searching
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->userdata('keyword');
+        }
+
         //Pagination
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/tasklist/index');
-        $config['total_rows'] = $this->monitoring->countAllTaskList();
+        $this->db->like('description', $data['keyword']);
+        $this->db->or_like('requester', $data['keyword']);
+        $this->db->or_like('status', $data['keyword']);
+        $this->db->or_like('notes', $data['keyword']);
+
+        $this->db->from('task_list');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 5;
 
         //styling
@@ -58,7 +73,7 @@ class TaskList extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['task_list'] = $this->monitoring->getTaskList($config['per_page'], $data['start']);
+        $data['task_list'] = $this->monitoring->getTaskList($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/tasklist', $data);
@@ -76,7 +91,7 @@ class TaskList extends CI_Controller
     {
         $this->_rules();
 
-        if ($this->form_validation->run() == FALSE) { 
+        if ($this->form_validation->run() == FALSE) {
             $this->tambahData();
         } else {
             $id             = $this->input->post('id');
@@ -118,7 +133,7 @@ class TaskList extends CI_Controller
     {
         $this->_rules();
 
-        if ($this->form_validation->run() == FALSE) { 
+        if ($this->form_validation->run() == FALSE) {
             redirect('admin/tasklist');
         } else {
             $id             = $this->input->post('id');

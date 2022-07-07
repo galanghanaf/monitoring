@@ -6,71 +6,93 @@
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/ipstatic/tambahData') ?>">
-        <i class="fas fa-plus"> Tambah Data Ip Static</i></a>
+        <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table  style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+    <div class="row">
+        <div class="col-md">
+            <form action="<?= base_url('admin/ipstaticwithstatus') ?>" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Data Ip Static..." name="keyword" autocomplete="off" autofocus>
+                    <div class="input-group-append">
+                        <input class="btn btn-primary" type="submit" name="submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <h6> Result : <?= $total_rows ?></h6>
+    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
-            <th class="text-center">No</th>
-            <th class="text-center">Status</th>
-            <th class="text-center">Vlan</th>
-            <th class="text-center">Up Link</th>
-            <th class="text-center">Port</th>
-            <th class="text-center">Ip Address</th>
-            <th class="text-center">Mac Address</th>
-            <th class="text-center">Hostname</th>
-            <th class="text-center">Equipment</th>
-            <th class="text-center">Manufacture</th>
-            <th class="text-center">Model</th>
-            <th class="text-center">Serial Number</th>
-            <th class="text-center">Asset Number</th>
-            <th class="text-center">Area</th>
-            <th class="text-center">User</th>
-            <th class="text-center">Password</th>
-            <th class="text-center">Update</th>
-            <th class="text-center">Delete</th>
+            <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white">Status</th>
+            <th class="text-center bg-primary text-white">Vlan</th>
+            <th class="text-center bg-primary text-white">Up Link</th>
+            <th class="text-center bg-primary text-white">Port</th>
+            <th class="text-center bg-primary text-white">Ip Address</th>
+            <th class="text-center bg-primary text-white">Mac Address</th>
+            <th class="text-center bg-primary text-white">Hostname</th>
+            <th class="text-center bg-primary text-white">Equipment</th>
+            <th class="text-center bg-primary text-white">Manufacture</th>
+            <th class="text-center bg-primary text-white">Model</th>
+            <th class="text-center bg-primary text-white">Serial Number</th>
+            <th class="text-center bg-primary text-white">Asset Number</th>
+            <th class="text-center bg-primary text-white">Area</th>
+            <th class="text-center bg-primary text-white">User</th>
+            <th class="text-center bg-primary text-white">Password</th>
+            <th class="text-center bg-warning text-white">Update</th>
+            <th class="text-center bg-danger text-white">Delete</th>
 
         </tr>
-
+        <?php if (empty($ipstatic)) : ?>
+            <tr>
+                <td colspan="17">
+                    <div class="alert alert-danger" role="alert">
+                        Data not found!
+                    </div>
+                </td>
+            </tr>
+        <?php endif ?>
         <?php foreach ($ipstatic as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
                 <td class="text-center">
                     <?php
-                   
+
                     // Initialisierung der Ziele / Wenn Port leer -> ICMP (Ping), sonst Portcheck
-                    
+
                     $ServerList = array(
-                    "Server1" => $t['ip_address'],
-                    "Port1" => $t['port']);
-                    
-                      
-                    for ($i = 1; $i <= (count($ServerList)/2); $i++) {
-                        
-                            $Server = $ServerList["Server".$i];
-                            $Port = $ServerList["Port".$i];
-                            
-                           
-                            
-                            // ICMP (Ping) oder Portcheck
-                            if ($Port <> "")
-                            {
-                                    if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30))
-                                            { echo "Offline!"; }
-                                    else { echo "Online!";
-                                            fclose($socket); }
+                        "Server1" => $t['ip_address'],
+                        "Port1" => $t['port']
+                    );
+
+
+                    for ($i = 1; $i <= (count($ServerList) / 2); $i++) {
+
+                        $Server = $ServerList["Server" . $i];
+                        $Port = $ServerList["Port" . $i];
+
+
+
+                        // ICMP (Ping) oder Portcheck
+                        if ($Port <> "") {
+                            if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30)) {
+                                echo "Offline!";
+                            } else {
+                                echo "Online!";
+                                fclose($socket);
                             }
-                            else
-                            {
-                                    $str = exec("ping -n 1 -w 1 ".$Server, $input, $result);
-                                    if ($result == 0){
-                                            echo "Online!";
-                                    }else{
-                                            echo "Offline!";
-                                    }
+                        } else {
+                            $str = exec("ping -n 1 -w 1 " . $Server, $input, $result);
+                            if ($result == 0) {
+                                echo "Online!";
+                            } else {
+                                echo "Offline!";
                             }
+                        }
                     }
-                    
+
                     ?>
 
                 </td>
@@ -90,7 +112,7 @@
                 <td class="text-center"><?php echo $t['password']; ?></td>
                 <td>
                     <center>
-                        <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/ipstatic/updateData/' . $t['id']) ?>">
+                        <a class="btn btn-sm btn-warning" href="<?php echo base_url('admin/ipstatic/updateData/' . $t['id']) ?>">
                             <i class="fas fa-edit"></i></a>
                     </center>
                 </td>

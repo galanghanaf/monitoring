@@ -16,8 +16,14 @@ class Monitoring_model extends CI_Model
         return $this->db->get('task_list')->result_array();
     }
 
-    public function getTaskList($limit, $start)
+    public function getTaskList($limit, $start, $keyword = null)
     {
+        if ($keyword) {
+            $this->db->like('description', $keyword);
+            $this->db->or_like('requester', $keyword);
+            $this->db->or_like('status', $keyword);
+            $this->db->or_like('notes', $keyword);
+        }
 
         return $this->db->get('task_list', $limit, $start)->result_array();
     }

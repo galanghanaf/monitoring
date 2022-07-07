@@ -18,11 +18,34 @@ class IpStaticWithStatus extends CI_Controller
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
+
+
+        //Save Searching
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->userdata('keyword');
+        }
+
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/ipstatic/index');
-        $config['total_rows'] = $this->monitoring->countAllIpStatic();
+        $config['base_url'] = site_url('admin/ipstaticwithstatus/index');
+        $this->db->like('ip_address', $data['keyword']);
+        $this->db->or_like('mac_address', $data['keyword']);
+        $this->db->or_like('host_name',  $data['keyword']);
+        $this->db->or_like('equipment',  $data['keyword']);
+        $this->db->or_like('manufacture',  $data['keyword']);
+        $this->db->or_like('model',  $data['keyword']);
+        $this->db->or_like('serial_number',  $data['keyword']);
+        $this->db->or_like('asset_number',  $data['keyword']);
+        $this->db->or_like('area',  $data['keyword']);
+        $this->db->or_like('user',  $data['keyword']);
+        $this->db->from('ipstatic');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 5;
+
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -58,9 +81,7 @@ class IpStaticWithStatus extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['ipstatic'] = $this->monitoring->getIpStatic($config['per_page'], $data['start']);
-
-
+        $data['ipstatic'] = $this->monitoring->getIpStatic($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/ipstaticwithstatus', $data);
@@ -119,7 +140,7 @@ class IpStaticWithStatus extends CI_Controller
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('admin/ipstatic');
+            redirect('admin/ipstaticwithstatus');
         }
     }
 
@@ -182,7 +203,7 @@ class IpStaticWithStatus extends CI_Controller
             $this->Monitoring_model->update_data('ipstatic', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong></div>');
-            redirect('admin/ipstatic');
+            redirect('admin/ipstaticwithstatus');
         }
     }
 
@@ -198,6 +219,6 @@ class IpStaticWithStatus extends CI_Controller
         $this->Monitoring_model->delete_data($where, 'ipstatic');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/ipstatic');
+        redirect('admin/ipstaticwithstatus');
     }
 }

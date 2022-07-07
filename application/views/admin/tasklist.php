@@ -6,24 +6,46 @@
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/tasklist/tambahData') ?>">
-        <i class="fas fa-plus"> Tambah Task</i></a>
+        <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table  style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto" >
+    <div class="row">
+        <div class="col-md">
+            <form action="<?= base_url('admin/tasklist') ?>" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Log Book IT Equipment..." name="keyword" autocomplete="off" autofocus>
+                    <div class="input-group-append">
+                        <input class="btn btn-primary" type="submit" name="submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <h6>Result : <?= $total_rows ?></h6>
+    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-hover" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
-            <th class="text-center">No</th>
-            <th class="text-center">Description</th>
-            <th class="text-center">Requester</th>
-            <th class="text-center">Start Date</th>
-            <th class="text-center">Due Date</th>
-            <th class="text-center">Days Remaining</th>
-            <th class="text-center">Status</th>
-            <th class="text-center">Notes</th>
-            <th class="text-center">Update</th>
-            <th class="text-center">Delete</th>
+            <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white">Description</th>
+            <th class="text-center bg-primary text-white">Requester</th>
+            <th class="text-center bg-primary text-white">Start Date</th>
+            <th class="text-center bg-primary text-white">Due Date</th>
+            <th class="text-center bg-primary text-white">Days Remaining</th>
+            <th class="text-center bg-primary text-white">Status</th>
+            <th class="text-center bg-primary text-white">Notes</th>
+            <th class="text-center bg-warning text-white">Update</th>
+            <th class="text-center bg-danger text-white">Delete</th>
 
         </tr>
-
+        <?php if (empty($task_list)) : ?>
+            <tr>
+                <td colspan="13">
+                    <div class="alert alert-danger" role="alert">
+                        Data not found!
+                    </div>
+                </td>
+            </tr>
+        <?php endif ?>
         <?php foreach ($task_list as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
@@ -39,19 +61,18 @@
                     $days = intval($diff); //rounding days
                     if ($t['start_date'] > $t['due_date']) {
                         echo "0";
-                    } else{
+                    } else {
                         echo $days;
-                    }      
+                    }
                     ?>
                 </td>
                 <td class="text-center">
                     <?php
                     if ($t['start_date'] > $t['due_date']) {
                         echo "Complete";
-                    } elseif ($t['start_date'] < $t['due_date'] ){
+                    } elseif ($t['start_date'] < $t['due_date']) {
                         echo "In Progress";
-                    } 
-                    else {
+                    } else {
                         echo "Complete";
                     }
 
@@ -62,14 +83,14 @@
 
                 <td>
                     <center>
-                        <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/tasklist/updateData/' . $t['id']) ?>">
+                        <a class="btn btn-sm btn-warning" href="<?php echo base_url('admin/tasklist/updateData/' . $t['id']) ?>">
                             <i class="fas fa-edit"></i></a>
-                       
+
                     </center>
                 </td>
                 <td>
                     <center>
-                      
+
                         <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/tasklist/deleteData/' . $t['id']) ?>">
                             <i class="fas fa-trash"></i></a>
                     </center>
