@@ -100,6 +100,25 @@ class Monitoring_model extends CI_Model
     }
     // End Task List
 
+    // Opening ITOT ASSET
+    public function getAllItOtAsset()
+    {
+
+        return $this->db->get('itot_asset')->result_array();
+    }
+
+    public function getItOtAsset($limit, $start)
+    {
+
+        return $this->db->get('itot_asset', $limit, $start)->result_array();
+    }
+
+    public function countAllItOtAsset()
+    {
+
+        return $this->db->get('itot_asset')->num_rows();
+    }
+    // End Task List
 
     public function getAllHeader()
     {

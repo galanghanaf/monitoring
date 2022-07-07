@@ -44,6 +44,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Monitoring</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/ipstaticwithstatus') ?>">Ip Static with Status</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Mapping Network</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/datamappingnetwork') ?>">Data Mapping Network</a>
                     </div>
@@ -54,15 +55,14 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-copy"></i>
-                    <span>Laporan</span>
+                    <span>Asset</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Laporan</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/laporanJabatan') ?>">Cetak Data Jabatan</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/laporanPegawai') ?>">Cetak Data Pegawai</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataPenggajian') ?>">Cetak Data Gaji</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/slipGaji') ?>">Cetak Slip Gaji Pegawai</a>
+                        <h6 class="collapse-header">Asset</h6>
+                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">ITOT Asset</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/otasset') ?>">OT Asset</a>
+                        
 
                     </div>
                 </div>
@@ -71,11 +71,11 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-user-cog"></i>
-                    <span>Edit HomePages</span>
+                    <span>Settings</span>
                 </a>
                 <div id="collapseHome" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Edit HomePages</h6>
+                        <h6 class="collapse-header">Settings</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataadmin') ?>">Data Admin</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataHeaderBackground') ?>">Edit Header Background</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>
