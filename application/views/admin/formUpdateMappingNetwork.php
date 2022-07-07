@@ -12,7 +12,7 @@
                             <?php foreach ($mappingnetwork as $t) : ?>
                                 <!--foreach/perulangan berguna untuk mengambil data dari query table-->
                                 <!-- Disini kita baca datanya dengan method POST sesuai pada controllers/admin/dataJabatan-->
-                                <?php echo form_open_multipart('admin/logbook/updateDataAksi') ?>
+                                <?php echo form_open_multipart('admin/mappingnetwork/updateDataAksi') ?>
 
                                 <div class="form-group">
                                     <label>Description</label>
@@ -65,7 +65,7 @@
                                     <input type="text" name="location" class="form-control" value="<?php echo $t->location ?>">
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
-                               
+
 
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <?php echo form_close(); ?>

@@ -22,7 +22,7 @@ class DataMappingNetwork extends CI_Controller
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/dataip/index');
         $config['total_rows'] = $this->monitoring->countAllMappingNetwork();
-        $config['per_page'] = 5;
+        $config['per_page'] = 10;
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -65,5 +65,4 @@ class DataMappingNetwork extends CI_Controller
         $this->load->view('admin/datamappingnetwork', $data);
         $this->load->view('templatesAdmin/footer');
     }
-   
 }

@@ -44,7 +44,7 @@ class IpStaticWithStatus extends CI_Controller
         $this->db->from('ipstatic');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
-        $config['per_page'] = 5;
+        $config['per_page'] = 10;
 
 
         //styling

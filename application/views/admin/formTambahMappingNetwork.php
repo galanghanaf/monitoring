@@ -9,7 +9,7 @@
                     <!-- /.container-fluid -->
                     <div class="card">
                         <div class="card-body">
-                            <?php echo form_open_multipart('admin/ipstatic/tambahDataAksi') ?>
+                            <?php echo form_open_multipart('admin/mappingnetwork/tambahDataAksi') ?>
                             <form method="post" action="<?php echo base_url('admin/ipstatic/tambahDataAksi') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Status</label>

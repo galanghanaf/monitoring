@@ -18,11 +18,31 @@ class MappingNetwork extends CI_Controller
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
+        //Save Searching
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->userdata('keyword');
+        }
+
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/dataip/index');
-        $config['total_rows'] = $this->monitoring->countAllMappingNetwork();
-        $config['per_page'] = 5;
+        $config['base_url'] = site_url('admin/mappingnetwork/index');
+        $this->db->like('hostname', $data['keyword']);
+        $this->db->or_like('description', $data['keyword']);
+        $this->db->or_like('model', $data['keyword']);
+        $this->db->or_like('serial_number', $data['keyword']);
+        $this->db->or_like('ip_address', $data['keyword']);
+        $this->db->or_like('mac_address', $data['keyword']);
+        $this->db->or_like('switch', $data['keyword']);
+        $this->db->or_like('port', $data['keyword']);
+        $this->db->or_like('rack', $data['keyword']);
+        $this->db->or_like('location', $data['keyword']);
+        $this->db->from('mapping_network');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
+        $config['per_page'] = 10;
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -58,13 +78,11 @@ class MappingNetwork extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['mappingnetwork'] = $this->monitoring->getMappingNetwork($config['per_page'], $data['start']);
+        $data['mappingnetwork'] = $this->monitoring->getMappingNetwork($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/mappingnetwork', $data);
         $this->load->view('templatesAdmin/footer');
-
-        
     }
     public function tambahData()
     {
@@ -142,7 +160,7 @@ class MappingNetwork extends CI_Controller
             $port            = $this->input->post('port');
             $rack            = $this->input->post('rack');
             $location        = $this->input->post('location');
-       
+
 
             $data = array(
                 'description'    => $description,
@@ -155,7 +173,7 @@ class MappingNetwork extends CI_Controller
                 'port'           => $port,
                 'rack'           => $rack,
                 'location'       => $location,
-               
+
             );
             $where = array(
                 'id' => $id
