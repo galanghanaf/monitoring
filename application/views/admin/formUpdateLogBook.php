@@ -27,8 +27,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Equipment</label>
-                                    <input type="text" name="equipment" class="form-control" value="<?php echo $t->equipment ?>">
-                                    <?php echo form_error('equipment', '<div class="text small text-danger"></div>') ?>
+                                    <select name="equipment" class="form-control">
+                                        <option value="<?php echo $t->equipment ?>"><?php echo $t->equipment ?></option>
+                                        <?php foreach ($equipment as $e) : ?>
+                                            <option value="<?php echo $e->equipment ?>">
+                                                <?php echo $e->equipment ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Asset Number</label>
@@ -65,7 +72,7 @@
                                     <input type="text" name="signature" class="form-control" value="<?php echo $t->signature ?>">
                                     <?php echo form_error('signature', '<div class="text small text-danger"></div>') ?>
                                 </div>
-                               
+
 
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <?php echo form_close(); ?>

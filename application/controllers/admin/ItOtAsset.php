@@ -117,10 +117,6 @@ class ItOtAsset extends CI_Controller
             $os_version         = $this->input->post('os_version');
 
 
-
-
-
-
             $data = array(
                 'it'                => $it,
                 'ot'                => $ot,
