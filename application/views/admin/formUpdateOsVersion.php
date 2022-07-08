@@ -9,17 +9,23 @@
                     <!-- /.container-fluid -->
                     <div class="card">
                         <div class="card-body">
-                            <?php echo form_open_multipart('admin/equipment/tambahDataAksi') ?>
-                            <form method="post" action="<?php echo base_url('admin/equipment/tambahDataAksi') ?>" enctype="multipart/form-data">
+                            <?php foreach ($osversion as $e) : ?>
+                                <!--foreach/perulangan berguna untuk mengambil data dari query table-->
+                                <!-- Disini kita baca datanya dengan method POST sesuai pada controllers/admin/dataJabatan-->
+                                <?php echo form_open_multipart('admin/osversion/updateDataAksi') ?>
+
                                 <div class="form-group">
-                                    <label>Equipment</label>
-                                    <input type="text" name="equipment" class="form-control">
-                                    <?php echo form_error('equipment', '<div class="text small text-danger"></div>') ?>
+                                    <label>OS Version</label>
+                                    <input type="hidden" name="id" class="form-control" value="<?php echo $e->id ?>">
+                                    <input type="text" name="osversion" class="form-control" value="<?php echo $e->osversion ?>">
+                                    <?php echo form_error('osversion', '<div class="text small text-danger"></div>') ?>
                                 </div>
+
+
 
                                 <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
-
+                            <?php endforeach; ?>
                         </div>
 
                     </div>

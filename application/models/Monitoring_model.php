@@ -150,6 +150,44 @@ class Monitoring_model extends CI_Model
     }
     // End ModelAsset
 
+    // Opening OS Version
+    public function getAllOsVersion()
+    {
+        return $this->db->get('osversion')->result_array();
+    }
+
+    public function getOsVersion($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('osversion', $keyword);
+        }
+        return $this->db->get('osversion', $limit, $start)->result_array();
+    }
+    public function countAllOsVersion()
+    {
+        return $this->db->get('osversion')->num_rows();
+    }
+    // End Os Version
+
+    // Opening AssetDescription
+    public function getAllAssetDescription()
+    {
+        return $this->db->get('assetdescription')->result_array();
+    }
+
+    public function getAssetDescription($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('assetdescription', $keyword);
+        }
+        return $this->db->get('assetdescription', $limit, $start)->result_array();
+    }
+    public function countAllAssetDescription()
+    {
+        return $this->db->get('assetdescription')->num_rows();
+    }
+    // End AssetDescription
+
     // Opening Log Book
     public function getAllLogBook()
     {

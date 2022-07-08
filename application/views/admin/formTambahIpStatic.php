@@ -113,7 +113,7 @@
                                 </div>
 
 
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
 
                         </div>

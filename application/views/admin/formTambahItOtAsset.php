@@ -193,12 +193,19 @@
                                     <?php echo form_error('sep', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Os Version</label>
-                                    <input type="text" name="os_version" class="form-control">
-                                    <?php echo form_error('os_version', '<div class="text small text-danger"></div>') ?>
+                                    <label>OS Version</label>
+                                    <select name="osversion" class="form-control">
+                                        <option value="">Pilih OS Version</option>
+                                        <?php foreach ($osversion as $os) : ?>
+                                            <option value="<?php echo $os->osversion ?>">
+                                                <?php echo $os->osversion ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('osversion', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
 
                         </div>

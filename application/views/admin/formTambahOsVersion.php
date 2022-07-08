@@ -9,12 +9,12 @@
                     <!-- /.container-fluid -->
                     <div class="card">
                         <div class="card-body">
-                            <?php echo form_open_multipart('admin/equipment/tambahDataAksi') ?>
-                            <form method="post" action="<?php echo base_url('admin/equipment/tambahDataAksi') ?>" enctype="multipart/form-data">
+                            <?php echo form_open_multipart('admin/osversion/tambahDataAksi') ?>
+                            <form method="post" action="<?php echo base_url('admin/osversion/tambahDataAksi') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label>Equipment</label>
-                                    <input type="text" name="equipment" class="form-control">
-                                    <?php echo form_error('equipment', '<div class="text small text-danger"></div>') ?>
+                                    <label>OS Version</label>
+                                    <input type="text" name="osversion" class="form-control">
+                                    <?php echo form_error('osversion', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Save</button>

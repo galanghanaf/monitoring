@@ -195,9 +195,16 @@
                                     <?php echo form_error('sep', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Os Version</label>
-                                    <input type="text" name="os_version" class="form-control" value="<?php echo $i->os_version ?>">
-                                    <?php echo form_error('os_version', '<div class="text small text-danger"></div>') ?>
+                                    <label>OS Version</label>
+                                    <select name="osversion" class="form-control">
+                                        <option value="<?php echo $i->osversion ?>"><?php echo $i->osversion ?></option>
+                                        <?php foreach ($osversion as $os) : ?>
+                                            <option value="<?php echo $os->osversion ?>">
+                                                <?php echo $os->osversion ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('osversion', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
 
@@ -212,6 +219,7 @@
                     </div>
                 </div>
                 </div>
+
 
                 <br>
                 <br>

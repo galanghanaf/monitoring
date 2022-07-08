@@ -23,7 +23,7 @@
 
 
 
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
                             <?php endforeach; ?>
                         </div>
@@ -31,6 +31,7 @@
                     </div>
                 </div>
                 </div>
+
 
                 <br>
                 <br>

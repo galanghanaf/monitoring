@@ -42,7 +42,7 @@
                                     </script>
                                     <?php echo form_error('password', '<div class="text small text-danger"></div>') ?>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
                             <?php endforeach; ?>
                         </div>

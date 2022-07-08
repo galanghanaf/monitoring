@@ -13,7 +13,7 @@ class ItOtAsset extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "ITOT Asset";
+        $data['title'] = "List IT/OT Asset";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
@@ -83,8 +83,10 @@ class ItOtAsset extends CI_Controller
     }
     public function tambahData()
     {
-        $data['title'] = "Add Data ITOT Asset";
+        $data['title'] = "Add Data IT/OT Asset";
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
+        $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
+
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formTambahItOtAsset', $data);
@@ -131,7 +133,7 @@ class ItOtAsset extends CI_Controller
             $nead               = $this->input->post('nead');
             $sep                = $this->input->post('sep');
             $sccm               = $this->input->post('sccm');
-            $os_version         = $this->input->post('os_version');
+            $osversion         = $this->input->post('osversion');
 
 
             $data = array(
@@ -168,7 +170,7 @@ class ItOtAsset extends CI_Controller
                 'nead'              => $nead,
                 'sep'               => $sep,
                 'sccm'              => $sccm,
-                'os_version'        => $os_version,
+                'osversion'        => $osversion,
 
 
 
@@ -186,7 +188,9 @@ class ItOtAsset extends CI_Controller
     {
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['itotasset'] = $this->db->query("SELECT * FROM itot_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
-        $data['title'] = "Update Data ITOT Asset";
+        $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
+
+        $data['title'] = "Update Data IT/OT Asset";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formUpdateItOtAsset', $data);
@@ -234,7 +238,7 @@ class ItOtAsset extends CI_Controller
             $nead               = $this->input->post('nead');
             $sep                = $this->input->post('sep');
             $sccm               = $this->input->post('sccm');
-            $os_version         = $this->input->post('os_version');
+            $osversion         = $this->input->post('osversion');
 
             $data = array(
                 'it'                => $it,
@@ -270,7 +274,7 @@ class ItOtAsset extends CI_Controller
                 'nead'              => $nead,
                 'sep'               => $sep,
                 'sccm'              => $sccm,
-                'os_version'        => $os_version,
+                'osversion'        => $osversion,
 
 
             );
@@ -287,8 +291,7 @@ class ItOtAsset extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('it', 'IT', 'required');
-        $this->form_validation->set_rules('ot', 'OT', 'required');
+
 
         $this->form_validation->set_rules('plant_code', 'Plant Code', 'required');
         $this->form_validation->set_rules('cbu', 'CBU', 'required');

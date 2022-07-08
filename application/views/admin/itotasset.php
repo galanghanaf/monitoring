@@ -109,7 +109,7 @@
                 <td class="text-center"><?php echo $t['nead']; ?></td>
                 <td class="text-center"><?php echo $t['sccm']; ?></td>
                 <td class="text-center"><?php echo $t['sep']; ?></td>
-                <td class="text-center"><?php echo $t['os_version']; ?></td>
+                <td class="text-center"><?php echo $t['osversion']; ?></td>
 
 
                 <td>
