@@ -93,6 +93,25 @@ class Monitoring_model extends CI_Model
     }
     // End Equipment
 
+    // Opening ModelAsset
+    public function getAllModelAsset()
+    {
+        return $this->db->get('model_asset')->result_array();
+    }
+
+    public function getModelAsset($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('model_asset', $keyword);
+        }
+        return $this->db->get('model_asset', $limit, $start)->result_array();
+    }
+    public function countAllModelAsset()
+    {
+        return $this->db->get('model_asset')->num_rows();
+    }
+    // End ModelAsset
+
     // Opening Log Book
     public function getAllLogBook()
     {

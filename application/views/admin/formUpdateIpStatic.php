@@ -52,12 +52,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Manufacture</label>
-                                    <input type="date" name="manufacture" class="form-control" value="<?php echo $t->manufacture ?>">
+                                    <input type="text" name="manufacture" class="form-control" value="<?php echo $t->manufacture ?>">
                                     <?php echo form_error('manufacture', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Model</label>
-                                    <input type="date" name="model" class="form-control" value="<?php echo $t->model ?>">
+                                    <input type="text" name="model" class="form-control" value="<?php echo $t->model ?>">
                                     <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">

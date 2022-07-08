@@ -29,6 +29,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Data</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/equipment') ?>">Equipment</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/modelasset') ?>">Model</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/location') ?>">Location</a>
                     </div>
                 </div>
@@ -79,11 +80,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataadmin') ?>">Data Admin</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataHeaderBackground') ?>">Edit Header Background</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataPortfolio') ?>">Edit Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulTeam') ?>">Edit Judul Teams</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataTeam') ?>">Edit Teams</a>
+
                     </div>
                 </div>
             </li>

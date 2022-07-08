@@ -30,14 +30,16 @@ class ItOtAsset extends CI_Controller
         //Pagination
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/itotasset/index');
-        $this->db->like('plant_code', $data['plant_code']);
-        $this->db->or_like('cbu', $data['cbu']);
-        $this->db->or_like('asset_number',  $data['asset_number']);
-        $this->db->or_like('asset_description',  $data['asset_description']);
+        $this->db->like('plant_code', $data['keyword']);
+        $this->db->or_like('cbu', $data['keyword']);
+        $this->db->or_like('asset_number', $data['keyword']);
+        $this->db->or_like('asset_description', $data['keyword']);
+
         $this->db->from('itot_asset');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 10;
+
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -285,6 +287,9 @@ class ItOtAsset extends CI_Controller
 
     public function _rules()
     {
+        $this->form_validation->set_rules('it', 'IT', 'required');
+        $this->form_validation->set_rules('ot', 'OT', 'required');
+
         $this->form_validation->set_rules('plant_code', 'Plant Code', 'required');
         $this->form_validation->set_rules('cbu', 'CBU', 'required');
         $this->form_validation->set_rules('asset_number', 'Asset Number', 'required');

@@ -66,7 +66,7 @@
         </tr>
         <?php if (empty($itotasset)) : ?>
             <tr>
-                <td colspan="35">
+                <td colspan="37">
                     <div class="alert alert-danger" role="alert">
                         Data not found!
                     </div>
