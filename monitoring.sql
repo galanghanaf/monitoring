@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2022 at 09:39 AM
+-- Generation Time: Jul 08, 2022 at 11:39 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -40,6 +40,24 @@ INSERT INTO `area_location` (`id`, `location`) VALUES
 (1, 'Area Office Lt2'),
 (2, 'Area Office Lt3'),
 (4, 'awgt');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assetdescription`
+--
+
+CREATE TABLE `assetdescription` (
+  `id` int(11) NOT NULL,
+  `assetdescription` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `assetdescription`
+--
+
+INSERT INTO `assetdescription` (`id`, `assetdescription`) VALUES
+(1, 'Cek');
 
 -- --------------------------------------------------------
 
@@ -196,7 +214,7 @@ CREATE TABLE `ipstatic` (
 --
 
 INSERT INTO `ipstatic` (`id`, `vlan`, `up_link`, `port`, `ip_address`, `mac_address`, `host_name`, `equipment`, `manufacture`, `model`, `serial_number`, `asset_number`, `location`, `user`, `password`) VALUES
-(131, '', '', '', 'wfe2f2', 'wafewf', '', '', '', 'asffqf', '', '', '', '', ''),
+(131, '', '', '', 'wfe2f2', 'wafewf', '', 'Laptop HP 840 G1', 'Cisco', 'TP Link', '', '', '', '', ''),
 (132, '', '', '', 'afeawf', 'waefawf', '', 'Laptop HP 840 G1', '', 'asffqf', '', '', 'Area Office Lt3', '', '');
 
 -- --------------------------------------------------------
@@ -240,15 +258,16 @@ CREATE TABLE `itot_asset` (
   `nead` varchar(50) NOT NULL,
   `sccm` varchar(50) NOT NULL,
   `sep` varchar(50) NOT NULL,
-  `os_version` varchar(100) NOT NULL
+  `osversion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `itot_asset`
 --
 
-INSERT INTO `itot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asset_number`, `asset_description`, `serial_number`, `type`, `computer_name`, `qty`, `acquis_val`, `accum_dep`, `book_val`, `fixed_asset1`, `fixed_asset2`, `fixed_asset3`, `in_use`, `idle`, `damage`, `label`, `status`, `location`, `user`, `cap_date`, `note`, `network_ot`, `network_it`, `mac_address`, `ip_address`, `nead`, `sccm`, `sep`, `os_version`) VALUES
-(0, '', '', 'cek', 'wefawf', '', 'waeg', 'aweg', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', 'wef');
+INSERT INTO `itot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asset_number`, `asset_description`, `serial_number`, `type`, `computer_name`, `qty`, `acquis_val`, `accum_dep`, `book_val`, `fixed_asset1`, `fixed_asset2`, `fixed_asset3`, `in_use`, `idle`, `damage`, `label`, `status`, `location`, `user`, `cap_date`, `note`, `network_ot`, `network_it`, `mac_address`, `ip_address`, `nead`, `sccm`, `sep`, `osversion`) VALUES
+(1, '', '', 'cek', 'wefawf', '', 'waeg', 'aweg', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows'),
+(2, 'Yes', 'No', 'fqwefq', 'qwewqfqw', '', 'qwfqd', 'qwdqf', 'wqf', 'qwf', 'qfw', 'qwf', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', 'asfs', '');
 
 -- --------------------------------------------------------
 
@@ -352,7 +371,27 @@ CREATE TABLE `model_asset` (
 --
 
 INSERT INTO `model_asset` (`id`, `model`) VALUES
-(2, 'asffqf');
+(2, 'Cisco'),
+(3, 'TP Link');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `osversion`
+--
+
+CREATE TABLE `osversion` (
+  `id` int(11) NOT NULL,
+  `osversion` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `osversion`
+--
+
+INSERT INTO `osversion` (`id`, `osversion`) VALUES
+(1, 'Linux'),
+(2, 'Windows');
 
 -- --------------------------------------------------------
 
@@ -677,6 +716,12 @@ ALTER TABLE `area_location`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `assetdescription`
+--
+ALTER TABLE `assetdescription`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `data_admin`
 --
 ALTER TABLE `data_admin`
@@ -720,6 +765,12 @@ ALTER TABLE `ipstatic`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `itot_asset`
+--
+ALTER TABLE `itot_asset`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `logbook`
 --
 ALTER TABLE `logbook`
@@ -743,6 +794,12 @@ ALTER TABLE `mapping_network`
 -- Indexes for table `model_asset`
 --
 ALTER TABLE `model_asset`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `osversion`
+--
+ALTER TABLE `osversion`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -847,6 +904,12 @@ ALTER TABLE `area_location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `assetdescription`
+--
+ALTER TABLE `assetdescription`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `data_admin`
 --
 ALTER TABLE `data_admin`
@@ -889,6 +952,12 @@ ALTER TABLE `ipstatic`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
+-- AUTO_INCREMENT for table `itot_asset`
+--
+ALTER TABLE `itot_asset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `logbook`
 --
 ALTER TABLE `logbook`
@@ -910,7 +979,13 @@ ALTER TABLE `mapping_network`
 -- AUTO_INCREMENT for table `model_asset`
 --
 ALTER TABLE `model_asset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `osversion`
+--
+ALTER TABLE `osversion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `portfolio`
