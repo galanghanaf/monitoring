@@ -18,11 +18,26 @@ class ItOtAsset extends CI_Controller
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
 
+
+        //Save Searching
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->userdata('keyword');
+        }
+
         //Pagination
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/itotasset/index');
-        $config['total_rows'] = $this->monitoring->countAllItOtAsset();
-        $config['per_page'] = 5;
+        $this->db->like('plant_code', $data['plant_code']);
+        $this->db->or_like('cbu', $data['cbu']);
+        $this->db->or_like('asset_number',  $data['asset_number']);
+        $this->db->or_like('asset_description',  $data['asset_description']);
+        $this->db->from('itot_asset');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
+        $config['per_page'] = 10;
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -58,7 +73,7 @@ class ItOtAsset extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['itotasset'] = $this->monitoring->getItOtAsset($config['per_page'], $data['start']);
+        $data['itotasset'] = $this->monitoring->getItOtAsset($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/itotasset', $data);
@@ -66,7 +81,7 @@ class ItOtAsset extends CI_Controller
     }
     public function tambahData()
     {
-        $data['title'] = "Tambah Data ITOT Asset";
+        $data['title'] = "Add Data ITOT Asset";
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');

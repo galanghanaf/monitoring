@@ -35,7 +35,7 @@
                                     <input type="date" name="due_date" class="form-control" value="<?php echo $t->due_date ?>">
                                     <?php echo form_error('due_date', '<div class="text small text-danger"></div>') ?>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control">
@@ -50,7 +50,7 @@
                                     <input type="text" name="notes" class="form-control" value="<?php echo $t->notes ?>">
                                     <?php echo form_error('notes', '<div class="text small text-danger"></div>') ?>
                                 </div>
-                               
+
 
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <?php echo form_close(); ?>
@@ -60,4 +60,8 @@
                     </div>
                 </div>
                 </div>
+
+                <br>
+                <br>
+                <br>
                 <!-- End of Main Content -->

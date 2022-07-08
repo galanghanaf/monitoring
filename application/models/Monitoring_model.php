@@ -183,9 +183,14 @@ class Monitoring_model extends CI_Model
         return $this->db->get('itot_asset')->result_array();
     }
 
-    public function getItOtAsset($limit, $start)
+    public function getItOtAsset($limit, $start, $keyword = null)
     {
-
+        if ($keyword) {
+            $this->db->like('plant_code', $keyword);
+            $this->db->or_like('cbu', $keyword);
+            $this->db->or_like('asset_number', $keyword);
+            $this->db->or_like('asset_description', $keyword);
+        }
         return $this->db->get('itot_asset', $limit, $start)->result_array();
     }
 
@@ -194,7 +199,7 @@ class Monitoring_model extends CI_Model
 
         return $this->db->get('itot_asset')->num_rows();
     }
-    // End Task List
+    // End ITOT ASSET
 
     public function getAllHeader()
     {

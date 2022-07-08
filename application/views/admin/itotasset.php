@@ -12,7 +12,7 @@
         <div class="col-md">
             <form action="<?= base_url('admin/itotasset') ?>" method="POST">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search IT/OT Asset..." name="keyword" autocomplete="off" autofocus>
+                    <input type="text" class="form-control" placeholder="Search Data..." name="keyword" autocomplete="off" autofocus>
                     <div class="input-group-append">
                         <input class="btn btn-primary" type="submit" name="submit">
                     </div>
@@ -21,6 +21,7 @@
             </form>
         </div>
     </div>
+    <h6> Result : <?= $total_rows ?></h6>
     <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
@@ -63,7 +64,15 @@
             <th class="text-center bg-danger text-white">Delete</th>
 
         </tr>
-
+        <?php if (empty($itotasset)) : ?>
+            <tr>
+                <td colspan="35">
+                    <div class="alert alert-danger" role="alert">
+                        Data not found!
+                    </div>
+                </td>
+            </tr>
+        <?php endif ?>
         <?php foreach ($itotasset as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
