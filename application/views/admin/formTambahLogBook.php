@@ -18,8 +18,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Department</label>
-                                    <input type="text" name="department" class="form-control">
-                                    <?php echo form_error('department', '<div class="text small text-danger"></div>') ?>
+                                    <select name="department" class="form-control">
+                                        <option value="">Pilih Department</option>
+                                        <?php foreach ($department as $d) : ?>
+                                            <option value="<?php echo $d->department ?>">
+                                                <?php echo $d->department ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Equipment</label>

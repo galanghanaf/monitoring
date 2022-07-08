@@ -93,6 +93,8 @@ class IpStatic extends CI_Controller
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
+        $data['manufacture'] = $this->Monitoring_model->get_data('manufacture')->result();
+
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formTambahIpStatic', $data);
@@ -152,6 +154,7 @@ class IpStatic extends CI_Controller
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
+        $data['manufacture'] = $this->Monitoring_model->get_data('manufacture')->result();
 
         $data['ipstatic'] = $this->db->query("SELECT * FROM ipstatic WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
         $data['title'] = "Update Data Ip Static";

@@ -59,7 +59,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Manufacture</label>
-                                    <input type="text" name="manufacture" class="form-control" value="<?php echo $t->manufacture ?>">
+                                    <select name="manufacture" class="form-control">
+                                        <option value="<?php echo $t->manufacture ?>"><?php echo $t->manufacture ?></option>
+                                        <?php foreach ($manufacture as $manu) : ?>
+                                            <option value="<?php echo $manu->manufacture ?>">
+                                                <?php echo $manu->manufacture ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('manufacture', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">

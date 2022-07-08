@@ -6,7 +6,7 @@
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/mappingnetwork/tambahData') ?>">
-        <i class="fas fa-plus"> Tambah</i></a>
+        <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
     <div class="row">
         <div class="col-md">
@@ -34,7 +34,6 @@
             <th class="text-center bg-primary text-white">Mac Address</th>
             <th class="text-center bg-primary text-white">Switch</th>
             <th class="text-center bg-primary text-white">Port</th>
-            <th class="text-center bg-primary text-white">Rack</th>
             <th class="text-center bg-primary text-white">Location</th>
             <th class="text-center bg-warning text-white">Update</th>
             <th class="text-center bg-danger text-white">Delete</th>
@@ -61,7 +60,6 @@
                 <td class="text-center"><?php echo $l['mac_address']; ?></td>
                 <td class="text-center"><?php echo $l['switch']; ?></td>
                 <td class="text-center"><?php echo $l['port']; ?></td>
-                <td class="text-center"><?php echo $l['rack']; ?></td>
                 <td class="text-center"><?php echo $l['location']; ?></td>
                 <td class="text-center">
                     <center>

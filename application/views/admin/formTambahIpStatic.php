@@ -57,13 +57,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Manufacture</label>
-                                    <input type="text" name="manufacture" class="form-control">
-                                    <?php echo form_error('manufacture', '<div class="text small text-danger"></div>') ?>
+                                    <select name="manufacture" class="form-control">
+                                        <option value="">Pilih Manufacture</option>
+                                        <?php foreach ($manufacture as $manu) : ?>
+                                            <option value="<?php echo $manu->manufacture ?>">
+                                                <?php echo $manu->manufacture ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Model/Type</label>
                                     <select name="model" class="form-control">
-                                        <option value="">Pilih Model</option>
+                                        <option value="">Pilih Model/Type</option>
                                         <?php foreach ($modelasset as $m) : ?>
                                             <option value="<?php echo $m->model ?>">
                                                 <?php echo $m->model ?>

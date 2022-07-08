@@ -79,6 +79,7 @@ class LogBook extends CI_Controller
     public function tambahData()
     {
         $data['title'] = "Tambah Log Book IT Equipment";
+        $data['department'] = $this->Monitoring_model->get_data('department')->result();
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
@@ -93,28 +94,28 @@ class LogBook extends CI_Controller
             $this->tambahData();
         } else {
             $id             = $this->input->post('id');
-            $name    = $this->input->post('name');
-            $department      = $this->input->post('department');
-            $equipment     = $this->input->post('equipment');
-            $asset_number       = $this->input->post('asset_number');
-            $serial_number         = $this->input->post('serial_number');
-            $ticket_show          = $this->input->post('ticket_show');
-            $description       = $this->input->post('description');
-            $date         = $this->input->post('date');
-            $return          = $this->input->post('return');
-            $signature          = $this->input->post('signature');
+            $name           = $this->input->post('name');
+            $department     = $this->input->post('department');
+            $equipment      = $this->input->post('equipment');
+            $asset_number   = $this->input->post('asset_number');
+            $serial_number  = $this->input->post('serial_number');
+            $ticket_show    = $this->input->post('ticket_show');
+            $description    = $this->input->post('description');
+            $date           = $this->input->post('date');
+            $return         = $this->input->post('return');
+            $signature      = $this->input->post('signature');
 
             $data = array(
-                'name'   => $name,
-                'department'     => $department,
-                'equipment'    => $equipment,
-                'asset_number'      => $asset_number,
-                'serial_number'        => $serial_number,
-                'ticket_show'         => $ticket_show,
-                'description'    => $description,
-                'date'      => $date,
+                'name'          => $name,
+                'department'    => $department,
+                'equipment'     => $equipment,
+                'asset_number'  => $asset_number,
+                'serial_number' => $serial_number,
+                'ticket_show'   => $ticket_show,
+                'description'   => $description,
+                'date'          => $date,
                 'return'        => $return,
-                'signature'         => $signature,
+                'signature'     => $signature,
             );
 
             $this->Monitoring_model->insert_data($data, 'logbook');
@@ -127,6 +128,7 @@ class LogBook extends CI_Controller
 
     public function updateData($id)
     {
+        $data['department'] = $this->Monitoring_model->get_data('department')->result();
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['logbook'] = $this->db->query("SELECT * FROM logbook WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
         $data['title'] = "Update Log Book IT Equipment";
@@ -144,28 +146,28 @@ class LogBook extends CI_Controller
             redirect('admin/logbook');
         } else {
             $id             = $this->input->post('id');
-            $name    = $this->input->post('name');
-            $department      = $this->input->post('department');
-            $equipment     = $this->input->post('equipment');
-            $asset_number       = $this->input->post('asset_number');
-            $serial_number         = $this->input->post('serial_number');
-            $ticket_show          = $this->input->post('ticket_show');
-            $description       = $this->input->post('description');
-            $date         = $this->input->post('date');
-            $return          = $this->input->post('return');
-            $signature          = $this->input->post('signature');
+            $name           = $this->input->post('name');
+            $department     = $this->input->post('department');
+            $equipment      = $this->input->post('equipment');
+            $asset_number   = $this->input->post('asset_number');
+            $serial_number  = $this->input->post('serial_number');
+            $ticket_show    = $this->input->post('ticket_show');
+            $description    = $this->input->post('description');
+            $date           = $this->input->post('date');
+            $return         = $this->input->post('return');
+            $signature      = $this->input->post('signature');
 
             $data = array(
-                'name'   => $name,
-                'department'     => $department,
-                'equipment'    => $equipment,
-                'asset_number'      => $asset_number,
-                'serial_number'        => $serial_number,
-                'ticket_show'         => $ticket_show,
-                'description'    => $description,
-                'date'      => $date,
+                'name'          => $name,
+                'department'    => $department,
+                'equipment'     => $equipment,
+                'asset_number'  => $asset_number,
+                'serial_number' => $serial_number,
+                'ticket_show'   => $ticket_show,
+                'description'   => $description,
+                'date'          => $date,
                 'return'        => $return,
-                'signature'         => $signature,
+                'signature'     => $signature,
 
 
             );

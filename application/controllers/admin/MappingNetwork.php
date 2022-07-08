@@ -37,7 +37,6 @@ class MappingNetwork extends CI_Controller
         $this->db->or_like('mac_address', $data['keyword']);
         $this->db->or_like('switch', $data['keyword']);
         $this->db->or_like('port', $data['keyword']);
-        $this->db->or_like('rack', $data['keyword']);
         $this->db->or_like('location', $data['keyword']);
         $this->db->from('mapping_network');
         $config['total_rows'] = $this->db->count_all_results();
