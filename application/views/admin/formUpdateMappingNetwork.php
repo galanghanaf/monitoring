@@ -15,7 +15,7 @@
                                 <?php echo form_open_multipart('admin/mappingnetwork/updateDataAksi') ?>
 
                                 <div class="form-group">
-                                    <label>Description</label>
+                                    <label>Asset Description</label>
                                     <input type="hidden" name="id" class="form-control" value="<?php echo $t->id ?>">
                                     <input type="text" name="description" class="form-control" value="<?php echo $t->description ?>">
                                     <?php echo form_error('description', '<div class="text small text-danger"></div>') ?>
@@ -27,7 +27,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Model</label>
-                                    <input type="text" name="model" class="form-control" value="<?php echo $t->model ?>">
+                                    <select name="model" class="form-control">
+                                        <option value="<?php echo $t->model ?>"><?php echo $t->model ?></option>
+                                        <?php foreach ($model as $m) : ?>
+                                            <option value="<?php echo $m->model ?>">
+                                                <?php echo $m->model ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
@@ -54,11 +61,6 @@
                                     <label>Port</label>
                                     <input type="text" name="port" class="form-control" value="<?php echo $t->port ?>">
                                     <?php echo form_error('port', '<div class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Rack</label>
-                                    <input type="text" name="rack" class="form-control" value="<?php echo $t->rack ?>">
-                                    <?php echo form_error('rack', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Location</label>

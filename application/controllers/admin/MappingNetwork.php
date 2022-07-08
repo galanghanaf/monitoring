@@ -110,7 +110,6 @@ class MappingNetwork extends CI_Controller
             $mac_address     = $this->input->post('mac_address');
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
-            $rack            = $this->input->post('rack');
             $location        = $this->input->post('location');
 
             $data = array(
@@ -122,7 +121,6 @@ class MappingNetwork extends CI_Controller
                 'mac_address'    => $mac_address,
                 'switch'         => $switch,
                 'port'           => $port,
-                'rack'           => $rack,
                 'location'       => $location,
             );
 
@@ -162,7 +160,6 @@ class MappingNetwork extends CI_Controller
             $mac_address     = $this->input->post('mac_address');
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
-            $rack            = $this->input->post('rack');
             $location        = $this->input->post('location');
 
 
@@ -175,7 +172,6 @@ class MappingNetwork extends CI_Controller
                 'mac_address'    => $mac_address,
                 'switch'         => $switch,
                 'port'           => $port,
-                'rack'           => $rack,
                 'location'       => $location,
 
             );

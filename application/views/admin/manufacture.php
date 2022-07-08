@@ -5,12 +5,12 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
-    <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/modelasset/tambahData') ?>">
+    <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/manufacture/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
     <div class="row">
         <div class="col-md">
-            <form action="<?= base_url('admin/modelasset') ?>" method="POST">
+            <form action="<?= base_url('admin/manufacture') ?>" method="POST">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search Data..." name="keyword" autocomplete="off" autofocus>
                     <div class="input-group-append">
@@ -26,14 +26,14 @@
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>
-            <th class="text-center bg-primary text-white">Model/Type</th>
+            <th class="text-center bg-primary text-white">Manufacture</th>
 
             <th class="text-center bg-warning text-white">Update</th>
             <th class="text-center bg-danger text-white">Delete</th>
 
 
         </tr>
-        <?php if (empty($modelasset)) : ?>
+        <?php if (empty($manufacture)) : ?>
             <tr>
                 <td colspan="13">
                     <div class="alert alert-danger" role="alert">
@@ -43,16 +43,16 @@
             </tr>
         <?php endif ?>
 
-        <?php foreach ($modelasset as $m) : ?>
+        <?php foreach ($manufacture as $e) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
-                <td class="text-center"><?php echo $m['model']; ?></td>
+                <td class="text-center"><?php echo $e['manufacture']; ?></td>
 
 
 
                 <td>
                     <center>
-                        <a class="btn btn-sm btn-warning" href="<?php echo base_url('admin/modelasset/updateData/' . $m['id']) ?>">
+                        <a class="btn btn-sm btn-warning" href="<?php echo base_url('admin/manufacture/updateData/' . $e['id']) ?>">
                             <i class="fas fa-edit"></i></a>
 
                     </center>
@@ -61,7 +61,7 @@
                 <td>
                     <center>
 
-                        <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/modelasset/deleteData/' . $m['id']) ?>">
+                        <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/manufacture/deleteData/' . $e['id']) ?>">
                             <i class="fas fa-trash"></i></a>
                     </center>
                 </td>

@@ -15,7 +15,7 @@
                                 <?php echo form_open_multipart('admin/modelasset/updateDataAksi') ?>
 
                                 <div class="form-group">
-                                    <label>Model</label>
+                                    <label>Model/Type</label>
                                     <input type="hidden" name="id" class="form-control" value="<?php echo $m->id ?>">
                                     <input type="text" name="model" class="form-control" value="<?php echo $m->model ?>">
                                     <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>

@@ -45,7 +45,14 @@
 
                                 <div class="form-group">
                                     <label>Equipment</label>
-                                    <input type="text" name="equipment" class="form-control">
+                                    <select name="equipment" class="form-control">
+                                        <option value="">Pilih Equipment</option>
+                                        <?php foreach ($equipment as $e) : ?>
+                                            <option value="<?php echo $e->equipment ?>">
+                                                <?php echo $e->equipment ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('equipment', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
@@ -54,8 +61,15 @@
                                     <?php echo form_error('manufacture', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Model</label>
-                                    <input type="text" name="model" class="form-control">
+                                    <label>Model/Type</label>
+                                    <select name="model" class="form-control">
+                                        <option value="">Pilih Model</option>
+                                        <?php foreach ($modelasset as $m) : ?>
+                                            <option value="<?php echo $m->model ?>">
+                                                <?php echo $m->model ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">

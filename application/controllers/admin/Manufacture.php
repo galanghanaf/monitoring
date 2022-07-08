@@ -1,6 +1,6 @@
 <?php
 
-class ModelAsset extends CI_Controller
+class Manufacture extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class ModelAsset extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Data Model/Type";
+        $data['title'] = "Data Manufacture";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
@@ -28,9 +28,9 @@ class ModelAsset extends CI_Controller
 
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/modelasset/index');
-        $this->db->like('model', $data['keyword']);
-        $this->db->from('model_asset');
+        $config['base_url'] = site_url('admin/manufacture/index');
+        $this->db->like('manufacture', $data['keyword']);
+        $this->db->from('manufacture');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 10;
@@ -69,18 +69,18 @@ class ModelAsset extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['modelasset'] = $this->monitoring->getModelAsset($config['per_page'], $data['start'], $data['keyword']);
+        $data['manufacture'] = $this->monitoring->getManufacture($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/modelasset', $data);
+        $this->load->view('admin/manufacture', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahData()
     {
-        $data['title'] = "Add Data Model/Type";
+        $data['title'] = "Add Data Manufacture";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formTambahModelAsset', $data);
+        $this->load->view('admin/formTambahManufacture', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahDataAksi()
@@ -90,30 +90,30 @@ class ModelAsset extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->tambahData();
         } else {
-            $id       = $this->input->post('id');
-            $model    = $this->input->post('model');
+            $id             = $this->input->post('id');
+            $manufacture    = $this->input->post('manufacture');
 
 
             $data = array(
-                'model'   => $model,
+                'manufacture'   => $manufacture,
 
             );
 
-            $this->Monitoring_model->insert_data($data, 'model_asset');
+            $this->Monitoring_model->insert_data($data, 'manufacture');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('admin/modelasset');
+            redirect('admin/manufacture');
         }
     }
 
     public function updateData($id)
     {
-        $data['modelasset'] = $this->db->query("SELECT * FROM model_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
-        $data['title'] = "Update Model/Type";
+        $data['manufacture'] = $this->db->query("SELECT * FROM manufacture WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['title'] = "Update Manufacture";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateModelAsset', $data);
+        $this->load->view('admin/formUpdateManufacture', $data);
         $this->load->view('templatesAdmin/footer');
     }
 
@@ -122,14 +122,14 @@ class ModelAsset extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            redirect('admin/modelasset');
+            redirect('admin/manufacture');
         } else {
-            $id         = $this->input->post('id');
-            $model      = $this->input->post('model');
+            $id             = $this->input->post('id');
+            $manufacture    = $this->input->post('manufacture');
 
 
             $data = array(
-                'model'   => $model,
+                'manufacture'   => $manufacture,
 
 
 
@@ -138,24 +138,24 @@ class ModelAsset extends CI_Controller
                 'id' => $id
             );
 
-            $this->Monitoring_model->update_data('model_asset', $data, $where);
+            $this->Monitoring_model->update_data('manufacture', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong></div>');
-            redirect('admin/modelasset');
+            redirect('admin/manufacture');
         }
     }
 
     public function _rules()
     {
-        $this->form_validation->set_rules('model', 'Model', 'required');
+        $this->form_validation->set_rules('manufacture', 'Manufacture', 'required');
     }
 
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'model_asset');
+        $this->Monitoring_model->delete_data($where, 'Manufacture');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/modelasset');
+        redirect('admin/manufacture');
     }
 }

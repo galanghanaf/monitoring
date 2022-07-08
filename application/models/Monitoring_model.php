@@ -93,6 +93,44 @@ class Monitoring_model extends CI_Model
     }
     // End Equipment
 
+    // Opening Department
+    public function getAllDepartment()
+    {
+        return $this->db->get('department')->result_array();
+    }
+
+    public function getDepartment($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('department', $keyword);
+        }
+        return $this->db->get('department', $limit, $start)->result_array();
+    }
+    public function countAllDepartment()
+    {
+        return $this->db->get('department')->num_rows();
+    }
+    // End Department
+
+    // Opening Manufacture
+    public function getAllManufacture()
+    {
+        return $this->db->get('manufacture')->result_array();
+    }
+
+    public function getManufacture($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('manufacture', $keyword);
+        }
+        return $this->db->get('manufacture', $limit, $start)->result_array();
+    }
+    public function countAllManufacture()
+    {
+        return $this->db->get('manufacture')->num_rows();
+    }
+    // End Department
+
     // Opening ModelAsset
     public function getAllModelAsset()
     {
@@ -153,7 +191,6 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('mac_address', $keyword);
             $this->db->or_like('switch', $keyword);
             $this->db->or_like('port', $keyword);
-            $this->db->or_like('rack', $keyword);
             $this->db->or_like('location', $keyword);
         }
         return $this->db->get('mapping_network', $limit, $start)->result_array();

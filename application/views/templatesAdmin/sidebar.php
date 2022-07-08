@@ -28,8 +28,10 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Data</h6>
+                        <a class="collapse-item" href="<?php echo base_url('admin/department') ?>">Department</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/equipment') ?>">Equipment</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/modelasset') ?>">Model</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/manufacture') ?>">Manufacture</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/modelasset') ?>">Model/Type</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/location') ?>">Location</a>
                     </div>
                 </div>
@@ -63,8 +65,8 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Asset</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">ITOT Asset</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/otasset') ?>">OT Asset</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List IT/OT Asset</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List OT Asset</a>
 
 
                     </div>
