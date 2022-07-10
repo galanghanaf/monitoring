@@ -134,7 +134,8 @@ class ItOtAsset extends CI_Controller
             $sep                = $this->input->post('sep');
             $sccm               = $this->input->post('sccm');
             $osversion         = $this->input->post('osversion');
-
+            $latitude         = $this->input->post('latitude');
+            $longitude         = $this->input->post('longitude');
 
             $data = array(
                 'it'                => $it,
@@ -171,6 +172,8 @@ class ItOtAsset extends CI_Controller
                 'sep'               => $sep,
                 'sccm'              => $sccm,
                 'osversion'        => $osversion,
+                'latitude'        => $latitude,
+                'longitude'        => $longitude,
 
 
 
@@ -239,6 +242,8 @@ class ItOtAsset extends CI_Controller
             $sep                = $this->input->post('sep');
             $sccm               = $this->input->post('sccm');
             $osversion         = $this->input->post('osversion');
+            $latitude         = $this->input->post('latitude');
+            $longitude         = $this->input->post('longitude');
 
             $data = array(
                 'it'                => $it,
@@ -275,6 +280,8 @@ class ItOtAsset extends CI_Controller
                 'sep'               => $sep,
                 'sccm'              => $sccm,
                 'osversion'        => $osversion,
+                'latitude'        => $latitude,
+                'longitude'        => $longitude,
 
 
             );

@@ -41,7 +41,7 @@ class MappingNetwork extends CI_Controller
         $this->db->from('mapping_network');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
-        $config['per_page'] = 10;
+        $config['per_page'] = 99999999999999999999999;
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -110,6 +110,9 @@ class MappingNetwork extends CI_Controller
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
             $location        = $this->input->post('location');
+            $latitude        = $this->input->post('latitude');
+            $longitude        = $this->input->post('longitude');
+
 
             $data = array(
                 'description'    => $description,
@@ -121,6 +124,8 @@ class MappingNetwork extends CI_Controller
                 'switch'         => $switch,
                 'port'           => $port,
                 'location'       => $location,
+                'latitude'       => $latitude,
+                'longitude'       => $longitude,
             );
 
             $this->Monitoring_model->insert_data($data, 'mapping_network');
@@ -160,6 +165,8 @@ class MappingNetwork extends CI_Controller
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
             $location        = $this->input->post('location');
+            $latitude        = $this->input->post('latitude');
+            $longitude        = $this->input->post('longitude');
 
 
             $data = array(
@@ -172,6 +179,8 @@ class MappingNetwork extends CI_Controller
                 'switch'         => $switch,
                 'port'           => $port,
                 'location'       => $location,
+                'latitude'       => $latitude,
+                'longitude'       => $longitude,
 
             );
             $where = array(

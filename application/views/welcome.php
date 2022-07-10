@@ -176,8 +176,8 @@
                 </div>
             <?php endforeach; ?>
 
-            <div class="row-2 d-flex justify-content-center">
-                <div class="col-md-3">
+            <div class="row">
+                <div class="col-lg-4">
                     <?php foreach ($team1 as $t1) : ?>
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="<?= base_url() . 'assets/team/' . $t1['photo'] ?>" alt="..." />
@@ -187,7 +187,7 @@
                     <?php endforeach; ?>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-lg-4">
                     <?php foreach ($team2 as $t2) : ?>
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="<?= base_url() . 'assets/team/' . $t2['photo'] ?>" alt="..." />
@@ -197,7 +197,7 @@
                     <?php endforeach; ?>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-lg-4">
                     <?php foreach ($team3 as $t3) : ?>
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="<?= base_url() . 'assets/team/' . $t3['photo'] ?>" alt="..." />
@@ -207,24 +207,7 @@
                     <?php endforeach; ?>
                 </div>
 
-                <div class="col-md-3">
-                    <?php foreach ($team4 as $t4) : ?>
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="<?= base_url() . 'assets/team/' . $t4['photo'] ?>" alt="..." />
-                            <h4><?php echo $t4['nama'] ?></h4>
-                            <p><?php echo $t4['npm'] ?></p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="col-md-3">
-                    <?php foreach ($team5 as $t5) : ?>
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="<?= base_url() . 'assets/team/' . $t5['photo'] ?>" alt="..." />
-                            <h4><?php echo $t5['nama'] ?></h4>
-                            <p><?php echo $t5['npm'] ?></p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+
             </div>
 
         </div>
@@ -238,7 +221,7 @@
             <div class="row align-items-center">
                 <center>
                     <?php foreach ($header as $h) : ?>
-                        <div class="col-lg-4 text-lg-start">Copyright &copy; <b><?php echo $h['judul_header1'] ?> <?php echo $h['judul_header2'] ?> </b><?php echo date("Y"); ?></div>
+                        <div class="col-lg-4">Copyright &copy; <b><?php echo $h['judul_header1'] ?> <?php echo $h['judul_header2'] ?> </b><?php echo date("Y"); ?></div>
                     <?php endforeach; ?>
                 </center>
             </div>

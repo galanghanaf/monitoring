@@ -17,6 +17,8 @@
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
+
+
                                 <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
 
@@ -26,7 +28,7 @@
                 </div>
                 </div>
 
-                <br>
-                <br>
-                <br>
+
+
+
                 <!-- End of Main Content -->

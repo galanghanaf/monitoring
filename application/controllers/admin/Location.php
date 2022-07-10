@@ -70,6 +70,7 @@ class Location extends CI_Controller
 
         $data['start'] = $this->uri->segment(4);
         $data['location'] = $this->monitoring->getLocation($config['per_page'], $data['start'], $data['keyword']);
+        $data['area_location'] = $this->monitoring->getAllLocation();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/location', $data);
@@ -94,8 +95,10 @@ class Location extends CI_Controller
             $location    = $this->input->post('location');
 
 
+
             $data = array(
                 'location'   => $location,
+
 
             );
 
@@ -126,6 +129,7 @@ class Location extends CI_Controller
         } else {
             $id             = $this->input->post('id');
             $location    = $this->input->post('location');
+
 
 
             $data = array(

@@ -74,6 +74,20 @@
                                     </select>
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
+                                <div id="map" style="height: 600px;"></div>
+                                <br>
+                                <div class="form-group">
+                                    <label>Latitude</label>
+                                    <input type="text" name="latitude" id="latitude" class="form-control" value="<?php echo $t->latitude ?>" readonly>
+                                    <?php echo form_error('latitude', '<div class="text small text-danger"></div>') ?>
+                                </div>
+
+
+                                <div class=" form-group">
+                                    <label>Longitude</label>
+                                    <input type="text" name="longitude" id="longitude" class="form-control" value="<?php echo $t->longitude ?>" readonly>
+                                    <?php echo form_error('longitude', '<div class="text small text-danger"></div>') ?>
+                                </div>
 
 
                                 <button type="submit" class="btn btn-primary">Save</button>
@@ -87,4 +101,36 @@
                 <br>
                 <br>
                 <br>
+
+                <script>
+                    var map = L.map('map').setView([-6.434244857960943, 106.92771446855967], 18);
+
+                    var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                        maxZoom: 20,
+                        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                    }).addTo(map);
+
+                    var theMarker = {};
+
+                    map.on('click', function(e) {
+                        lat = e.latlng.lat;
+                        lon = e.latlng.lng;
+
+                        console.log("You clicked the map at LAT: " + lat + " and LONG: " + lon);
+                        //Clear existing marker, 
+
+
+                        if (theMarker != undefined) {
+                            map.removeLayer(theMarker);
+                        };
+
+                        //Add a marker to show where you clicked.
+                        theMarker = L.marker([lat, lon]).addTo(map);
+
+                        document.getElementById("latitude").value =
+                            lat;
+                        document.getElementById("longitude").value =
+                            lon;
+                    });
+                </script>
                 <!-- End of Main Content -->

@@ -13,16 +13,9 @@
                             <form method="post" action="<?php echo base_url('admin/mappingnetwork/tambahDataAksi') ?>" enctype="multipart/form-data">
 
                                 <div class="form-group">
-                                    <label>Asset Description</label>
-                                    <select name="assetdescription" class="form-control">
-                                        <option value="">Pilih Asset Description</option>
-                                        <?php foreach ($assetdescription as $ad) : ?>
-                                            <option value="<?php echo $ad->assetdescription ?>">
-                                                <?php echo $ad->assetdescription ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <?php echo form_error('assetdescription', '<div class="text small text-danger"></div>') ?>
+                                    <label>Description</label>
+                                    <input type="text" name="description" class="form-control">
+                                    <?php echo form_error('description', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Hostname</label>
@@ -30,21 +23,14 @@
                                     <?php echo form_error('hostname', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Model/Type</label>
-                                    <select name="model" class="form-control">
-                                        <option value="">Pilih Model</option>
-                                        <?php foreach ($modelasset as $m) : ?>
-                                            <option value="<?php echo $m->model ?>">
-                                                <?php echo $m->model ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
+                                    <label>Description</label>
+                                    <input type="text" name="description" class="form-control">
+                                    <?php echo form_error('description', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Serial Number</label>
-                                    <input type="text" name="serial_number" class="form-control">
-                                    <?php echo form_error('serial_number', '<div class="text small text-danger"></div>') ?>
+                                    <label>Model</label>
+                                    <input type="text" name="model" class="form-control">
+                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>IP Address</label>
@@ -79,6 +65,20 @@
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
+                                <div id="map" style="height: 600px;"></div>
+                                <br>
+
+                                <div class="form-group">
+                                    <label>Latitude</label>
+                                    <input type="text" name="latitude" id="latitude" class="form-control" readonly>
+                                    <?php echo form_error('latitude', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Longitude</label>
+                                    <input type="text" name="longitude" id="longitude" class="form-control" readonly>
+                                    <?php echo form_error('longitude', '<div class="text small text-danger"></div>') ?>
+                                </div>
+
                                 <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
 
@@ -87,8 +87,38 @@
                     </div>
                 </div>
                 </div>
+                <br>
+                <br>
+                <br>
+                <script>
+                    var map = L.map('map').setView([-6.434244857960943, 106.92771446855967], 18);
 
-                <br>
-                <br>
-                <br>
+                    var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                        maxZoom: 20,
+                        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                    }).addTo(map);
+
+                    var theMarker = {};
+
+                    map.on('click', function(e) {
+                        lat = e.latlng.lat;
+                        lon = e.latlng.lng;
+
+                        console.log("You clicked the map at LAT: " + lat + " and LONG: " + lon);
+                        //Clear existing marker, 
+
+
+                        if (theMarker != undefined) {
+                            map.removeLayer(theMarker);
+                        };
+
+                        //Add a marker to show where you clicked.
+                        theMarker = L.marker([lat, lon]).addTo(map);
+
+                        document.getElementById("latitude").value =
+                            lat;
+                        document.getElementById("longitude").value =
+                            lon;
+                    });
+                </script>
                 <!-- End of Main Content -->

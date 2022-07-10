@@ -246,6 +246,11 @@ class Monitoring_model extends CI_Model
         return $this->db->get('ipstatic')->result_array();
     }
 
+    public function getIpStatic2($limit, $start)
+    {
+        return $this->db->get('ipstatic', $limit, $start)->result_array();
+    }
+
     public function getIpStatic($limit, $start, $keyword = null)
     {
         if ($keyword) {

@@ -5,6 +5,24 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
+
+    <div id="map" style="height: 600px;"></div>
+    <script>
+        var map = L.map('map').setView([-6.434244857960943, 106.92771446855967], 18);
+
+        var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+        }).addTo(map);
+
+        <?php foreach ($mappingnetwork as $mn) : ?>
+            L.marker([<?php echo $mn['latitude']; ?>, <?php echo $mn['longitude']; ?>]).addTo(map)
+                .bindPopup('<b>Hello world!</b><br />I am a popup.');
+        <?php endforeach; ?>
+    </script>
+    <br>
+    <br>
+
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/mappingnetwork/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
@@ -35,6 +53,8 @@
             <th class="text-center bg-primary text-white">Switch</th>
             <th class="text-center bg-primary text-white">Port</th>
             <th class="text-center bg-primary text-white">Location</th>
+            <th class="text-center bg-primary text-white">Latitude</th>
+            <th class="text-center bg-primary text-white">Longitude</th>
             <th class="text-center bg-warning text-white">Update</th>
             <th class="text-center bg-danger text-white">Delete</th>
 
@@ -61,6 +81,9 @@
                 <td class="text-center"><?php echo $l['switch']; ?></td>
                 <td class="text-center"><?php echo $l['port']; ?></td>
                 <td class="text-center"><?php echo $l['location']; ?></td>
+                <td class="text-center"><?php echo $l['latitude']; ?></td>
+                <td class="text-center"><?php echo $l['longitude']; ?></td>
+
                 <td class="text-center">
                     <center>
                         <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/mappingnetwork/updateData/' . $l['id']) ?>">
@@ -87,4 +110,7 @@
 <!-- /.container-fluid -->
 
 </div>
+<br>
+<br>
+<br>
 <!-- End of Main Content -->
