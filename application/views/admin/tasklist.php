@@ -55,12 +55,15 @@
                 <td class="text-center"><?php echo $t['due_date']; ?></td>
                 <td class="text-center">
                     <?php
-                    $date1 = new DateTime($t['start_date']); //current date or any date
+                    $date1 = new DateTime(date('Y-m-d')); //current date or any date
                     $date2 = new DateTime($t['due_date']); //Future date
                     $diff = $date2->diff($date1)->format("%a"); //find difference
                     $days = intval($diff); //rounding days
-                    if ($t['start_date'] > $t['due_date']) {
+                    if ($t['status'] == "Completed") {
                         echo "0";
+                    } elseif (date('Y-m-d') >= $t['due_date']) {
+
+                        echo "- " . $days;
                     } else {
                         echo $days;
                     }
@@ -68,12 +71,12 @@
                 </td>
                 <td class="text-center">
                     <?php
-                    if ($t['start_date'] > $t['due_date']) {
-                        echo "Complete";
-                    } elseif ($t['start_date'] < $t['due_date']) {
-                        echo "In Progress";
+                    if ($t['status'] == 'Completed') {
+                        echo "Completed";
+                    } elseif (date('Y-m-d') > $t['due_date']) {
+                        echo "Overdue";
                     } else {
-                        echo "Complete";
+                        echo "In Progress";
                     }
 
                     ?>

@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Start Date</label>
-                                    <input type="date" name="start_date" class="form-control">
+                                    <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>" class="form-control">
                                     <?php echo form_error('start_date', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
@@ -31,7 +31,9 @@
                                     <input type="date" name="due_date" class="form-control">
                                     <?php echo form_error('due_date', '<div class="text small text-danger"></div>') ?>
                                 </div>
-
+                                <div class="form-group">
+                                    <input type="hidden" name="status" value="In Progress" class="form-control">
+                                </div>
                                 <div class="form-group">
                                     <label>Notes</label>
                                     <input type="text" name="notes" class="form-control">

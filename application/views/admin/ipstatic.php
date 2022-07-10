@@ -29,6 +29,7 @@
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white">Status</th>
             <th class="text-center bg-primary text-white">Vlan</th>
             <th class="text-center bg-primary text-white">Up Link</th>
             <th class="text-center bg-primary text-white">Port</th>
@@ -47,6 +48,7 @@
             <th class="text-center bg-danger text-white">Delete</th>
 
         </tr>
+
         <?php if (empty($ipstatic)) : ?>
             <tr>
                 <td colspan="17">
@@ -59,6 +61,48 @@
         <?php foreach ($ipstatic as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
+
+                <?php
+
+                // Initialisierung der Ziele / Wenn Port leer -> ICMP (Ping), sonst Portcheck
+
+                $ServerList = array(
+                    "Server1" => $t['ip_address'],
+                    "Port1" => $t['port']
+                );
+
+
+                for ($i = 1; $i <= (count($ServerList) / 2); $i++) {
+
+                    $Server = $ServerList["Server" . $i];
+                    $Port = $ServerList["Port" . $i];
+
+
+
+                    // ICMP (Ping) oder Portcheck
+                    if ($Port <> "") {
+                        if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30)) {
+                            $tdStyle = '#e74a3b';
+                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Offline</td>";
+                        } else {
+                            $tdStyle = '#1cc88a';
+                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Online</td>";
+                            fclose($socket);
+                        }
+                    } else {
+                        $str = exec("ping -n 1 -w 1 " . $Server, $input, $result);
+                        if ($result == 0) {
+                            $tdStyle = '#1cc88a';
+                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Online</td>";
+                        } else {
+                            $tdStyle = '#e74a3b';
+                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Offline</td>";
+                        }
+                    }
+                }
+
+                ?>
+
 
                 <td class="text-center"><?php echo $t['vlan']; ?></td>
                 <td class="text-center"><?php echo $t['up_link']; ?></td>
