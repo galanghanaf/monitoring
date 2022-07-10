@@ -134,8 +134,6 @@
         <?php endforeach; ?>
     </table>
     <?= $this->pagination->create_links(); ?>
-
-
 </div>
 <!-- /.container-fluid -->
 
