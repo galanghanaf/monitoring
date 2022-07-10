@@ -51,9 +51,7 @@
                         <a class="collapse-item" href="<?php echo base_url('admin/tasklist') ?>">Task List</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/ipstaticwithstatus') ?>">Ip Static with Status</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Mapping Network</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/datamappingnetwork') ?>">Data Mapping Network</a>
                     </div>
                 </div>
             </li>

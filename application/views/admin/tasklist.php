@@ -26,12 +26,13 @@
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white">Status</th>
             <th class="text-center bg-primary text-white">Description</th>
             <th class="text-center bg-primary text-white">Requester</th>
             <th class="text-center bg-primary text-white">Start Date</th>
             <th class="text-center bg-primary text-white">Due Date</th>
             <th class="text-center bg-primary text-white">Days Remaining</th>
-            <th class="text-center bg-primary text-white">Status</th>
+
             <th class="text-center bg-primary text-white">Notes</th>
             <th class="text-center bg-warning text-white">Update</th>
             <th class="text-center bg-danger text-white">Delete</th>
@@ -49,6 +50,20 @@
         <?php foreach ($task_list as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
+                <?php
+                if ($t['status'] == 'Completed') {
+                    $tdStyle = '#1cc88a';
+                    echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Completed</td>";
+                } elseif (date('Y-m-d') > $t['due_date']) {
+                    $tdStyle = '#e74a3b';
+                    echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Overdue</td>";
+                } else {
+                    echo "<td class='text-center'>In Progress</td>";
+                }
+
+                ?>
+
+
                 <td class="text-center"><?php echo $t['description']; ?></td>
                 <td class="text-center"><?php echo $t['requester']; ?></td>
                 <td class="text-center"><?php echo $t['start_date']; ?></td>
@@ -61,7 +76,7 @@
                     $days = intval($diff); //rounding days
                     if ($t['status'] == "Completed") {
                         echo "0";
-                    } elseif (date('Y-m-d') >= $t['due_date']) {
+                    } elseif (date('Y-m-d') > $t['due_date']) {
 
                         echo "- " . $days;
                     } else {

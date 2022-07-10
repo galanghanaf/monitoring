@@ -26,6 +26,7 @@
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white">Status</th>
             <th class="text-center bg-primary text-white">Name</th>
             <th class="text-center bg-primary text-white">Department</th>
             <th class="text-center bg-primary text-white">Equipment</th>
@@ -54,6 +55,18 @@
         <?php foreach ($logbook as $l) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
+
+                <?php
+                if ($l['return'] == '') {
+
+                    echo "<td class='text-center'>In Porgress</td>";
+                } elseif ($l['return'] > '') {
+                    $tdStyle = '#1cc88a';
+                    echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Completed</td>";
+                }
+
+                ?>
+
                 <td class="text-center"><?php echo $l['name']; ?></td>
                 <td class="text-center"><?php echo $l['department']; ?></td>
                 <td class="text-center"><?php echo $l['equipment']; ?></td>
