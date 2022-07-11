@@ -85,7 +85,6 @@
                 <div id="collapseHome" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataadmin') ?>">Data Admin</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataHeader') ?>">Edit Header</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataHeaderBackground') ?>">Edit Header Background</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>

@@ -52,11 +52,13 @@ class Welcome extends CI_Controller
 
 				switch ($cek->hak_akses) {
 					case 1:
-						redirect('admin/dashboard');
+						redirect('superadmin/dashboard');
 						break;
 					case 2:
-						redirect('welcome');
+						redirect('admin/dashboard');
 						break;
+					case 3:
+						redirect('welcome');
 					default:
 						break;
 				}
