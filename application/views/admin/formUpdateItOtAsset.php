@@ -54,8 +54,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Asset Description</label>
-                                    <input type="text" name="asset_description" class="form-control" value="<?php echo $i->asset_description ?>">
-                                    <?php echo form_error('asset_description', '<div class="text small text-danger"></div>') ?>
+                                    <select name="asset_description" class="form-control">
+                                        <option value="<?php echo $i->asset_description ?>"><?php echo $i->asset_description ?></option>
+                                        <?php foreach ($assetdescription as $ad) : ?>
+                                            <option value="<?php echo $ad->asset_description ?>">
+                                                <?php echo $ad->asset_description ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Serial Number</label>
@@ -63,9 +70,16 @@
                                     <?php echo form_error('serial_number', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Type</label>
-                                    <input type="text" name="type" class="form-control" value="<?php echo $i->type ?>">
-                                    <?php echo form_error('type', '<div class="text small text-danger"></div>') ?>
+                                    <label>Model/Type</label>
+                                    <select name="model" class="form-control">
+                                        <option value="<?php echo $i->model ?>"><?php echo $i->model ?></option>
+                                        <?php foreach ($modelasset as $m) : ?>
+                                            <option value="<?php echo $m->model ?>">
+                                                <?php echo $m->model ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Computer Name</label>

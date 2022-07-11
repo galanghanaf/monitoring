@@ -201,7 +201,7 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('department', $keyword);
             $this->db->or_like('equipment', $keyword);
             $this->db->or_like('serial_number', $keyword);
-            $this->db->or_like('description', $keyword);
+            $this->db->or_like('asset_description', $keyword);
         }
         return $this->db->get('logbook', $limit, $start)->result_array();
     }

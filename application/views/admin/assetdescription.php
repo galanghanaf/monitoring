@@ -46,7 +46,7 @@
         <?php foreach ($assetdescription as $e) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
-                <td class="text-center"><?php echo $e['assetdescription']; ?></td>
+                <td class="text-center"><?php echo $e['asset_description']; ?></td>
 
 
 

@@ -86,6 +86,8 @@ class ItOtAsset extends CI_Controller
         $data['title'] = "Add Data IT/OT Asset";
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
+        $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
+        $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();
 
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
@@ -108,7 +110,7 @@ class ItOtAsset extends CI_Controller
             $asset_number       = $this->input->post('asset_number');
             $asset_description  = $this->input->post('asset_description');
             $serial_number      = $this->input->post('serial_number');
-            $type               = $this->input->post('type');
+            $model               = $this->input->post('model');
             $computer_name      = $this->input->post('computer_name');
             $qty                = $this->input->post('qty');
             $acquis_val         = $this->input->post('acquis_val');
@@ -146,7 +148,7 @@ class ItOtAsset extends CI_Controller
                 'asset_number'      => $asset_number,
                 'asset_description' => $asset_description,
                 'serial_number'     => $serial_number,
-                'type'              => $type,
+                'model'              => $model,
                 'computer_name'     => $computer_name,
                 'qty'               => $qty,
                 'acquis_val'        => $acquis_val,
@@ -192,6 +194,8 @@ class ItOtAsset extends CI_Controller
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['itotasset'] = $this->db->query("SELECT * FROM itot_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
         $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
+        $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
+        $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();
 
         $data['title'] = "Update Data IT/OT Asset";
         $this->load->view('templatesAdmin/header', $data);
@@ -216,7 +220,7 @@ class ItOtAsset extends CI_Controller
             $asset_number       = $this->input->post('asset_number');
             $asset_description  = $this->input->post('asset_description');
             $serial_number      = $this->input->post('serial_number');
-            $type               = $this->input->post('type');
+            $model               = $this->input->post('model');
             $computer_name      = $this->input->post('computer_name');
             $qty                = $this->input->post('qty');
             $acquis_val         = $this->input->post('acquis_val');
@@ -254,7 +258,7 @@ class ItOtAsset extends CI_Controller
                 'asset_number'      => $asset_number,
                 'asset_description' => $asset_description,
                 'serial_number'     => $serial_number,
-                'type'              => $type,
+                'model'              => $model,
                 'computer_name'     => $computer_name,
                 'qty'               => $qty,
                 'acquis_val'        => $acquis_val,

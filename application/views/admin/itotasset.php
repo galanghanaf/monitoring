@@ -40,7 +40,7 @@
         </div>
     </div>
     <h6> Result : <?= $total_rows ?></h6>
-    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-striped" style="overflow-y: scroll; overflow-x: auto">
+    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-hover" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>
@@ -52,7 +52,7 @@
             <th class="text-center bg-primary text-white">Asset Number</th>
             <th class="text-center bg-primary text-white">Asset Description</th>
             <th class="text-center bg-primary text-white">Serial Number</th>
-            <th class="text-center bg-primary text-white">Type</th>
+            <th class="text-center bg-primary text-white">Model/Type</th>
             <th class="text-center bg-primary text-white">Computer Name</th>
             <th class="text-center bg-primary text-white">Qty</th>
             <th class="text-center bg-primary text-white">Acquis.val</th>
@@ -104,7 +104,7 @@
                 <td class="text-center"><?php echo $t['asset_number']; ?></td>
                 <td class="text-center"><?php echo $t['asset_description']; ?></td>
                 <td class="text-center"><?php echo $t['serial_number']; ?></td>
-                <td class="text-center"><?php echo $t['type']; ?></td>
+                <td class="text-center"><?php echo $t['model']; ?></td>
                 <td class="text-center"><?php echo $t['computer_name']; ?></td>
                 <td class="text-center"><?php echo $t['qty']; ?></td>
                 <td class="text-center"><?php echo $t['acquis_val']; ?></td>

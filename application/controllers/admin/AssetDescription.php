@@ -29,7 +29,7 @@ class AssetDescription extends CI_Controller
         //Pagination
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/assetdescription/index');
-        $this->db->like('assetdescription', $data['keyword']);
+        $this->db->like('asset_description', $data['keyword']);
         $this->db->from('assetdescription');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
@@ -91,11 +91,11 @@ class AssetDescription extends CI_Controller
             $this->tambahData();
         } else {
             $id             = $this->input->post('id');
-            $assetdescription    = $this->input->post('assetdescription');
+            $asset_description    = $this->input->post('asset_description');
 
 
             $data = array(
-                'assetdescription'   => $assetdescription,
+                'asset_description'   => $asset_description,
 
             );
 
@@ -125,11 +125,11 @@ class AssetDescription extends CI_Controller
             redirect('admin/assetdescription');
         } else {
             $id             = $this->input->post('id');
-            $assetdescription    = $this->input->post('assetdescription');
+            $asset_description    = $this->input->post('asset_description');
 
 
             $data = array(
-                'assetdescription'   => $assetdescription,
+                'asset_description'   => $asset_description,
 
 
 

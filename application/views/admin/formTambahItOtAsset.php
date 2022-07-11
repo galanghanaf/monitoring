@@ -52,7 +52,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Asset Description</label>
-                                    <input type="text" name="asset_description" class="form-control">
+                                    <select name="asset_description" class="form-control">
+                                        <option value="">Pilih Asset Description</option>
+                                        <?php foreach ($assetdescription as $ad) : ?>
+                                            <option value="<?php echo $ad->asset_description ?>">
+                                                <?php echo $ad->asset_description ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('asset_description', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
@@ -61,9 +68,16 @@
                                     <?php echo form_error('serial_number', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Type</label>
-                                    <input type="text" name="type" class="form-control">
-                                    <?php echo form_error('type', '<div class="text small text-danger"></div>') ?>
+                                    <label>Model/Type</label>
+                                    <select name="model" class="form-control">
+                                        <option value="">Pilih Model/Type</option>
+                                        <?php foreach ($modelasset as $ma) : ?>
+                                            <option value="<?php echo $ma->model ?>">
+                                                <?php echo $ma->model ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Computer Name</label>

@@ -17,7 +17,10 @@
 
         <?php foreach ($mappingnetwork as $mn) : ?>
             L.marker([<?php echo $mn['latitude']; ?>, <?php echo $mn['longitude']; ?>]).addTo(map)
-                .bindPopup('<b>Hello world!</b><br />I am a popup.');
+                .bindPopup(
+                    'Hostname : <b><?php echo $mn['hostname']; ?></b><br/>Model/Type : <b><?php echo $mn['model']; ?></b><br/>Serial Number : <b><?php echo $mn['serial_number']; ?></b><br/>Ip Address : <b><?php echo $mn['ip_address']; ?></b><br/>Mac Address : <b><?php echo $mn['mac_address']; ?></b><br/>Switch : <b><?php echo $mn['switch']; ?></b><br/>Port : <b><?php echo $mn['port']; ?></b><br/>Location : <b><?php echo $mn['location']; ?></b><br/>'
+
+                );
         <?php endforeach; ?>
     </script>
     <br>
@@ -44,7 +47,7 @@
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>
-            <th class="text-center bg-primary text-white">Description</th>
+            <th class="text-center bg-primary text-white">Asset Description</th>
             <th class="text-center bg-primary text-white">Hostname</th>
             <th class="text-center bg-primary text-white">Model</th>
             <th class="text-center bg-primary text-white">Serial Number</th>
@@ -72,7 +75,7 @@
         <?php foreach ($mappingnetwork as $l) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
-                <td class="text-center"><?php echo $l['description']; ?></td>
+                <td class="text-center"><?php echo $l['asset_description']; ?></td>
                 <td class="text-center"><?php echo $l['hostname']; ?></td>
                 <td class="text-center"><?php echo $l['model']; ?></td>
                 <td class="text-center"><?php echo $l['serial_number']; ?></td>
@@ -86,7 +89,7 @@
 
                 <td class="text-center">
                     <center>
-                        <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/mappingnetwork/updateData/' . $l['id']) ?>">
+                        <a class="btn btn-sm btn-warning" href="<?php echo base_url('admin/mappingnetwork/updateData/' . $l['id']) ?>">
                             <i class="fas fa-edit"></i></a>
 
                     </center>

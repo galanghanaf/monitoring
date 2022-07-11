@@ -16,9 +16,15 @@
 
                                 <div class="form-group">
                                     <label>Asset Description</label>
-                                    <input type="hidden" name="id" class="form-control" value="<?php echo $t->id ?>">
-                                    <input type="text" name="description" class="form-control" value="<?php echo $t->description ?>">
-                                    <?php echo form_error('description', '<div class="text small text-danger"></div>') ?>
+                                    <select name="asset_description" class="form-control">
+                                        <option value="<?php echo $t->asset_description ?>"><?php echo $t->asset_description ?></option>
+                                        <?php foreach ($assetdescription as $ad) : ?>
+                                            <option value="<?php echo $ad->asset_description ?>">
+                                                <?php echo $ad->asset_description ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Hostname</label>
@@ -26,12 +32,12 @@
                                     <?php echo form_error('hostname', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Model</label>
+                                    <label>Model/Type</label>
                                     <select name="model" class="form-control">
                                         <option value="<?php echo $t->model ?>"><?php echo $t->model ?></option>
-                                        <?php foreach ($model as $m) : ?>
-                                            <option value="<?php echo $m->model ?>">
-                                                <?php echo $m->model ?>
+                                        <?php foreach ($modelasset as $am) : ?>
+                                            <option value="<?php echo $am->model ?>">
+                                                <?php echo $am->model ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>

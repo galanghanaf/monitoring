@@ -30,7 +30,7 @@ class MappingNetwork extends CI_Controller
         $this->load->library('pagination');
         $config['base_url'] = site_url('admin/mappingnetwork/index');
         $this->db->like('hostname', $data['keyword']);
-        $this->db->or_like('description', $data['keyword']);
+        $this->db->or_like('asset_description', $data['keyword']);
         $this->db->or_like('model', $data['keyword']);
         $this->db->or_like('serial_number', $data['keyword']);
         $this->db->or_like('ip_address', $data['keyword']);
@@ -88,6 +88,9 @@ class MappingNetwork extends CI_Controller
         $data['title'] = "Tambah Data Mapping Network";
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
+        $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();
+        $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
+
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/formTambahMappingNetwork', $data);
@@ -101,7 +104,7 @@ class MappingNetwork extends CI_Controller
             $this->tambahData();
         } else {
             $id              = $this->input->post('id');
-            $description     = $this->input->post('description');
+            $asset_description     = $this->input->post('asset_description');
             $hostname        = $this->input->post('hostname');
             $model           = $this->input->post('model');
             $serial_number   = $this->input->post('serial_number');
@@ -115,7 +118,7 @@ class MappingNetwork extends CI_Controller
 
 
             $data = array(
-                'description'    => $description,
+                'asset_description'    => $asset_description,
                 'hostname'       => $hostname,
                 'model'          => $model,
                 'serial_number'  => $serial_number,
@@ -141,6 +144,9 @@ class MappingNetwork extends CI_Controller
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['mappingnetwork'] = $this->db->query("SELECT * FROM mapping_network WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();
+        $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
+
         $data['title'] = "Update Data Mapping Network";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
@@ -156,7 +162,7 @@ class MappingNetwork extends CI_Controller
             redirect('admin/mappingnetwork');
         } else {
             $id              = $this->input->post('id');
-            $description     = $this->input->post('description');
+            $asset_description     = $this->input->post('asset_description');
             $hostname        = $this->input->post('hostname');
             $model           = $this->input->post('model');
             $serial_number   = $this->input->post('serial_number');
@@ -170,7 +176,7 @@ class MappingNetwork extends CI_Controller
 
 
             $data = array(
-                'description'    => $description,
+                'asset_description'    => $asset_description,
                 'hostname'       => $hostname,
                 'model'          => $model,
                 'serial_number'  => $serial_number,

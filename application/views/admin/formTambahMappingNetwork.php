@@ -13,9 +13,16 @@
                             <form method="post" action="<?php echo base_url('admin/mappingnetwork/tambahDataAksi') ?>" enctype="multipart/form-data">
 
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <input type="text" name="description" class="form-control">
-                                    <?php echo form_error('description', '<div class="text small text-danger"></div>') ?>
+                                    <label>Asset Description</label>
+                                    <select name="asset_description" class="form-control">
+                                        <option value="">Pilih Asset Description</option>
+                                        <?php foreach ($assetdescription as $ad) : ?>
+                                            <option value="<?php echo $ad->asset_description ?>">
+                                                <?php echo $ad->asset_description ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('asset_description', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Hostname</label>
@@ -23,13 +30,15 @@
                                     <?php echo form_error('hostname', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <input type="text" name="description" class="form-control">
-                                    <?php echo form_error('description', '<div class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Model</label>
-                                    <input type="text" name="model" class="form-control">
+                                    <label>Model/Type</label>
+                                    <select name="model" class="form-control">
+                                        <option value="">Pilih Model/Type</option>
+                                        <?php foreach ($modelasset as $mas) : ?>
+                                            <option value="<?php echo $mas->model ?>">
+                                                <?php echo $mas->model ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('model', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
