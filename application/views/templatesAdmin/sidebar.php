@@ -47,15 +47,18 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Monitoring</h6>
+                        <h6 class="collapse-header">Task</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/tasklist') ?>">Task List</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book IT</a>
                         <br>
-                        <h6 class="collapse-header">Mapping Network</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Switch</a>
+                        <h6 class="collapse-header">Monitoring Network</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/mappingnetworkap') ?>">Access Point</a>
-
+                        <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Switch</a>
+                        <br>
+                        <h6 class="collapse-header">Asset</h6>
+                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List IT/OT Asset</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List OT Asset</a>
                     </div>
                 </div>
             </li>
@@ -68,9 +71,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Asset</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List IT/OT Asset</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List OT Asset</a>
+
 
 
                     </div>
@@ -85,13 +86,6 @@
                 <div id="collapseHome" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataHeader') ?>">Edit Header</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataHeaderBackground') ?>">Edit Header Background</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataPortfolio') ?>">Edit Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulTeam') ?>">Edit Judul Teams</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataTeam') ?>">Edit Teams</a>
-
                     </div>
                 </div>
             </li>

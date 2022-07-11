@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/dashboard') ?>">
+                <a class="nav-link" href="<?php echo base_url('superadmin/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -28,13 +28,13 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Data</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/assetdescription') ?>">Asset Description</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/department') ?>">Department</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/equipment') ?>">Equipment</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/location') ?>">Location</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/manufacture') ?>">Manufacture</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/modelasset') ?>">Model/Type</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/osversion') ?>">OS Version</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/assetdescription') ?>">Asset Description</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/department') ?>">Department</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/equipment') ?>">Equipment</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/location') ?>">Location</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/manufacture') ?>">Manufacture</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/modelasset') ?>">Model/Type</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/osversion') ?>">OS Version</a>
                     </div>
                 </div>
             </li>
@@ -48,13 +48,13 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Monitoring</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/tasklist') ?>">Task List</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/tasklist') ?>">Task List</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/logbook') ?>">Log Book</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/ipstatic') ?>">Ip Static</a>
                         <br>
                         <h6 class="collapse-header">Mapping Network</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Switch</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetworkap') ?>">Access Point</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/mappingnetwork') ?>">Switch</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/mappingnetworkap') ?>">Access Point</a>
 
                     </div>
                 </div>
@@ -69,8 +69,8 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Asset</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List IT/OT Asset</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List OT Asset</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/itotasset') ?>">List IT/OT Asset</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/itotasset') ?>">List OT Asset</a>
 
 
                     </div>
@@ -85,13 +85,13 @@
                 <div id="collapseHome" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataadmin') ?>">Data Admin</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataHeader') ?>">Edit Header</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataHeaderBackground') ?>">Edit Header Background</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataPortfolio') ?>">Edit Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulTeam') ?>">Edit Judul Teams</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/dataTeam') ?>">Edit Teams</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataadmin') ?>">Data Admin</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataHeader') ?>">Edit Header</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataHeaderBackground') ?>">Edit Header Background</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataPortfolio') ?>">Edit Portfolio</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataJudulTeam') ?>">Edit Judul Teams</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataTeam') ?>">Edit Teams</a>
 
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?php echo base_url('admin/profilAdmin') ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('superadmin/profilAdmin') ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Ganti Password
                                 </a>

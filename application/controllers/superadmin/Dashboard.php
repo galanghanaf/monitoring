@@ -15,8 +15,9 @@ class Dashboard extends CI_Controller
     {
         $data['title'] = "Dashboard"; //untuk title pada dasboard
 
-
-        $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
+        $superadmin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
+        $data['superadmin'] = $superadmin->num_rows();
+        $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '2'");
         $data['admin'] = $admin->num_rows();
 
         $task_list = $this->db->query("SELECT * FROM task_list");
