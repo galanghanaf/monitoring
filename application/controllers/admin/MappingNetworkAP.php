@@ -1,6 +1,6 @@
 <?php
 
-class MappingNetwork extends CI_Controller
+class MappingNetworkAP extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class MappingNetwork extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Mapping Network Switch";
+        $data['title'] = "Mapping Network Access Point";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
@@ -28,17 +28,16 @@ class MappingNetwork extends CI_Controller
 
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/mappingnetwork/index');
+        $config['base_url'] = site_url('admin/mappingnetworkap/index');
         $this->db->like('hostname', $data['keyword']);
         $this->db->or_like('asset_description', $data['keyword']);
         $this->db->or_like('model', $data['keyword']);
-        $this->db->or_like('serial_number', $data['keyword']);
         $this->db->or_like('ip_address', $data['keyword']);
         $this->db->or_like('mac_address', $data['keyword']);
         $this->db->or_like('switch', $data['keyword']);
         $this->db->or_like('port', $data['keyword']);
         $this->db->or_like('location', $data['keyword']);
-        $this->db->from('mapping_network');
+        $this->db->from('mapping_networkap');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 99999999999999999999999;
@@ -77,15 +76,15 @@ class MappingNetwork extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['mappingnetwork'] = $this->monitoring->getMappingNetwork($config['per_page'], $data['start'], $data['keyword']);
+        $data['mappingnetworkap'] = $this->monitoring->getMappingNetworkAP($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/mappingnetwork', $data);
+        $this->load->view('admin/mappingnetworkap', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahData()
     {
-        $data['title'] = "Tambah Data Mapping Network Switch";
+        $data['title'] = "Tambah Data Mapping Network Access Point";
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();
@@ -93,7 +92,7 @@ class MappingNetwork extends CI_Controller
 
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formTambahMappingNetwork', $data);
+        $this->load->view('admin/formTambahMappingNetworkAP', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahDataAksi()
@@ -107,7 +106,8 @@ class MappingNetwork extends CI_Controller
             $asset_description     = $this->input->post('asset_description');
             $hostname        = $this->input->post('hostname');
             $model           = $this->input->post('model');
-            $serial_number   = $this->input->post('serial_number');
+            $pcb_serial_number   = $this->input->post('pcb_serial_number');
+            $assembly_serial_number   = $this->input->post('assembly_serial_number');
             $ip_address      = $this->input->post('ip_address');
             $mac_address     = $this->input->post('mac_address');
             $switch          = $this->input->post('switch');
@@ -121,8 +121,8 @@ class MappingNetwork extends CI_Controller
                 'asset_description'    => $asset_description,
                 'hostname'       => $hostname,
                 'model'          => $model,
-                'serial_number'  => $serial_number,
-                'ip_address'     => $ip_address,
+                'pcb_serial_number'  => $pcb_serial_number,
+                'assembly_serial_number'  => $assembly_serial_number,                'ip_address'     => $ip_address,
                 'mac_address'    => $mac_address,
                 'switch'         => $switch,
                 'port'           => $port,
@@ -131,11 +131,11 @@ class MappingNetwork extends CI_Controller
                 'longitude'       => $longitude,
             );
 
-            $this->Monitoring_model->insert_data($data, 'mapping_network');
+            $this->Monitoring_model->insert_data($data, 'mapping_networkap');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('admin/mappingnetwork');
+            redirect('admin/mappingnetworkap');
         }
     }
 
@@ -143,14 +143,14 @@ class MappingNetwork extends CI_Controller
     {
         $data['equipment'] = $this->Monitoring_model->get_data('equipment')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
-        $data['mappingnetwork'] = $this->db->query("SELECT * FROM mapping_network WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['mappingnetworkap'] = $this->db->query("SELECT * FROM mapping_networkap WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
         $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();
         $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
 
-        $data['title'] = "Update Data Mapping Network Switch";
+        $data['title'] = "Update Data Mapping Network Access Point";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateMappingNetwork', $data);
+        $this->load->view('admin/formUpdateMappingNetworkAP', $data);
         $this->load->view('templatesAdmin/footer');
     }
 
@@ -159,13 +159,14 @@ class MappingNetwork extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            redirect('admin/mappingnetwork');
+            redirect('admin/mappingnetworkap');
         } else {
             $id              = $this->input->post('id');
             $asset_description     = $this->input->post('asset_description');
             $hostname        = $this->input->post('hostname');
             $model           = $this->input->post('model');
-            $serial_number   = $this->input->post('serial_number');
+            $pcb_serial_number   = $this->input->post('pcb_serial_number');
+            $assembly_serial_number   = $this->input->post('assembly_serial_number');
             $ip_address      = $this->input->post('ip_address');
             $mac_address     = $this->input->post('mac_address');
             $switch          = $this->input->post('switch');
@@ -179,7 +180,9 @@ class MappingNetwork extends CI_Controller
                 'asset_description'    => $asset_description,
                 'hostname'       => $hostname,
                 'model'          => $model,
-                'serial_number'  => $serial_number,
+                'pcb_serial_number'  => $pcb_serial_number,
+                'assembly_serial_number'  => $assembly_serial_number,
+
                 'ip_address'     => $ip_address,
                 'mac_address'    => $mac_address,
                 'switch'         => $switch,
@@ -193,10 +196,10 @@ class MappingNetwork extends CI_Controller
                 'id' => $id
             );
 
-            $this->Monitoring_model->update_data('mapping_network', $data, $where);
+            $this->Monitoring_model->update_data('mapping_networkap', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong></div>');
-            redirect('admin/mappingnetwork');
+            redirect('admin/mappingnetworkap');
         }
     }
 
@@ -209,9 +212,9 @@ class MappingNetwork extends CI_Controller
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'mapping_network');
+        $this->Monitoring_model->delete_data($where, 'mapping_networkap');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/mappingnetwork');
+        redirect('admin/mappingnetworkap');
     }
 }

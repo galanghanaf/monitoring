@@ -213,6 +213,33 @@ class Monitoring_model extends CI_Model
     // End Log Book
 
     // Opening Mapping Network
+    public function getAllMappingNetworkAP()
+    {
+        return $this->db->get('mapping_networkap')->result_array();
+    }
+
+    public function getMappingNetworkAP($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('hostname', $keyword);
+            $this->db->or_like('asset_description', $keyword);
+            $this->db->or_like('model', $keyword);
+            $this->db->or_like('ip_address', $keyword);
+            $this->db->or_like('mac_address', $keyword);
+            $this->db->or_like('switch', $keyword);
+            $this->db->or_like('port', $keyword);
+            $this->db->or_like('location', $keyword);
+        }
+        return $this->db->get('mapping_networkap', $limit, $start)->result_array();
+    }
+
+    public function countAllMappingNetworkAP()
+    {
+        return $this->db->get('mapping_networkap')->num_rows();
+    }
+    // End Mapping Network
+
+    // Opening Mapping Network
     public function getAllMappingNetwork()
     {
         return $this->db->get('mapping_network')->result_array();
@@ -222,7 +249,7 @@ class Monitoring_model extends CI_Model
     {
         if ($keyword) {
             $this->db->like('hostname', $keyword);
-            $this->db->or_like('description', $keyword);
+            $this->db->or_like('asset_description', $keyword);
             $this->db->or_like('model', $keyword);
             $this->db->or_like('serial_number', $keyword);
             $this->db->or_like('ip_address', $keyword);

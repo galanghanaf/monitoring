@@ -110,7 +110,7 @@ class ItOtAsset extends CI_Controller
             $asset_number       = $this->input->post('asset_number');
             $asset_description  = $this->input->post('asset_description');
             $serial_number      = $this->input->post('serial_number');
-            $model               = $this->input->post('model');
+            $model              = $this->input->post('model');
             $computer_name      = $this->input->post('computer_name');
             $qty                = $this->input->post('qty');
             $acquis_val         = $this->input->post('acquis_val');

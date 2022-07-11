@@ -15,20 +15,20 @@
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
         }).addTo(map);
 
-        <?php foreach ($mappingnetwork as $mn) : ?>
+        <?php foreach ($mappingnetworkap as $mn) : ?>
             L.marker([<?php echo $mn['latitude']; ?>, <?php echo $mn['longitude']; ?>]).addTo(map)
-                .bindPopup('Hostname : <b><?php echo $mn['hostname']; ?></b><br/>Model/Type : <b><?php echo $mn['model']; ?></b><br/>Serial Number : <b><?php echo $mn['serial_number']; ?></b><br/>Ip Address : <b><?php echo $mn['ip_address']; ?></b><br/>Mac Address : <b><?php echo $mn['mac_address']; ?></b><br/>Switch : <b><?php echo $mn['switch']; ?></b><br/>Port : <b><?php echo $mn['port']; ?></b><br/>Location : <b><?php echo $mn['location']; ?></b><br/>');
+                .bindPopup('Hostname : <b><?php echo $mn['hostname']; ?></b><br/>');
         <?php endforeach; ?>
     </script>
     <br>
     <br>
 
-    <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/mappingnetwork/tambahData') ?>">
+    <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/mappingnetworkap/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
     <div class="row">
         <div class="col-md">
-            <form action="<?= base_url('admin/mappingnetwork') ?>" method="POST">
+            <form action="<?= base_url('admin/mappingnetworkap') ?>" method="POST">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search Data..." name="keyword" autocomplete="off" autofocus>
                     <div class="input-group-append">
@@ -47,7 +47,9 @@
             <th class="text-center bg-primary text-white">Asset Description</th>
             <th class="text-center bg-primary text-white">Hostname</th>
             <th class="text-center bg-primary text-white">Model</th>
-            <th class="text-center bg-primary text-white">Serial Number</th>
+            <th class="text-center bg-primary text-white">PCB Serial Number</th>
+            <th class="text-center bg-primary text-white">Assembly Serial Number</th>
+
             <th class="text-center bg-primary text-white">Ip Address</th>
             <th class="text-center bg-primary text-white">Mac Address</th>
             <th class="text-center bg-primary text-white">Switch</th>
@@ -60,7 +62,7 @@
 
 
         </tr>
-        <?php if (empty($mappingnetwork)) : ?>
+        <?php if (empty($mappingnetworkap)) : ?>
             <tr>
                 <td colspan="17">
                     <div class="alert alert-danger" role="alert">
@@ -69,13 +71,15 @@
                 </td>
             </tr>
         <?php endif ?>
-        <?php foreach ($mappingnetwork as $l) : ?>
+        <?php foreach ($mappingnetworkap as $l) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
                 <td class="text-center"><?php echo $l['asset_description']; ?></td>
                 <td class="text-center"><?php echo $l['hostname']; ?></td>
                 <td class="text-center"><?php echo $l['model']; ?></td>
-                <td class="text-center"><?php echo $l['serial_number']; ?></td>
+                <td class="text-center"><?php echo $l['pcb_serial_number']; ?></td>
+                <td class="text-center"><?php echo $l['assembly_serial_number']; ?></td>
+
                 <td class="text-center"><?php echo $l['ip_address']; ?></td>
                 <td class="text-center"><?php echo $l['mac_address']; ?></td>
                 <td class="text-center"><?php echo $l['switch']; ?></td>

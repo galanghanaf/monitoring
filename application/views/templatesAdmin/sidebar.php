@@ -51,7 +51,11 @@
                         <a class="collapse-item" href="<?php echo base_url('admin/tasklist') ?>">Task List</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Mapping Network</a>
+                        <br>
+                        <h6 class="collapse-header">Mapping Network</h6>
+                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Switch</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetworkap') ?>">Access Point</a>
+
                     </div>
                 </div>
             </li>
@@ -82,6 +86,12 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/dataadmin') ?>">Data Admin</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/dataHeader') ?>">Edit Header</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/dataHeaderBackground') ?>">Edit Header Background</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/dataPortfolio') ?>">Edit Portfolio</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/dataJudulTeam') ?>">Edit Judul Teams</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/dataTeam') ?>">Edit Teams</a>
 
                     </div>
                 </div>
