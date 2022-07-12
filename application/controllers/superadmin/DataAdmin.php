@@ -82,6 +82,7 @@ class DataAdmin extends CI_Controller
             $id             = $this->input->post('id');
             $nama_admin     = $this->input->post('nama_admin');
             $hak_akses      = $this->input->post('hak_akses');
+            $email          = $this->input->post('email');
             $username       = $this->input->post('username');
             $password       = $this->input->post('password');
 
@@ -89,6 +90,7 @@ class DataAdmin extends CI_Controller
             $data = array(
                 'nama_admin'    => $nama_admin,
                 'hak_akses'     => $hak_akses,
+                'email'         => $email,
                 'username'      => $username,
                 'password'      => $password,
             );
@@ -122,12 +124,14 @@ class DataAdmin extends CI_Controller
             $id             = $this->input->post('id');
             $nama_admin     = $this->input->post('nama_admin');
             $hak_akses      = $this->input->post('hak_akses');
+            $email          = $this->input->post('email');
             $username       = $this->input->post('username');
             $password       = $this->input->post('password');
 
             $data = array(
                 'nama_admin  '  => $nama_admin,
                 'hak_akses'     => $hak_akses,
+                'email'         => $email,
                 'username'      => $username,
                 'password'      => $password,
 
@@ -148,6 +152,7 @@ class DataAdmin extends CI_Controller
     {
         $this->form_validation->set_rules('nama_admin', 'Nama Admin', 'required');
         $this->form_validation->set_rules('hak_akses', 'hak akses', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
     }

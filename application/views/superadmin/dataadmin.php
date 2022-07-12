@@ -13,6 +13,7 @@
         <tr>
             <th class="text-center bg-primary text-white">No</th>
             <th class="text-center bg-primary text-white">Nama Admin</th>
+            <th class="text-center bg-primary text-white">Email</th>
             <th class="text-center bg-primary text-white">Username</th>
             <th class="text-center bg-primary text-white">Update</th>
             <th class="text-center bg-primary text-white">Delete</th>
@@ -23,6 +24,7 @@
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
                 <td class="text-center"><?php echo $t['nama_admin']; ?></td>
+                <td class="text-center"><?php echo $t['email']; ?></td>
                 <td class="text-center"><?php echo $t['username']; ?></td>
                 <td>
                     <center>

@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'form_validation', 'session'); //berfungsi untuk mengkoneksikan database
+$autoload['libraries'] = array('database', 'email', 'form_validation', 'session'); //berfungsi untuk mengkoneksikan database
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'form'); //url fungsinya untuk menentukan base urlnya dan form berfungsi untuk update tambah form
+$autoload['helper'] = array('url', 'form', 'file', 'security',); //url fungsinya untuk menentukan base urlnya dan form berfungsi untuk update tambah form
 
 /*
 | -------------------------------------------------------------------

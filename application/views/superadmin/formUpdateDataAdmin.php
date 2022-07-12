@@ -27,6 +27,11 @@
                                     <?php echo form_error('username', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="email" class="form-control" value="<?php echo $t->email ?>">
+                                    <?php echo form_error('email', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
                                     <label>Password</label>
                                     <input type="password" name="password" class="form-control" id="myInput" value="<?php echo $t->password ?>">
                                     <input style="margin-top: 13px;" type="checkbox" onclick="myFunction()"> Show Password
