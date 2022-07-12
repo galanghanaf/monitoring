@@ -418,12 +418,30 @@ class Monitoring_model extends CI_Model
 
     public function insert_data($data, $table)
     {
-        $this->db->insert($table, $data);
+        $orig_debug = $this->db->db_debug;
+        $this->db->db_debug = FALSE;
+
+        if ($this->db->insert($table, $data)) {
+            $this->db->db_debug = $orig_debug;
+            return true;
+        } else {
+            $this->db->db_debug = $orig_debug;
+            return false;
+        }
     }
 
     public function update_data($table, $data, $where)
     {
-        $this->db->update($table, $data, $where);
+        $orig_debug = $this->db->db_debug;
+        $this->db->db_debug = FALSE;
+
+        if ($this->db->update($table, $data, $where)) {
+            $this->db->db_debug = $orig_debug;
+            return true;
+        } else {
+            $this->db->db_debug = $orig_debug;
+            return false;
+        }
     }
 
     public function delete_data($where, $table)

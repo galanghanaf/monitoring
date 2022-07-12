@@ -155,7 +155,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-md-6 mb-2">
+                        <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card border-left-danger border-bottom-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="text-xs text-center font-weight-bold text-danger mb-2">
@@ -179,7 +179,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-md-6 mb-2">
+                        <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card border-left-success border-bottom-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="text-xs text-center font-weight-bold text-success mb-2">

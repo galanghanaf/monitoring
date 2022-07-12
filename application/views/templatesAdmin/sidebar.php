@@ -39,19 +39,32 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Rekap Data Collapse Menu -->
+            <!-- Nav Item - Laporan Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa fa-fw fa-sitemap"></i>
-
-                    <span>Monitoring</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-suitcase"></i>
+                    <span>Task</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Task</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/tasklist') ?>">Task List</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/logbook') ?>">Log Book IT</a>
-                        <br>
+
+
+
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Rekap Data Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-sitemap"></i>
+                    <span>Monitoring</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Mapping Network</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/mappingnetworkap') ?>">Access Point</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
@@ -63,34 +76,13 @@
                     </div>
                 </div>
             </li>
-
             <!-- Nav Item - Laporan Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-suitcase"></i>
-                    <span>Asset</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-
-
-
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Laporan Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link" href="<?php echo base_url('admin/myprofile') ?>">
                     <i class="fas fa-fw fa-user-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <div id="collapseHome" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Settings</h6>
-                        <a class="collapse-item" href="<?php echo base_url('admin/myprofile') ?>">My Profile</a>
-                    </div>
-                </div>
+                    <span>My Profile</span></a>
             </li>
+
 
 
 

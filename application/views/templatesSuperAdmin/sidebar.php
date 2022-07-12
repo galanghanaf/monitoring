@@ -87,12 +87,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/dataadmin') ?>">Data Admin</a>
-                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataHeader') ?>">Edit Header</a>
-                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataHeaderBackground') ?>">Edit Header Background</a>
-                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataJudulPortfolio') ?>">Edit Judul Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataPortfolio') ?>">Edit Portfolio</a>
-                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataJudulTeam') ?>">Edit Judul Teams</a>
-                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataTeam') ?>">Edit Teams</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataadmin') ?>">MyProfile</a>
 
                     </div>
                 </div>

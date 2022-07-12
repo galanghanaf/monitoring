@@ -110,7 +110,7 @@ class MyProfile extends CI_Controller
         $data['dataadmin'] = $this->db->query("SELECT * FROM data_admin WHERE id='$id'")->result();
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateDataAdmin', $data);
+        $this->load->view('admin/formUpdateMyProfile', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function updateDataAksi()
@@ -119,17 +119,26 @@ class MyProfile extends CI_Controller
         if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
             redirect('admin/myprofile');
         } else {
+            $email     = $this->input->post('email');
+
             $id             = $this->input->post('id');
             $nama_admin     = $this->input->post('nama_admin');
+            $jabatan     = $this->input->post('jabatan');
+
             $hak_akses      = $this->input->post('hak_akses');
             $username       = $this->input->post('username');
             $password       = $this->input->post('password');
 
             $data = array(
+                'email'      => $email,
                 'nama_admin  '  => $nama_admin,
+                'jabatan'      => $jabatan,
                 'hak_akses'     => $hak_akses,
                 'username'      => $username,
                 'password'      => $password,
+
+
+
 
             );
 
@@ -138,7 +147,7 @@ class MyProfile extends CI_Controller
             );
             $this->Monitoring_model->update_data('data_admin', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Data Berhasil Diupdate!</strong>
+            <strong>Data Berhasil Diupdate! Silahkan Logout Terlebih Dahulu Agar Data Terupdate Dengan Baik.</strong>
             </div>');
             redirect('admin/myprofile');
         }
@@ -146,9 +155,10 @@ class MyProfile extends CI_Controller
 
     public function _rules()
     {
+        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('nama_admin', 'Nama Admin', 'required');
         $this->form_validation->set_rules('hak_akses', 'hak akses', 'required');
-        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
     }
 
