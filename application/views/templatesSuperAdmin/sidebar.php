@@ -8,7 +8,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
-                <div class=" sidebar-brand-text mx-3">App Monitoring</sup>
+                <div class=" sidebar-brand-text mx-3">Monitoring App</sup>
                 </div>
             </a>
 
