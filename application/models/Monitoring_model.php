@@ -178,7 +178,7 @@ class Monitoring_model extends CI_Model
     public function getAssetDescription($limit, $start, $keyword = null)
     {
         if ($keyword) {
-            $this->db->like('assetdescription', $keyword);
+            $this->db->like('asset_description', $keyword);
         }
         return $this->db->get('assetdescription', $limit, $start)->result_array();
     }

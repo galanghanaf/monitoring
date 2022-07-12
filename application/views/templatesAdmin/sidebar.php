@@ -87,6 +87,7 @@
                 <div id="collapseHome" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
+                        <a class="collapse-item" href="<?php echo base_url('admin/myprofile') ?>">My Profile</a>
                     </div>
                 </div>
             </li>

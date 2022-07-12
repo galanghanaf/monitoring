@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2022 at 01:16 PM
+-- Generation Time: Jul 12, 2022 at 09:23 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -69,9 +69,10 @@ INSERT INTO `assetdescription` (`id`, `asset_description`) VALUES
 
 CREATE TABLE `data_admin` (
   `id` int(11) NOT NULL,
-  `nama_admin` varchar(200) NOT NULL,
+  `nama_admin` varchar(200) DEFAULT NULL,
+  `email` varchar(200) NOT NULL,
+  `username` varchar(200) NOT NULL,
   `hak_akses` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -79,9 +80,10 @@ CREATE TABLE `data_admin` (
 -- Dumping data for table `data_admin`
 --
 
-INSERT INTO `data_admin` (`id`, `nama_admin`, `hak_akses`, `username`, `password`) VALUES
-(14, 'Budi', 1, 'budi', 'budi'),
-(17, 'Galang', 2, 'galang', 'galang');
+INSERT INTO `data_admin` (`id`, `nama_admin`, `email`, `username`, `hak_akses`, `password`) VALUES
+(14, NULL, 'Budi', 'budi', 1, 'budi'),
+(17, 'galang', 'Galang', 'galang', 2, 'galang'),
+(59, NULL, 'cek', 'cek', 2, 'cek');
 
 -- --------------------------------------------------------
 
@@ -782,7 +784,7 @@ ALTER TABLE `assetdescription`
 --
 ALTER TABLE `data_admin`
   ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`) USING BTREE;
 
 --
 -- Indexes for table `department`
@@ -975,7 +977,7 @@ ALTER TABLE `assetdescription`
 -- AUTO_INCREMENT for table `data_admin`
 --
 ALTER TABLE `data_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `department`

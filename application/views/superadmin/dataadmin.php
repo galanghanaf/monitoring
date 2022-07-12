@@ -8,7 +8,7 @@
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('superadmin/dataadmin/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-hover">
 
         <tr>
             <th class="text-center bg-primary text-white">No</th>
@@ -22,22 +22,27 @@
 
         <?php foreach ($dataadmin as $t) : ?>
             <tr>
-                <td class="text-center"><?php echo ++$start; ?></td>
-                <td class="text-center"><?php echo $t['nama_admin']; ?></td>
-                <td class="text-center"><?php echo $t['email']; ?></td>
-                <td class="text-center"><?php echo $t['username']; ?></td>
-                <td>
-                    <center>
-                        <a class="btn btn-sm btn-primary" href="<?php echo base_url('superadmin/dataadmin/updateData/' . $t['id']) ?>">
-                            <i class="fas fa-edit"></i></a>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('superadmin/dataadmin/deleteData/' . $t['id']) ?>">
-                            <i class="fas fa-trash"></i></a>
-                    </center>
-                </td>
+                <?php if ($t['hak_akses'] != '1') : ?>
+
+                    <td class="text-center"><?php echo ++$start; ?></td>
+                    <td class="text-center"><?php echo $t['nama_admin']; ?></td>
+                    <td class="text-center"><?php echo $t['email']; ?></td>
+                    <td class="text-center"><?php echo $t['username']; ?></td>
+
+                    <td>
+                        <center>
+                            <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/dataadmin/updateData/' . $t['id']) ?>">
+                                <i class="fas fa-edit"></i></a>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/dataadmin/deleteData/' . $t['id']) ?>">
+                                <i class="fas fa-trash"></i></a>
+                        </center>
+                    </td>
+
+                <?php endif ?>
             </tr>
         <?php endforeach; ?>
     </table>
