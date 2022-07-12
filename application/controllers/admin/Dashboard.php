@@ -38,6 +38,8 @@ class Dashboard extends CI_Controller
         $data['itot_asset'] = $itot_asset->num_rows();
 
 
+
+
         $id = $this->session->userdata('id');
         $this->load->model('Monitoring_model', 'monitoring');
 

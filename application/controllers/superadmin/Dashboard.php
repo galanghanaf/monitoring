@@ -41,6 +41,12 @@ class Dashboard extends CI_Controller
 
         $data['header'] = $this->monitoring->getAllHeader();
 
+        $data['mappingnetwork'] = $this->monitoring->getAllMappingNetwork();
+        $data['mappingnetworkap'] = $this->monitoring->getAllMappingNetworkAP();
+        $data['ipstatic2'] = $this->monitoring->getAllIpStatic();
+        $data['mappingitotasset'] = $this->monitoring->getAllItOtAsset();
+
+
 
         // berfungsi untuk memanggil view, yang berguna untuk menata file url
         $this->load->view('templatesSuperAdmin/header', $data);
