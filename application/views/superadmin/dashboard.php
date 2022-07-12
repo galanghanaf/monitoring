@@ -6,6 +6,7 @@
                         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
                     </div>
 
+                    <div class="alert alert-success font-weight-bold ">Selamat Datang <?php echo $this->session->userdata('nama_admin') ?>, Anda Login Sebagai Super Admin!</div>
 
                     <!-- Content Row -->
                     <div class="row">
@@ -104,7 +105,6 @@
                         </div>
                     </div>
 
-                    <div class="alert alert-success font-weight-bold ">Selamat Datang <?php echo $this->session->userdata('nama_admin') ?>, Anda Login Sebagai Super Admin</div>
 
                 </div>
                 <!-- /.container-fluid -->

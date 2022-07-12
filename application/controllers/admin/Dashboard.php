@@ -16,7 +16,9 @@ class Dashboard extends CI_Controller
         $data['title'] = "Dashboard"; //untuk title pada dasboard
 
 
-        $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
+        $superadmin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
+        $data['superadmin'] = $superadmin->num_rows();
+        $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '2'");
         $data['admin'] = $admin->num_rows();
 
         $task_list = $this->db->query("SELECT * FROM task_list");
@@ -24,6 +26,16 @@ class Dashboard extends CI_Controller
 
         $logbook = $this->db->query("SELECT * FROM logbook");
         $data['logbook'] = $logbook->num_rows();
+
+        $accesspoint = $this->db->query("SELECT * FROM mapping_networkap");
+        $data['accesspoint'] = $accesspoint->num_rows();
+        $ipstatic = $this->db->query("SELECT * FROM ipstatic");
+        $data['ipstatic'] = $ipstatic->num_rows();
+        $switch = $this->db->query("SELECT * FROM mapping_network");
+        $data['switch'] = $switch->num_rows();
+
+        $itot_asset = $this->db->query("SELECT * FROM itot_asset");
+        $data['itot_asset'] = $itot_asset->num_rows();
 
 
         $id = $this->session->userdata('id');

@@ -26,6 +26,15 @@ class Dashboard extends CI_Controller
         $logbook = $this->db->query("SELECT * FROM logbook");
         $data['logbook'] = $logbook->num_rows();
 
+        $accesspoint = $this->db->query("SELECT * FROM mapping_networkap");
+        $data['accesspoint'] = $accesspoint->num_rows();
+        $ipstatic = $this->db->query("SELECT * FROM ipstatic");
+        $data['ipstatic'] = $ipstatic->num_rows();
+        $switch = $this->db->query("SELECT * FROM mapping_network");
+        $data['switch'] = $switch->num_rows();
+
+        $itot_asset = $this->db->query("SELECT * FROM itot_asset");
+        $data['itot_asset'] = $itot_asset->num_rows();
 
         $id = $this->session->userdata('id');
         $this->load->model('Monitoring_model', 'monitoring');
