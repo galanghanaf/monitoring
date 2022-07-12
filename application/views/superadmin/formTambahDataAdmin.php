@@ -16,7 +16,7 @@
                                     <label>Nama Admin</label>
                                     <input type="text" name="nama_admin" class="form-control">
                                     <?php echo form_error('nama_admin', '<div class="text small text-danger"></div>') ?>
-                                    <input type="hidden" name="hak_akses" class="form-control" value="1">
+                                    <input type="hidden" name="hak_akses" class="form-control" value="2">
                                     <?php echo form_error('hak_akses', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
