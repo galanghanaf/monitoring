@@ -9,24 +9,6 @@ class Welcome extends CI_Controller
 		//Load model
 		$this->load->model('Monitoring_model', 'monitoring');
 
-		$data['portfolio'] = $this->monitoring->getAllPortfolio();
-		$data['portfolio1'] = $this->monitoring->getAllPortfolio1();
-		$data['portfolio2'] = $this->monitoring->getAllPortfolio2();
-		$data['portfolio3'] = $this->monitoring->getAllPortfolio3();
-		$data['portfolio4'] = $this->monitoring->getAllPortfolio4();
-		$data['portfolio5'] = $this->monitoring->getAllPortfolio5();
-		$data['portfolio6'] = $this->monitoring->getAllPortfolio6();
-
-		$data['team'] = $this->monitoring->getAllTeam();
-		$data['team1'] = $this->monitoring->getAllTeam1();
-		$data['team2'] = $this->monitoring->getAllTeam2();
-		$data['team3'] = $this->monitoring->getAllTeam3();
-		$data['team4'] = $this->monitoring->getAllTeam4();
-		$data['team5'] = $this->monitoring->getAllTeam5();
-
-		$data['header'] = $this->monitoring->getAllHeader();
-
-		$data['header_background'] = $this->monitoring->getAllHeaderBackground();
 
 		$superadmin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
 		$data['superadmin'] = $superadmin->num_rows();

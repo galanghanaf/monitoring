@@ -39,8 +39,6 @@ class Dashboard extends CI_Controller
         $id = $this->session->userdata('id');
         $this->load->model('Monitoring_model', 'monitoring');
 
-        $data['header'] = $this->monitoring->getAllHeader();
-
         $data['mappingnetwork'] = $this->monitoring->getAllMappingNetwork();
         $data['mappingnetworkap'] = $this->monitoring->getAllMappingNetworkAP();
         $data['ipstatic2'] = $this->monitoring->getAllIpStatic();

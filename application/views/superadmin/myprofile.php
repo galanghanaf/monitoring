@@ -26,7 +26,7 @@
                                 <?php } ?>
                                 <p class="text-muted mb-4"><?php echo $t['email']; ?></p>
                                 <div class="d-flex justify-content-center mb-2">
-                                    <a class="btn btn-outline-primary mt-2" href="<?php echo base_url('admin/myprofile/updateData/' . $t['id']) ?>">
+                                    <a class="btn btn-outline-primary mt-2" href="<?php echo base_url('superadmin/myprofile/updateData/' . $t['id']) ?>">
                                         <b>Edit My Profile</b></a>
                                 </div>
                             </div>

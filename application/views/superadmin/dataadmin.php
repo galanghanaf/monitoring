@@ -31,13 +31,13 @@
 
                     <td>
                         <center>
-                            <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/dataadmin/updateData/' . $t['id']) ?>">
+                            <a class="btn btn-sm btn-primary" href="<?php echo base_url('superadmin/dataadmin/updateData/' . $t['id']) ?>">
                                 <i class="fas fa-edit"></i></a>
                         </center>
                     </td>
                     <td>
                         <center>
-                            <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/dataadmin/deleteData/' . $t['id']) ?>">
+                            <a onclick="return confirm('Konfirmasi Penghapusan Data')" class="btn btn-sm btn-danger" href="<?php echo base_url('superadmin/dataadmin/deleteData/' . $t['id']) ?>">
                                 <i class="fas fa-trash"></i></a>
                         </center>
                     </td>

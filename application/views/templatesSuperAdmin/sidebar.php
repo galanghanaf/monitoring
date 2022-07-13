@@ -87,7 +87,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Settings</h6>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/dataadmin') ?>">Data Admin</a>
-                        <a class="collapse-item" href="<?php echo base_url('superadmin/dataadmin') ?>">MyProfile</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/myprofile') ?>">MyProfile</a>
 
                     </div>
                 </div>
@@ -135,9 +135,9 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?php echo base_url('superadmin/profilAdmin') ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('superadmin/myprofile') ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Ganti Password
+                                    My Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('Welcome/logout') ?>" data-toggle="modal" data-target="#logoutModal">

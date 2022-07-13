@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             <?php foreach ($dataadmin as $t) : ?>
-                                <?php echo form_open_multipart('admin/myprofile/updateDataAksi') ?>
+                                <?php echo form_open_multipart('superadmin/myprofile/updateDataAksi') ?>
 
                                 <div class="form-group">
                                     <label>Nama Admin</label>

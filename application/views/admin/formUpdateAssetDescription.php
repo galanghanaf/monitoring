@@ -17,7 +17,7 @@
                                 <div class="form-group">
                                     <label>Asset Description</label>
                                     <input type="hidden" name="id" class="form-control" value="<?php echo $e->id ?>">
-                                    <input type="text" name="asset_description" class="form-control" value="<?php echo $e->assetdescription ?>">
+                                    <input type="text" name="asset_description" class="form-control" value="<?php echo $e->asset_description ?>">
                                     <?php echo form_error('asset_description', '<div class="text small text-danger"></div>') ?>
                                 </div>
 

@@ -5,7 +5,7 @@ class MyProfile extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('hak_akses') != '2') {
+        if ($this->session->userdata('hak_akses') != '1') {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				<strong>Anda Belum Login!</strong></div>');
             redirect('Welcome');
@@ -20,7 +20,7 @@ class MyProfile extends CI_Controller
 
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/myprofile/index');
+        $config['base_url'] = site_url('superadmin/myprofile/index');
         $config['total_rows'] = $this->monitoring->countAllDataAdmin();
         $config['per_page'] = 5;
 
@@ -60,46 +60,12 @@ class MyProfile extends CI_Controller
         $data['start'] = $this->uri->segment(4);
         $data['dataadmin'] = $this->monitoring->getDataAdmin($config['per_page'], $data['start']);
         //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
-        $this->load->view('templatesAdmin/header', $data);
-        $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/myprofile', $data);
-        $this->load->view('templatesAdmin/footer');
+        $this->load->view('templatesSuperAdmin/header', $data);
+        $this->load->view('templatesSuperAdmin/sidebar');
+        $this->load->view('superadmin/myprofile', $data);
+        $this->load->view('templatesSuperAdmin/footer');
     }
-    public function tambahData()
-    {
-        $data['title'] = "Edit My Profile";
-        $this->load->view('templatesAdmin/header', $data);
-        $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formTambahDataAdmin', $data);
-        $this->load->view('templatesAdmin/footer');
-    }
-    public function tambahDataAksi()
-    {
-        $this->_rules(); //function ini berfungsi untuk melakukan form_validation
-        if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
-            $this->tambahData();
-        } else {
-            $id             = $this->input->post('id');
-            $nama_admin     = $this->input->post('nama_admin');
-            $hak_akses      = $this->input->post('hak_akses');
-            $username       = $this->input->post('username');
-            $password       = $this->input->post('password');
 
-
-            $data = array(
-                'nama_admin'    => $nama_admin,
-                'hak_akses'     => $hak_akses,
-                'username'      => $username,
-                'password'      => $password,
-            );
-
-            $this->Monitoring_model->insert_data($data, 'data_admin');
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Data Berhasil Ditambahkan!</strong>
-            </div>');
-            redirect('admin/myprofile');
-        }
-    }
     /*
     fungsi function ini untuk melakukan form_validation, tujuan untuk menentukan rules dari setiap input yang ada pada views 
         //disini kita men set rules dengan required, artinya form wajib di isi
@@ -108,22 +74,21 @@ class MyProfile extends CI_Controller
     {
         $data['title'] = 'Update My Profile';
         $data['dataadmin'] = $this->db->query("SELECT * FROM data_admin WHERE id='$id'")->result();
-        $this->load->view('templatesAdmin/header', $data);
-        $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateMyProfile', $data);
-        $this->load->view('templatesAdmin/footer');
+        $this->load->view('templatesSuperAdmin/header', $data);
+        $this->load->view('templatesSuperAdmin/sidebar');
+        $this->load->view('superadmin/formUpdateMyProfile', $data);
+        $this->load->view('templatesSuperAdmin/footer');
     }
     public function updateDataAksi()
     {
         $this->_rules(); //function ini berfungsi untuk melakukan form_validation
         if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
-            redirect('admin/myprofile');
+            redirect('superadmin/myprofile');
         } else {
             $email     = $this->input->post('email');
 
             $id             = $this->input->post('id');
             $nama_admin     = $this->input->post('nama_admin');
-
             $hak_akses      = $this->input->post('hak_akses');
             $username       = $this->input->post('username');
             $password       = $this->input->post('password');
@@ -147,7 +112,7 @@ class MyProfile extends CI_Controller
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate! Silahkan Logout Terlebih Dahulu Agar Data Terupdate Dengan Baik.</strong>
             </div>');
-            redirect('admin/myprofile');
+            redirect('superadmin/myprofile');
         }
     }
 
@@ -158,14 +123,5 @@ class MyProfile extends CI_Controller
         $this->form_validation->set_rules('hak_akses', 'hak akses', 'required');
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
-    }
-
-    public function deleteData($id)
-    {
-        $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'data_admin');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/myprofile');
     }
 }

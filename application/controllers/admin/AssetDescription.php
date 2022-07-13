@@ -147,7 +147,7 @@ class AssetDescription extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('assetdescription', 'Asset Description', 'required');
+        $this->form_validation->set_rules('asset_description', 'Asset Description', 'required');
     }
 
     public function deleteData($id)
