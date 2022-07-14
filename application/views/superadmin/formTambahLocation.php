@@ -10,11 +10,16 @@
                     <div class="card">
                         <div class="card-body">
                             <?php echo form_open_multipart('superadmin/location/tambahDataAksi') ?>
-                            <form method="post" action="<?php echo base_url('superadmin/location/tambahDataAksi') ?>" enctype="multipart/form-data">
+                            <form method="post" action="<?php echo base_url('admin/location/tambahDataAksi') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Location</label>
                                     <input type="text" name="location" class="form-control">
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="from-group">
+                                    <label>Photo</label>
+                                    <input type="file" name="photo" class="form-control">
+                                    <?php echo form_error('photo', '<div class="text-small text-danger"></div>') ?>
                                 </div>
 
 

@@ -28,7 +28,7 @@
         <tr>
             <th class="text-center bg-primary text-white">No</th>
             <th class="text-center bg-primary text-white">Location</th>
-
+            <th class="text-center bg-primary text-white">Photo</th>
             <th class="text-center bg-warning text-white">Update</th>
             <th class="text-center bg-danger text-white">Delete</th>
 
@@ -48,6 +48,7 @@
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
                 <td class="text-center"><?php echo $l['location']; ?></td>
+                <td class="text-center"><img src="<?= base_url() . 'assets/team/' . $l['photo'] ?>" width="75px"></td>
 
 
 

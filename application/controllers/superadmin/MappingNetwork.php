@@ -113,8 +113,7 @@ class MappingNetwork extends CI_Controller
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
             $location        = $this->input->post('location');
-            $latitude        = $this->input->post('latitude');
-            $longitude        = $this->input->post('longitude');
+
 
 
             $data = array(
@@ -127,8 +126,7 @@ class MappingNetwork extends CI_Controller
                 'switch'         => $switch,
                 'port'           => $port,
                 'location'       => $location,
-                'latitude'       => $latitude,
-                'longitude'       => $longitude,
+
             );
 
             $this->Monitoring_model->insert_data($data, 'mapping_network');
@@ -171,8 +169,7 @@ class MappingNetwork extends CI_Controller
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
             $location        = $this->input->post('location');
-            $latitude        = $this->input->post('latitude');
-            $longitude        = $this->input->post('longitude');
+
 
 
             $data = array(
@@ -185,8 +182,7 @@ class MappingNetwork extends CI_Controller
                 'switch'         => $switch,
                 'port'           => $port,
                 'location'       => $location,
-                'latitude'       => $latitude,
-                'longitude'       => $longitude,
+
 
             );
             $where = array(

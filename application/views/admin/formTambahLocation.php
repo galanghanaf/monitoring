@@ -16,6 +16,11 @@
                                     <input type="text" name="location" class="form-control">
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
+                                <div class="from-group">
+                                    <label>Photo</label>
+                                    <input type="file" name="photo" class="form-control">
+                                    <?php echo form_error('photo', '<div class="text-small text-danger"></div>') ?>
+                                </div>
 
 
 

@@ -40,7 +40,7 @@ class MappingNetworkAP extends CI_Controller
         $this->db->from('mapping_networkap');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
-        $config['per_page'] = 99999999999999999999999;
+        $config['per_page'] = 10;
 
         //styling
         $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
@@ -113,9 +113,6 @@ class MappingNetworkAP extends CI_Controller
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
             $location        = $this->input->post('location');
-            $latitude        = $this->input->post('latitude');
-            $longitude        = $this->input->post('longitude');
-
 
             $data = array(
                 'asset_description'    => $asset_description,
@@ -127,8 +124,7 @@ class MappingNetworkAP extends CI_Controller
                 'switch'         => $switch,
                 'port'           => $port,
                 'location'       => $location,
-                'latitude'       => $latitude,
-                'longitude'       => $longitude,
+
             );
 
             $this->Monitoring_model->insert_data($data, 'mapping_networkap');
@@ -172,8 +168,7 @@ class MappingNetworkAP extends CI_Controller
             $switch          = $this->input->post('switch');
             $port            = $this->input->post('port');
             $location        = $this->input->post('location');
-            $latitude        = $this->input->post('latitude');
-            $longitude        = $this->input->post('longitude');
+
 
 
             $data = array(
@@ -188,8 +183,7 @@ class MappingNetworkAP extends CI_Controller
                 'switch'         => $switch,
                 'port'           => $port,
                 'location'       => $location,
-                'latitude'       => $latitude,
-                'longitude'       => $longitude,
+
 
             );
             $where = array(
@@ -206,7 +200,7 @@ class MappingNetworkAP extends CI_Controller
     public function _rules()
     {
         $this->form_validation->set_rules('ip_address', 'Ip Address', 'required');
-        $this->form_validation->set_rules('mac_address', 'Ip Address', 'required');
+        $this->form_validation->set_rules('mac_address', 'Mac Address', 'required');
     }
 
     public function deleteData($id)

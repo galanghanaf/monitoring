@@ -6,23 +6,8 @@
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
 
-    <div id="map" style="height: 600px;"></div>
-    <script>
-        var map = L.map('map').setView([-6.434244857960943, 106.92771446855967], 18);
 
-        var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-        }).addTo(map);
 
-        <?php foreach ($ipstatic as $t) : ?>
-            L.marker([<?php echo $t['latitude']; ?>, <?php echo $t['longitude']; ?>]).addTo(map)
-                .bindPopup('<b>Hello world!</b><br />I am a popup.');
-        <?php endforeach; ?>
-    </script>
-
-    <br>
-    <br>
 
     <a class="btn btn-sm btn-success mb-3 text-white" href="<?php echo base_url('superadmin/ipstatic/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>

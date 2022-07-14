@@ -9,7 +9,7 @@
                     <!-- /.container-fluid -->
                     <div class="card">
                         <div class="card-body">
-                            <?php foreach ($mappingnetwork as $t) : ?>
+                            <?php foreach ($mappingnetworkap as $t) : ?>
                                 <!--foreach/perulangan berguna untuk mengambil data dari query table-->
                                 <!-- Disini kita baca datanya dengan method POST sesuai pada controllers/admin/dataJabatan-->
                                 <?php echo form_open_multipart('admin/mappingnetworkap/updateDataAksi') ?>
@@ -85,20 +85,7 @@
                                     </select>
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
-                                <div id="map" style="height: 600px;"></div>
-                                <br>
-                                <div class="form-group">
-                                    <label>Latitude</label>
-                                    <input type="text" name="latitude" id="latitude" class="form-control" value="<?php echo $t->latitude ?>" readonly>
-                                    <?php echo form_error('latitude', '<div class="text small text-danger"></div>') ?>
-                                </div>
 
-
-                                <div class=" form-group">
-                                    <label>Longitude</label>
-                                    <input type="text" name="longitude" id="longitude" class="form-control" value="<?php echo $t->longitude ?>" readonly>
-                                    <?php echo form_error('longitude', '<div class="text small text-danger"></div>') ?>
-                                </div>
 
 
                                 <button type="submit" class="btn btn-primary">Save</button>

@@ -120,8 +120,6 @@ class IpStatic extends CI_Controller
             $serial_number   = $this->input->post('serial_number');
             $asset_number    = $this->input->post('asset_number');
             $location        = $this->input->post('location');
-            $latitude        = $this->input->post('latitude');
-            $longitude        = $this->input->post('longitude');
             $user            = $this->input->post('user');
             $password        = $this->input->post('password');
 
@@ -138,8 +136,6 @@ class IpStatic extends CI_Controller
                 'serial_number' => $serial_number,
                 'asset_number'  => $asset_number,
                 'location'      => $location,
-                'latitude'      => $latitude,
-                'longitude'     => $longitude,
                 'user'          => $user,
                 'password'      => $password,
                 'model'         => $model,
@@ -188,8 +184,7 @@ class IpStatic extends CI_Controller
             $serial_number   = $this->input->post('serial_number');
             $asset_number    = $this->input->post('asset_number');
             $location        = $this->input->post('location');
-            $latitude        = $this->input->post('latitude');
-            $longitude        = $this->input->post('longitude');
+
             $user            = $this->input->post('user');
             $password        = $this->input->post('password');
 
@@ -206,8 +201,6 @@ class IpStatic extends CI_Controller
                 'serial_number' => $serial_number,
                 'asset_number'  => $asset_number,
                 'location'      => $location,
-                'latitude'      => $latitude,
-                'longitude'     => $longitude,
                 'user'          => $user,
                 'password'      => $password,
                 'model'         => $model,

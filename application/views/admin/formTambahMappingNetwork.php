@@ -9,7 +9,6 @@
                     <!-- /.container-fluid -->
                     <div class="card">
                         <div class="card-body">
-                            <?php echo form_open_multipart('admin/mappingnetwork/tambahDataAksi') ?>
                             <form method="post" action="<?php echo base_url('admin/mappingnetwork/tambahDataAksi') ?>" enctype="multipart/form-data">
 
                                 <div class="form-group">
@@ -72,20 +71,6 @@
                                         <?php endforeach; ?>
                                     </select>
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
-                                </div>
-
-                                <div id="map" style="height: 600px;"></div>
-                                <br>
-
-                                <div class="form-group">
-                                    <label>Latitude</label>
-                                    <input type="text" name="latitude" id="latitude" class="form-control" readonly>
-                                    <?php echo form_error('latitude', '<div class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Longitude</label>
-                                    <input type="text" name="longitude" id="longitude" class="form-control" readonly>
-                                    <?php echo form_error('longitude', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Save</button>

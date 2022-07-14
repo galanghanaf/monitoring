@@ -93,11 +93,26 @@ class Location extends CI_Controller
         } else {
             $id             = $this->input->post('id');
             $location    = $this->input->post('location');
+            $photo              = $_FILES['photo']['name'];
+            if ($photo = '') {
+            } else {
+                $config['upload_path']  = './assets/team';
+                $config['allowed_types']  = 'jpg|jpeg|png|tiff';
+
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('photo')) {
+                    echo "Photo Gagal diUpload!";
+                    die();
+                } else {
+                    $photo = $this->upload->data('file_name');
+                }
+            }
 
 
 
             $data = array(
                 'location'   => $location,
+                'photo' => $photo,
 
 
             );
@@ -129,11 +144,23 @@ class Location extends CI_Controller
         } else {
             $id             = $this->input->post('id');
             $location    = $this->input->post('location');
-
+            $photo              = $_FILES['photo']['name'];
+            if ($photo) {
+                $config['upload_path']  = './assets/team';
+                $config['allowed_types']  = 'jpg|jpeg|png|tiff';
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('photo')) {
+                    $photo = $this->upload->data('file_name');
+                    $this->db->set('photo', $photo);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
 
 
             $data = array(
                 'location'   => $location,
+                'photo' => $photo,
 
 
 

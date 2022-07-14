@@ -6,22 +6,7 @@
         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
     </div>
 
-    <div id="map" style="height: 600px;"></div>
-    <script>
-        var map = L.map('map').setView([-6.434244857960943, 106.92771446855967], 18);
 
-        var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 20,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-        }).addTo(map);
-
-        <?php foreach ($mappingnetwork as $mn) : ?>
-            L.marker([<?php echo $mn['latitude']; ?>, <?php echo $mn['longitude']; ?>]).addTo(map)
-                .bindPopup('Hostname : <b><?php echo $mn['hostname']; ?></b><br/>Model/Type : <b><?php echo $mn['model']; ?></b><br/>Serial Number : <b><?php echo $mn['serial_number']; ?></b><br/>Ip Address : <b><?php echo $mn['ip_address']; ?></b><br/>Mac Address : <b><?php echo $mn['mac_address']; ?></b><br/>Switch : <b><?php echo $mn['switch']; ?></b><br/>Port : <b><?php echo $mn['port']; ?></b><br/>Location : <b><?php echo $mn['location']; ?></b><br/>');
-        <?php endforeach; ?>
-    </script>
-    <br>
-    <br>
 
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/mappingnetwork/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
@@ -53,8 +38,6 @@
             <th class="text-center bg-primary text-white">Switch</th>
             <th class="text-center bg-primary text-white">Port</th>
             <th class="text-center bg-primary text-white">Location</th>
-            <th class="text-center bg-primary text-white">Latitude</th>
-            <th class="text-center bg-primary text-white">Longitude</th>
             <th class="text-center bg-warning text-white">Update</th>
             <th class="text-center bg-danger text-white">Delete</th>
 
@@ -81,8 +64,6 @@
                 <td class="text-center"><?php echo $l['switch']; ?></td>
                 <td class="text-center"><?php echo $l['port']; ?></td>
                 <td class="text-center"><?php echo $l['location']; ?></td>
-                <td class="text-center"><?php echo $l['latitude']; ?></td>
-                <td class="text-center"><?php echo $l['longitude']; ?></td>
 
                 <td class="text-center">
                     <center>

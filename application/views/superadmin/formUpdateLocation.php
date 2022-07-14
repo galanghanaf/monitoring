@@ -20,6 +20,12 @@
                                     <input type="text" name="location" class="form-control" value="<?php echo $l->location ?>">
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
+                                <div class="form-group">
+                                    <label>Photo</label>
+                                    <input type="file" name="photo" class="form-control" value="<?php echo $l->photo ?>">
+                                    <!-- function rules kita panggil dengan form_error, untuk menampilkan pesan masalahnya-->
+                                    <?php echo form_error('photo', '<div class="text small text-danger"></div>') ?>
+                                </div>
 
 
 

@@ -444,6 +444,11 @@ class Monitoring_model extends CI_Model
         }
     }
 
+    public function update_data1($table, $data, $where)
+    {
+        $this->db->update($table, $data, $where);
+    }
+
     public function delete_data($where, $table)
     {
         $this->db->where($where);
