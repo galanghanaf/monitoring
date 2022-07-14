@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2022 at 02:17 AM
+-- Generation Time: Jul 14, 2022 at 05:02 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,19 +29,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `area_location` (
   `id` int(11) NOT NULL,
-  `location` varchar(300) NOT NULL
+  `location` varchar(300) NOT NULL,
+  `photo` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `area_location`
 --
 
-INSERT INTO `area_location` (`id`, `location`) VALUES
-(1, 'Area Office Lt2'),
-(2, 'Area Office Lt3'),
-(7, 'wagawg'),
-(8, 'afwag'),
-(9, 'waeg');
+INSERT INTO `area_location` (`id`, `location`, `photo`) VALUES
+(1, 'Area Office Lt2', '2.jpg'),
+(2, 'Area Office Lt3', 'Picture1.jpg'),
+(7, 'wagawg', ''),
+(8, 'afwag', ''),
+(9, 'waeg', '5.png'),
+(10, 'afweafe', '2.jpg'),
+(11, 'afewawg', '1.png'),
+(12, 'faf', '11.png');
 
 -- --------------------------------------------------------
 
@@ -83,7 +87,7 @@ CREATE TABLE `data_admin` (
 
 INSERT INTO `data_admin` (`id`, `email`, `nama_admin`, `username`, `hak_akses`, `password`) VALUES
 (60, 'galanghanafi8@gmail.com', 'Galang Hanafi', 'galang', 2, 'galang'),
-(62, 'budi@gmail.com', 'Budis', 'budi', 1, 'budi'),
+(62, 'budi@gmail.comd', 'Budis', 'budi', 1, 'budi'),
 (63, 'ctr@gmail.com', 'ctr', 'ctr', 2, 'ctr');
 
 -- --------------------------------------------------------
@@ -105,7 +109,8 @@ INSERT INTO `department` (`id`, `department`) VALUES
 (1, 'HR'),
 (14, 'Logistik'),
 (15, 'awff'),
-(16, 'a');
+(16, 'a'),
+(17, 'cekd');
 
 -- --------------------------------------------------------
 
@@ -231,7 +236,9 @@ INSERT INTO `ipstatic` (`id`, `vlan`, `up_link`, `port`, `ip_address`, `mac_addr
 (136, '', '', '80', '127.0.0.1', 'asfwef', '', '', '', '', '', '', '', '', '', '-6.434831471675636', '106.92852079868318'),
 (137, '', '', '', 'awgaweg', 'awgeaweg', '', 'Laptop HP 840 G3', 'Cisco', 'Cisco', 'awegawg', 'awegwaeg', 'Area Office Lt2', '', '', '-6.434175804741606', '106.9263106584549'),
 (138, '', '', '', 'waef', 'wafe', 'awf', 'Laptop HP 840 G1', 'Cisco', 'Cisco', 'waeg', 'aweg', 'wagawg', 'waef', 'awfe', '-6.433610757761918', '106.92772150039674'),
-(139, '', '', '', 'https://www.google.com/', 'asdfaweg', '', '', '', '', '', '', '', '', '', '-6.434357046092543', '106.9276785850525');
+(139, '', '', '', 'test', 'asdfaweg', '', '', '', '', '', '', '', '', '', '-6.434357046092543', '106.9276785850525'),
+(140, '', '', '345', '3454254', 'dfsfgshserh', 'galang', '', '', '', '', '', '', '', '', NULL, NULL),
+(141, '', '', '34', 'rgse', 'esrgse', '', '', '', '', '', '', '', '', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -276,17 +283,17 @@ CREATE TABLE `itot_asset` (
   `sep` varchar(50) NOT NULL,
   `osversion` varchar(100) NOT NULL,
   `latitude` varchar(200) DEFAULT NULL,
-  `longitude` varchar(200) DEFAULT NULL
+  `longitude` varchar(200) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `itot_asset`
 --
 
-INSERT INTO `itot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asset_number`, `asset_description`, `serial_number`, `model`, `computer_name`, `qty`, `acquis_val`, `accum_dep`, `book_val`, `fixed_asset1`, `fixed_asset2`, `fixed_asset3`, `in_use`, `idle`, `damage`, `label`, `status`, `location`, `user`, `cap_date`, `note`, `network_ot`, `network_it`, `mac_address`, `ip_address`, `nead`, `sccm`, `sep`, `osversion`, `latitude`, `longitude`) VALUES
-(1, '', '', 'cek', 'wefawf', '', 'waeg', 'aweg', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434458327995797', '106.92754983901978'),
-(2, 'Yes', 'No', 'fqwefq', 'qwewqfqw', 'weg', 'qwfqd', 'qwdqf', 'wqf', 'Cisco', 'qfw', 'qwf', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'asgw', 'Area Office Lt2', 'waeg', '0000-00-00', 'wage', 'waeg', 'aweg', 'awegafe', 'awefgaew', 'waeg', 'agwe', 'asfs', 'Windows', '-6.434378368600171', '106.92815601825716'),
-(3, 'No', 'Yes', 'awef', 'weag', 'aweg', 'aweg', 'Cek', 'aweg', 'Cisco', 'aweg', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Area Office Lt3', 'waeaweg', '0000-00-00', 'waeg', 'wage', 'awef', 'aweg', 'aweg', 'aweg', 'aefe', 'aweg', 'Linux', NULL, NULL);
+INSERT INTO `itot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asset_number`, `asset_description`, `serial_number`, `model`, `computer_name`, `qty`, `acquis_val`, `accum_dep`, `book_val`, `fixed_asset1`, `fixed_asset2`, `fixed_asset3`, `in_use`, `idle`, `damage`, `label`, `status`, `location`, `user`, `cap_date`, `note`, `network_ot`, `network_it`, `mac_address`, `ip_address`, `nead`, `sccm`, `sep`, `osversion`, `latitude`, `longitude`, `photo`) VALUES
+(3, 'No', 'Yes', 'awef', 'weag', 'aweg', 'aweg', 'Cek', 'aweg', 'Cisco', 'aweg', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Area Office Lt3', 'waeaweg', '0000-00-00', 'waeg', 'wage', 'awef', 'aweg', 'aweg', 'aweg', 'aefe', 'aweg', 'Linux', '-6.434175804741606', '106.92811310291292', 'Picture1.jpg'),
+(4, 'Yes', 'Yes', 'waeg', 'waef', 'waefawg', 'ewafwag', 'Cekf', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.4344903117505154', '106.92795753479005', '2.jpg');
 
 -- --------------------------------------------------------
 
@@ -358,27 +365,18 @@ CREATE TABLE `mapping_network` (
   `port` varchar(150) DEFAULT NULL,
   `location` varchar(150) DEFAULT NULL,
   `latitude` varchar(200) DEFAULT NULL,
-  `longitude` varchar(200) DEFAULT NULL
+  `longitude` varchar(200) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mapping_network`
 --
 
-INSERT INTO `mapping_network` (`id`, `asset_description`, `hostname`, `model`, `serial_number`, `ip_address`, `mac_address`, `switch`, `port`, `location`, `latitude`, `longitude`) VALUES
-(2, 'galang', 'awegawf', 'awf', 'awef', 'ga', 'awegawhwaawfa', 'asd', 'awge', 'Area Office Lt3', '-6.4344316748653165', '106.92796289920808'),
-(3, 'f', '', '', '', 'feaw', 'waeg', '', '', '', '-6.434325062329429', '106.9276410341263'),
-(4, 'g', '', '', '', 'weag', 'ewag', '', '', '', '-6.434047869631426', '106.92941129207613'),
-(17, 'awg', 'awg', 'awgh', NULL, 'awh', 'awg', 'awh', 'afsfsa', 'Area Office Lt3', '-6.434133159708463', '106.9262194633484'),
-(18, 'wag', 'wag', 'wage', NULL, 'wag', 'wag', 'wag', 'wagewah', 'Area Office Lt3', '-6.434506303627137', '106.92674517631532'),
-(19, 'awh', 'awh', 'awh', NULL, 'aweh', 'waeh', 'aweh', 'aweh', '', '-6.434341054211241', '106.92832231521608'),
-(20, 'aweh', 'aweg', 'awh', NULL, 'waeh', 'awh', 'wah', 'wah', '', '-6.433402862960308', '106.92974388599397'),
-(21, 'awfsa', 'awegh', 'asgh', NULL, 'awge', 'wah', 'awfs', 'waegh', 'Area Office Lt3', '-6.435193953845048', '106.9276249408722'),
-(22, 'waef', 'wahwea', 'aweh', NULL, 'awhe', 'aweh', 'waeh', 'awh', 'afwag', '-6.433131000399118', '106.92592442035676'),
-(23, 'awe', 'he', 'awh', NULL, 'awh', 'awf', 'asdf', 'waegh', 'Area Office Lt3', '-6.433525467597186', '106.92929327487947'),
-(24, 'asdf', 'awefg', 'awhfsd', '', 'asdfasg', 'asg', 'hwaef', 'awheawe', 'Area Office Lt3', '-6.435391186681513', '106.92812383174898'),
-(25, 'Cek', 'afwef', 'Cisco', NULL, 'ewaf', 'waef', 'wefa', 'wega', 'Area Office Lt2', '-6.434687544860177', '106.92821502685547'),
-(26, 'Cek', 'awef', 'Cisco', NULL, 'aweg', 'waeg', 'awge', 'aweg', 'Area Office Lt2', '-6.434506303627137', '106.92757666110994');
+INSERT INTO `mapping_network` (`id`, `asset_description`, `hostname`, `model`, `serial_number`, `ip_address`, `mac_address`, `switch`, `port`, `location`, `latitude`, `longitude`, `photo`) VALUES
+(60, '', 'galang', '', NULL, 'galang', 'galang', '', '', '', '', '', NULL),
+(61, '', '', '', NULL, 'awef', 'awegaw', '', '', '', '', '', ''),
+(62, '', '', 'Cisco', NULL, 'galang', 'galang', '', '', 'Area Office Lt2', '-6.434564940503722', '106.92790389060974', '2.jpg');
 
 -- --------------------------------------------------------
 
@@ -388,18 +386,18 @@ INSERT INTO `mapping_network` (`id`, `asset_description`, `hostname`, `model`, `
 
 CREATE TABLE `mapping_networkap` (
   `id` int(11) NOT NULL,
-  `asset_description` varchar(200) DEFAULT NULL,
-  `hostname` varchar(150) DEFAULT NULL,
-  `model` varchar(200) DEFAULT NULL,
-  `pcb_serial_number` varchar(200) DEFAULT NULL,
-  `assembly_serial_number` varchar(200) DEFAULT NULL,
-  `ip_address` varchar(150) DEFAULT NULL,
-  `mac_address` varchar(150) DEFAULT NULL,
-  `switch` varchar(150) DEFAULT NULL,
-  `port` varchar(150) DEFAULT NULL,
-  `location` varchar(300) DEFAULT NULL,
-  `latitude` varchar(300) DEFAULT NULL,
-  `longitude` varchar(300) DEFAULT NULL
+  `asset_description` varchar(200) NOT NULL,
+  `hostname` varchar(150) NOT NULL,
+  `model` varchar(200) NOT NULL,
+  `pcb_serial_number` varchar(200) NOT NULL,
+  `assembly_serial_number` varchar(200) NOT NULL,
+  `ip_address` varchar(150) NOT NULL,
+  `mac_address` varchar(150) NOT NULL,
+  `switch` varchar(150) NOT NULL,
+  `port` varchar(150) NOT NULL,
+  `location` varchar(300) NOT NULL,
+  `latitude` varchar(300) NOT NULL,
+  `longitude` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -408,7 +406,10 @@ CREATE TABLE `mapping_networkap` (
 
 INSERT INTO `mapping_networkap` (`id`, `asset_description`, `hostname`, `model`, `pcb_serial_number`, `assembly_serial_number`, `ip_address`, `mac_address`, `switch`, `port`, `location`, `latitude`, `longitude`) VALUES
 (1, 'Cek', 'fawef', 'Cisco', 'aweg', 'aweg', 'awegafd', 'asfd', 'awefds', '', 'Area Office Lt3', '-6.433951918277643', '106.9277858734131'),
-(2, 'Cek', 'saefw', 'TP Link', 'aweg', 'aweg', 'aweg', 'awge', 'afd', 'sda', 'Area Office Lt3', '-6.434655561117863', '106.92946493625641');
+(2, 'Cek', 'saefw', 'TP Link', 'aweg', 'aweg', 'aweg', 'awge', 'afd', 'sda', 'Area Office Lt3', '-6.434655561117863', '106.92946493625641'),
+(3, 'Cekf', 'asfwe', '', 'wefa', 'waef', 'wefa', 'wfae', '', '', '', '', ''),
+(4, '', 'awefwag', '', 'awegwaeg', '', 'aweg', 'waeg', '', '', '', '', ''),
+(5, '', '', '', '', '', 'waef', 'waeg', '', '', '', '-6.434730189846783', '106.92779660224916');
 
 -- --------------------------------------------------------
 
@@ -490,7 +491,7 @@ INSERT INTO `task_list` (`id`, `description`, `requester`, `start_date`, `due_da
 (8, 'awegwiojfoijgoiwfawg', 'f', '2022-07-04', '2022-07-05', 'In Progress', 'ewaghwafawfawgawgwaehawrawfawf'),
 (9, 'awef', 'awef', '2022-07-11', '2022-07-15', NULL, 'awf'),
 (10, 'awg', 'awgeaw', '2022-07-02', '2022-07-12', NULL, 'asfwg'),
-(11, 'aega', 'wagea', '2022-07-10', '2022-07-11', 'In Progress', 'waeg'),
+(11, 'galang', 'wagea', '2022-07-10', '2022-07-11', 'In Progress', 'waeg'),
 (12, 'awgwagawgawegawgwaegawegwag', 'waegweagwag', '2022-07-08', '2022-07-09', 'In Progress', 'awegawg'),
 (13, 'wageaw', 'fweqf', '2022-07-10', '2022-07-10', 'In Progress', 'waeg'),
 (14, 'sadsv', 'sdvsav', '2022-07-15', '2022-07-30', 'Completed', 'sdv');
@@ -620,7 +621,7 @@ ALTER TABLE `task_list`
 -- AUTO_INCREMENT for table `area_location`
 --
 ALTER TABLE `area_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `assetdescription`
@@ -638,7 +639,7 @@ ALTER TABLE `data_admin`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -668,13 +669,13 @@ ALTER TABLE `header_background`
 -- AUTO_INCREMENT for table `ipstatic`
 --
 ALTER TABLE `ipstatic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT for table `itot_asset`
 --
 ALTER TABLE `itot_asset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `logbook`
@@ -692,13 +693,13 @@ ALTER TABLE `manufacture`
 -- AUTO_INCREMENT for table `mapping_network`
 --
 ALTER TABLE `mapping_network`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `mapping_networkap`
 --
 ALTER TABLE `mapping_networkap`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `model_asset`

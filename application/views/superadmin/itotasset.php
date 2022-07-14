@@ -17,7 +17,7 @@
 
         <?php foreach ($itotasset as $t) : ?>
             L.marker([<?php echo $t['latitude']; ?>, <?php echo $t['longitude']; ?>]).addTo(map)
-                .bindPopup('<b>Hello world!</b><br />I am a popup.');
+                .bindPopup('IT : <b><?php echo $t['it']; ?></b><br/>OT : <b><?php echo $t['ot']; ?></b><br/>Plant Code : <b><?php echo $t['plant_code']; ?></b><br/>Location : <b><?php echo $t['location']; ?></b><br/ <img src="<?= base_url() . 'assets/team/' . $t['photo'] ?>');
         <?php endforeach; ?>
     </script>
     <br>
@@ -67,6 +67,7 @@
             <th class="text-center bg-primary text-white">Label</th>
             <th class="text-center bg-primary text-white">Status</th>
             <th class="text-center bg-primary text-white">Location</th>
+            <th class="text-center bg-primary text-white">Photo</th>
             <th class="text-center bg-primary text-white">User</th>
             <th class="text-center bg-primary text-white">Cap.date</th>
             <th class="text-center bg-primary text-white">Note</th>
@@ -119,6 +120,7 @@
                 <td class="text-center"><?php echo $t['label']; ?></td>
                 <td class="text-center"><?php echo $t['status']; ?></td>
                 <td class="text-center"><?php echo $t['location']; ?></td>
+                <td class="text-center"><img src="<?= base_url() . 'assets/team/' . $t['photo'] ?>" width="75px"></td>
                 <td class="text-center"><?php echo $t['user']; ?></td>
                 <td class="text-center"><?php echo $t['cap_date']; ?></td>
                 <td class="text-center"><?php echo $t['note']; ?></td>

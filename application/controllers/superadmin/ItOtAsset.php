@@ -38,7 +38,7 @@ class ItOtAsset extends CI_Controller
         $this->db->from('itot_asset');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
-        $config['per_page'] = 10;
+        $config['per_page'] = 99999999999999999;
 
 
         //styling
@@ -125,6 +125,7 @@ class ItOtAsset extends CI_Controller
             $label              = $this->input->post('label');
             $status             = $this->input->post('status');
             $location           = $this->input->post('location');
+            $photo           = $this->input->post('photo');
             $user               = $this->input->post('user');
             $cap_date           = $this->input->post('cap_date');
             $note               = $this->input->post('note');
@@ -163,6 +164,7 @@ class ItOtAsset extends CI_Controller
                 'label'             => $label,
                 'status'            => $status,
                 'location'          => $location,
+                'photo'          => $photo,
                 'user'              => $user,
                 'cap_date'          => $cap_date,
                 'note'              => $note,
@@ -235,6 +237,8 @@ class ItOtAsset extends CI_Controller
             $label              = $this->input->post('label');
             $status             = $this->input->post('status');
             $location           = $this->input->post('location');
+            $photo           = $this->input->post('photo');
+
             $user               = $this->input->post('user');
             $cap_date           = $this->input->post('cap_date');
             $note               = $this->input->post('note');
@@ -273,6 +277,7 @@ class ItOtAsset extends CI_Controller
                 'label'             => $label,
                 'status'            => $status,
                 'location'          => $location,
+                'photo'          => $photo,
                 'user'              => $user,
                 'cap_date'          => $cap_date,
                 'note'              => $note,

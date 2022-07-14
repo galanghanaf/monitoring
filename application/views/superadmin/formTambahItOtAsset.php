@@ -157,6 +157,18 @@
                                     <?php echo form_error('location', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
+                                    <label>Photo Location</label>
+                                    <select name="photo" class="form-control">
+                                        <option value="">Pilih Photo Location</option>
+                                        <?php foreach ($location as $l) : ?>
+                                            <option value="<?php echo $l->photo ?>">
+                                                <?php echo $l->location ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('photo', '<div class="text small text-danger"></div>') ?>
+                                </div>
+                                <div class="form-group">
                                     <label>User</label>
                                     <input type="text" name="user" class="form-control">
                                     <?php echo form_error('user', '<div class="text small text-danger"></div>') ?>
