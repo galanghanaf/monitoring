@@ -327,6 +327,31 @@ class Monitoring_model extends CI_Model
     }
     // End ITOT ASSET
 
+    // Opening OT ASSET
+    public function getAllOtAsset()
+    {
+
+        return $this->db->get('ot_asset')->result_array();
+    }
+
+    public function getOtAsset($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('plant_code', $keyword);
+            $this->db->or_like('cbu', $keyword);
+            $this->db->or_like('asset_number', $keyword);
+            $this->db->or_like('asset_description', $keyword);
+        }
+        return $this->db->get('ot_asset', $limit, $start)->result_array();
+    }
+
+    public function countAllOtAsset()
+    {
+
+        return $this->db->get('ot_asset')->num_rows();
+    }
+    // End OT ASSET
+
     public function getAllHeader()
     {
 

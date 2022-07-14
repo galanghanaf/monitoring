@@ -37,6 +37,9 @@ class Dashboard extends CI_Controller
         $itot_asset = $this->db->query("SELECT * FROM itot_asset");
         $data['itot_asset'] = $itot_asset->num_rows();
 
+        $ot_asset = $this->db->query("SELECT * FROM ot_asset");
+        $data['ot_asset'] = $ot_asset->num_rows();
+
 
 
 
@@ -47,6 +50,8 @@ class Dashboard extends CI_Controller
         $data['mappingnetworkap'] = $this->monitoring->getAllMappingNetworkAP();
         $data['ipstatic2'] = $this->monitoring->getAllIpStatic();
         $data['mappingitotasset'] = $this->monitoring->getAllItOtAsset();
+        $data['mappingotasset'] = $this->monitoring->getAllOtAsset();
+
 
 
         // berfungsi untuk memanggil view, yang berguna untuk menata file url

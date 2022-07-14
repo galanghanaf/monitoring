@@ -72,7 +72,7 @@
                         <br>
                         <h6 class="collapse-header">Asset</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List IT/OT Asset</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List OT Asset</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/otasset') ?>">List OT Asset</a>
                     </div>
                 </div>
             </li>
