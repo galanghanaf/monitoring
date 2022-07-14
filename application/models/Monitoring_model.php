@@ -316,6 +316,13 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('cbu', $keyword);
             $this->db->or_like('asset_number', $keyword);
             $this->db->or_like('asset_description', $keyword);
+            $this->db->or_like('serial_number', $keyword);
+            $this->db->or_like('model', $keyword);
+            $this->db->or_like('computer_name', $keyword);
+            $this->db->or_like('mac_address', $keyword);
+            $this->db->or_like('ip_address', $keyword);
+            $this->db->or_like('osversion', $keyword);
+            $this->db->or_like('location', $keyword);
         }
         return $this->db->get('itot_asset', $limit, $start)->result_array();
     }
@@ -341,6 +348,13 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('cbu', $keyword);
             $this->db->or_like('asset_number', $keyword);
             $this->db->or_like('asset_description', $keyword);
+            $this->db->or_like('serial_number', $keyword);
+            $this->db->or_like('model', $keyword);
+            $this->db->or_like('computer_name', $keyword);
+            $this->db->or_like('mac_address', $keyword);
+            $this->db->or_like('ip_address', $keyword);
+            $this->db->or_like('osversion', $keyword);
+            $this->db->or_like('location', $keyword);
         }
         return $this->db->get('ot_asset', $limit, $start)->result_array();
     }
@@ -351,6 +365,36 @@ class Monitoring_model extends CI_Model
         return $this->db->get('ot_asset')->num_rows();
     }
     // End OT ASSET
+
+    // Opening Access Point
+    public function getAllAccessPoint()
+    {
+
+        return $this->db->get('accesspoint')->result_array();
+    }
+
+    public function getAccessPoint($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('asset_description', $keyword);
+            $this->db->or_like('hostname', $keyword);
+            $this->db->or_like('model', $keyword);
+            $this->db->or_like('pcb', $keyword);
+            $this->db->or_like('assembly', $keyword);
+            $this->db->or_like('mac_address', $keyword);
+            $this->db->or_like('switch', $keyword);
+            $this->db->or_like('port', $keyword);
+            $this->db->or_like('location', $keyword);
+        }
+        return $this->db->get('accesspoint', $limit, $start)->result_array();
+    }
+
+    public function countAllAccessPoint()
+    {
+
+        return $this->db->get('accesspoint')->num_rows();
+    }
+    // End Access Point
 
     public function getAllHeader()
     {

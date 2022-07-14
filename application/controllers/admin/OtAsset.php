@@ -34,6 +34,16 @@ class OtAsset extends CI_Controller
         $this->db->or_like('cbu', $data['keyword']);
         $this->db->or_like('asset_number', $data['keyword']);
         $this->db->or_like('asset_description', $data['keyword']);
+        $this->db->or_like('serial_number', $data['keyword']);
+        $this->db->or_like('model', $data['keyword']);
+        $this->db->or_like('computer_name', $data['keyword']);
+        $this->db->or_like('mac_address', $data['keyword']);
+        $this->db->or_like('ip_address', $data['keyword']);
+        $this->db->or_like('osversion', $data['keyword']);
+        $this->db->or_like('location', $data['keyword']);
+
+
+
 
         $this->db->from('ot_asset');
         $config['total_rows'] = $this->db->count_all_results();
