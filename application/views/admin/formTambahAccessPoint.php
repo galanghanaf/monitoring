@@ -51,7 +51,11 @@
                                     <input type="text" name="assembly" class="form-control">
                                     <?php echo form_error('assembly', '<div class="text small text-danger"></div>') ?>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>IP Address</label>
+                                    <input type="text" name="ip_address" class="form-control">
+                                    <?php echo form_error('ip_address', '<div class="text small text-danger"></div>') ?>
+                                </div>
                                 <div class="form-group">
                                     <label>Mac Address</label>
                                     <input type="text" name="mac_address" class="form-control">

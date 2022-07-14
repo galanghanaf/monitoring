@@ -34,6 +34,7 @@ class AccessPoint extends CI_Controller
         $this->db->or_like('model', $data['keyword']);
         $this->db->or_like('pcb', $data['keyword']);
         $this->db->or_like('assembly', $data['keyword']);
+        $this->db->or_like('ip_address', $data['keyword']);
         $this->db->or_like('mac_address', $data['keyword']);
         $this->db->or_like('switch', $data['keyword']);
         $this->db->or_like('port', $data['keyword']);
@@ -110,6 +111,7 @@ class AccessPoint extends CI_Controller
             $model          = $this->input->post('model');
             $pcb       = $this->input->post('pcb');
             $assembly       = $this->input->post('assembly');
+            $ip_address       = $this->input->post('ip_address');
             $mac_address       = $this->input->post('mac_address');
             $switch       = $this->input->post('switch');
             $port       = $this->input->post('port');
@@ -123,6 +125,7 @@ class AccessPoint extends CI_Controller
                 'model'         => $model,
                 'pcb'      => $pcb,
                 'assembly'      => $assembly,
+                'ip_address'      => $ip_address,
                 'mac_address'      => $mac_address,
                 'switch'      => $switch,
                 'port'      => $port,
@@ -165,6 +168,7 @@ class AccessPoint extends CI_Controller
             $model          = $this->input->post('model');
             $pcb       = $this->input->post('pcb');
             $assembly       = $this->input->post('assembly');
+            $ip_address       = $this->input->post('ip_address');
             $mac_address       = $this->input->post('mac_address');
             $switch       = $this->input->post('switch');
             $port       = $this->input->post('port');
@@ -176,6 +180,7 @@ class AccessPoint extends CI_Controller
                 'model'         => $model,
                 'pcb'      => $pcb,
                 'assembly'      => $assembly,
+                'ip_address'      => $ip_address,
                 'mac_address'      => $mac_address,
                 'switch'      => $switch,
                 'port'      => $port,
@@ -196,7 +201,7 @@ class AccessPoint extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('switch', 'Switch', 'required');
+        $this->form_validation->set_rules('ip_address', 'IP Address', 'required');
         $this->form_validation->set_rules('mac_address', 'Mac Address', 'required');
     }
 

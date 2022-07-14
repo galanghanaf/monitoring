@@ -52,7 +52,11 @@
                                     <input type="text" name="assembly" class="form-control" value="<?php echo $t->assembly ?>">
                                     <?php echo form_error('assembly', '<div class="text small text-danger"></div>') ?>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>IP Address</label>
+                                    <input type="text" name="ip_address" class="form-control" value="<?php echo $t->ip_address ?>">
+                                    <?php echo form_error('ip_address', '<div class="text small text-danger"></div>') ?>
+                                </div>
                                 <div class="form-group">
                                     <label>Mac Address</label>
                                     <input type="text" name="mac_address" class="form-control" value="<?php echo $t->mac_address ?>">
@@ -65,7 +69,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Port</label>
-                                    <input type="number" name="port" class="form-control" value="<?php echo $t->port ?>">
+                                    <input type="text" name="port" class="form-control" value="<?php echo $t->port ?>">
                                     <?php echo form_error('port', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">

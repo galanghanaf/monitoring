@@ -381,6 +381,7 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('model', $keyword);
             $this->db->or_like('pcb', $keyword);
             $this->db->or_like('assembly', $keyword);
+            $this->db->or_like('ip_address', $keyword);
             $this->db->or_like('mac_address', $keyword);
             $this->db->or_like('switch', $keyword);
             $this->db->or_like('port', $keyword);

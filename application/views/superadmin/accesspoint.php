@@ -33,6 +33,7 @@
             <th class="text-center bg-primary text-white" rowspan="2">Model</th>
             <th class="text-center bg-primary text-white" rowspan="2">PCB Serial Number</th>
             <th class="text-center bg-primary text-white" rowspan="2">Assembly Serial Number</th>
+            <th class="text-center bg-primary text-white" rowspan="2">IP Address</th>
             <th class="text-center bg-primary text-white" rowspan="2">Mac Address</th>
             <th class="text-center bg-primary text-white" colspan="2">Up Link</th>
 
@@ -63,7 +64,7 @@
                 // Initialisierung der Ziele / Wenn Port leer -> ICMP (Ping), sonst Portcheck
 
                 $ServerList = array(
-                    "Server1" => $t['switch'],
+                    "Server1" => $t['ip_address'],
                     "Port1" => $t['port']
                 );
 
@@ -105,6 +106,7 @@
                 <td class="text-center"><?php echo $t['model']; ?></td>
                 <td class="text-center"><?php echo $t['pcb']; ?></td>
                 <td class="text-center"><?php echo $t['assembly']; ?></td>
+                <td class="text-center"><?php echo $t['ip_address']; ?></td>
                 <td class="text-center"><?php echo $t['mac_address']; ?></td>
                 <td class="text-center"><?php echo $t['switch']; ?></td>
                 <td class="text-center"><?php echo $t['port']; ?></td>
