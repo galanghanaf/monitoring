@@ -27,11 +27,11 @@ class Dashboard extends CI_Controller
         $logbook = $this->db->query("SELECT * FROM logbook");
         $data['logbook'] = $logbook->num_rows();
 
-        $accesspoint = $this->db->query("SELECT * FROM mapping_networkap");
+        $accesspoint = $this->db->query("SELECT * FROM accesspoint");
         $data['accesspoint'] = $accesspoint->num_rows();
         $ipstatic = $this->db->query("SELECT * FROM ipstatic");
         $data['ipstatic'] = $ipstatic->num_rows();
-        $switch = $this->db->query("SELECT * FROM mapping_network");
+        $switch = $this->db->query("SELECT * FROM switchpoint");
         $data['switch'] = $switch->num_rows();
 
         $itot_asset = $this->db->query("SELECT * FROM itot_asset");
@@ -46,11 +46,12 @@ class Dashboard extends CI_Controller
         $id = $this->session->userdata('id');
         $this->load->model('Monitoring_model', 'monitoring');
 
-        $data['mappingnetwork'] = $this->monitoring->getAllMappingNetwork();
-        $data['mappingnetworkap'] = $this->monitoring->getAllMappingNetworkAP();
+        $data['mappingnetwork'] = $this->monitoring->getAllSwitchPoint();
+        $data['mappingnetworkap'] = $this->monitoring->getAllAccessPoint();
         $data['ipstatic2'] = $this->monitoring->getAllIpStatic();
         $data['mappingitotasset'] = $this->monitoring->getAllItOtAsset();
         $data['mappingotasset'] = $this->monitoring->getAllOtAsset();
+
 
 
 

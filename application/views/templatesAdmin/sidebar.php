@@ -68,7 +68,7 @@
                         <h6 class="collapse-header">Mapping Network</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/accesspoint') ?>">Access Point</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/mappingnetwork') ?>">Switch</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/switchpoint') ?>">Switch</a>
                         <br>
                         <h6 class="collapse-header">Asset</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List IT/OT Asset</a>

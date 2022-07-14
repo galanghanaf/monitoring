@@ -397,6 +397,37 @@ class Monitoring_model extends CI_Model
     }
     // End Access Point
 
+    // Opening Switch Point
+    public function getAllSwitchPoint()
+    {
+
+        return $this->db->get('switchpoint')->result_array();
+    }
+
+    public function getSwitchPoint($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('asset_description', $keyword);
+            $this->db->or_like('hostname', $keyword);
+            $this->db->or_like('model', $keyword);
+            $this->db->or_like('pcb', $keyword);
+            $this->db->or_like('assembly', $keyword);
+            $this->db->or_like('ip_address', $keyword);
+            $this->db->or_like('mac_address', $keyword);
+            $this->db->or_like('switch', $keyword);
+            $this->db->or_like('port', $keyword);
+            $this->db->or_like('location', $keyword);
+        }
+        return $this->db->get('switchpoint', $limit, $start)->result_array();
+    }
+
+    public function countAllSwitchPoint()
+    {
+
+        return $this->db->get('switchpoint')->num_rows();
+    }
+    // End Switch Point
+
     public function getAllHeader()
     {
 

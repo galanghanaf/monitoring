@@ -15,6 +15,7 @@ class Dashboard extends CI_Controller
     {
         $data['title'] = "Dashboard"; //untuk title pada dasboard
 
+
         $superadmin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
         $data['superadmin'] = $superadmin->num_rows();
         $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '2'");
@@ -26,23 +27,31 @@ class Dashboard extends CI_Controller
         $logbook = $this->db->query("SELECT * FROM logbook");
         $data['logbook'] = $logbook->num_rows();
 
-        $accesspoint = $this->db->query("SELECT * FROM mapping_networkap");
+        $accesspoint = $this->db->query("SELECT * FROM accesspoint");
         $data['accesspoint'] = $accesspoint->num_rows();
         $ipstatic = $this->db->query("SELECT * FROM ipstatic");
         $data['ipstatic'] = $ipstatic->num_rows();
-        $switch = $this->db->query("SELECT * FROM mapping_network");
+        $switch = $this->db->query("SELECT * FROM switchpoint");
         $data['switch'] = $switch->num_rows();
 
         $itot_asset = $this->db->query("SELECT * FROM itot_asset");
         $data['itot_asset'] = $itot_asset->num_rows();
 
+        $ot_asset = $this->db->query("SELECT * FROM ot_asset");
+        $data['ot_asset'] = $ot_asset->num_rows();
+
+
+
+
         $id = $this->session->userdata('id');
         $this->load->model('Monitoring_model', 'monitoring');
 
-        $data['mappingnetwork'] = $this->monitoring->getAllMappingNetwork();
-        $data['mappingnetworkap'] = $this->monitoring->getAllMappingNetworkAP();
+        $data['mappingnetwork'] = $this->monitoring->getAllSwitchPoint();
+        $data['mappingnetworkap'] = $this->monitoring->getAllAccessPoint();
         $data['ipstatic2'] = $this->monitoring->getAllIpStatic();
         $data['mappingitotasset'] = $this->monitoring->getAllItOtAsset();
+        $data['mappingotasset'] = $this->monitoring->getAllOtAsset();
+
 
 
 

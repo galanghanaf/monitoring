@@ -194,9 +194,9 @@
                                             subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
                                         }).addTo(map2);
 
-                                        <?php foreach ($mappingnetworkap as $ap) : ?>
-                                            L.marker([<?php echo $ap['latitude']; ?>, <?php echo $ap['longitude']; ?>]).addTo(map2)
-                                                .bindPopup('Hostname : <b><?php echo $ap['hostname']; ?></b><br/>Model/Type : <b><?php echo $ap['model']; ?></b><br/>');
+                                        <?php foreach ($mappingotasset as $ot) : ?>
+                                            L.marker([<?php echo $ot['latitude']; ?>, <?php echo $ot['longitude']; ?>]).addTo(map2)
+                                                .bindPopup('IT : <b><?php echo $ot['it']; ?></b><br/>OT : <b><?php echo $ot['ot']; ?></b><br/>Plant Code : <b><?php echo $ot['plant_code']; ?></b><br/>CBU : <b><?php echo $ot['cbu']; ?></b><br/>Asset Number : <b><?php echo $ot['asset_number']; ?></b><br/>Asset Description : <b><?php echo $ot['asset_description']; ?></b><br/>Serial Number : <b><?php echo $ot['serial_number']; ?></b><br/>Model/Type : <b><?php echo $ot['model']; ?></b><br/>Computer Name : <b><?php echo $ot['computer_name']; ?></b><br/>Location : <b><?php echo $ot['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $ot['photo']; ?>" width="150px"></center> ');
                                         <?php endforeach; ?>
                                     </script>
 
@@ -204,6 +204,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
 
                 </div>

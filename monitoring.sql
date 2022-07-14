@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2022 at 05:02 PM
+-- Generation Time: Jul 14, 2022 at 11:22 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `monitoring`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accesspoint`
+--
+
+CREATE TABLE `accesspoint` (
+  `id` int(11) NOT NULL,
+  `asset_description` varchar(200) NOT NULL,
+  `hostname` varchar(200) NOT NULL,
+  `model` varchar(200) NOT NULL,
+  `pcb` varchar(200) NOT NULL,
+  `assembly` varchar(200) NOT NULL,
+  `ip_address` varchar(200) NOT NULL,
+  `mac_address` varchar(100) NOT NULL,
+  `switch` varchar(50) NOT NULL,
+  `port` varchar(50) DEFAULT NULL,
+  `location` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `accesspoint`
+--
+
+INSERT INTO `accesspoint` (`id`, `asset_description`, `hostname`, `model`, `pcb`, `assembly`, `ip_address`, `mac_address`, `switch`, `port`, `location`) VALUES
+(1, 'f', 'awe', 'Cisco', 'wag', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt2'),
+(3, 'Cekf', 'galang', 'Cisco', '', '', '', 'aweg', 'awf', '0', 'Area Office Lt3'),
+(6, 'Cekf', 'awef', 'Cisco', 'aweg', 'waeg', '8.8.8.8', 'awg', 'afa', '', 'Area Office Lt3'),
+(7, 'f', 'aweg', 'TP Link', 'aweg', 'waeg', '', 'aweg', 'aweg', '0', ''),
+(8, '', 'galang', '', '', '', 'waeg', 'aweg', '', '0', ''),
+(9, '', '', '', '', '', 'test', 'agaw', '', '0', 'Area Office Lt3');
 
 -- --------------------------------------------------------
 
@@ -258,17 +290,17 @@ CREATE TABLE `itot_asset` (
   `serial_number` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL,
   `computer_name` varchar(200) NOT NULL,
-  `qty` varchar(50) NOT NULL,
-  `acquis_val` int(10) UNSIGNED NOT NULL,
-  `accum_dep` int(10) NOT NULL,
-  `book_val` int(10) UNSIGNED NOT NULL,
-  `fixed_asset1` int(11) UNSIGNED NOT NULL,
-  `fixed_asset2` int(11) UNSIGNED NOT NULL,
-  `fixed_asset3` int(11) UNSIGNED NOT NULL,
-  `in_use` int(10) UNSIGNED NOT NULL,
-  `idle` int(10) UNSIGNED NOT NULL,
-  `damage` int(11) UNSIGNED NOT NULL,
-  `label` int(11) UNSIGNED NOT NULL,
+  `qty` int(20) UNSIGNED NOT NULL DEFAULT 0,
+  `acquis_val` int(20) UNSIGNED NOT NULL DEFAULT 0,
+  `accum_dep` int(20) NOT NULL DEFAULT 0,
+  `book_val` int(20) UNSIGNED NOT NULL DEFAULT 0,
+  `fixed_asset1` varchar(50) NOT NULL DEFAULT '',
+  `fixed_asset2` varchar(50) NOT NULL DEFAULT '',
+  `fixed_asset3` varchar(50) NOT NULL DEFAULT '',
+  `in_use` varchar(50) NOT NULL DEFAULT '',
+  `idle` varchar(50) NOT NULL DEFAULT '',
+  `damage` varchar(50) NOT NULL DEFAULT '',
+  `label` varchar(50) NOT NULL DEFAULT '',
   `status` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
   `user` varchar(100) NOT NULL,
@@ -292,8 +324,10 @@ CREATE TABLE `itot_asset` (
 --
 
 INSERT INTO `itot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asset_number`, `asset_description`, `serial_number`, `model`, `computer_name`, `qty`, `acquis_val`, `accum_dep`, `book_val`, `fixed_asset1`, `fixed_asset2`, `fixed_asset3`, `in_use`, `idle`, `damage`, `label`, `status`, `location`, `user`, `cap_date`, `note`, `network_ot`, `network_it`, `mac_address`, `ip_address`, `nead`, `sccm`, `sep`, `osversion`, `latitude`, `longitude`, `photo`) VALUES
-(3, 'No', 'Yes', 'awef', 'weag', 'aweg', 'aweg', 'Cek', 'aweg', 'Cisco', 'aweg', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Area Office Lt3', 'waeaweg', '0000-00-00', 'waeg', 'wage', 'awef', 'aweg', 'aweg', 'aweg', 'aefe', 'aweg', 'Linux', '-6.434175804741606', '106.92811310291292', 'Picture1.jpg'),
-(4, 'Yes', 'Yes', 'waeg', 'waef', 'waefawg', 'ewafwag', 'Cekf', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.4344903117505154', '106.92795753479005', '2.jpg');
+(4, 'Yes', '', 'waeg', 'waef', 'waefawg', 'ewafwag', 'Cekf', '', '', '', 0, 0, -342425, 0, '', '', '', '1', '', '', '', 'Active', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.4344903117505154', '106.92795753479005', 'Picture1.jpg'),
+(5, 'Yes', '', 'afewa', 'wag', 'aweg', 'waeg', 'Cekf', 'awegaweg', 'Cisco', 'awegaw', 0, 0, 0, 0, '1', '', '', '1', '', '', '1', 'Active', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.435455154071475', '106.92588686943056', 'Picture1.jpg'),
+(6, '', 'Yes', 'galang', 'wag', 'awg', 'waeg', 'Cekf', 'weag', 'Cisco', 'weag', 0, 0, 0, 0, '1', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434122498449617', '106.92632138729095', 'Picture1.jpg'),
+(7, 'Yes', '', 'weag', 'weaf', '', 'wefeaw', 'Cekf', '', '', '', 0, 0, 0, 0, '', '', '', '', '', '', '', 'Active', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Linux', '-6.433834644376195', '106.9264179468155', '2.jpg');
 
 -- --------------------------------------------------------
 
@@ -452,6 +486,63 @@ INSERT INTO `osversion` (`id`, `osversion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ot_asset`
+--
+
+CREATE TABLE `ot_asset` (
+  `id` int(11) NOT NULL,
+  `it` varchar(50) NOT NULL,
+  `ot` varchar(50) NOT NULL,
+  `plant_code` varchar(100) NOT NULL,
+  `cbu` varchar(100) NOT NULL,
+  `cost_ctr` varchar(100) NOT NULL,
+  `asset_number` varchar(100) NOT NULL,
+  `asset_description` varchar(200) NOT NULL,
+  `serial_number` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  `computer_name` varchar(200) NOT NULL,
+  `qty` int(20) UNSIGNED NOT NULL DEFAULT 0,
+  `acquis_val` int(20) UNSIGNED NOT NULL DEFAULT 0,
+  `accum_dep` int(20) NOT NULL DEFAULT 0,
+  `book_val` int(20) UNSIGNED NOT NULL DEFAULT 0,
+  `fixed_asset1` varchar(50) NOT NULL DEFAULT '',
+  `fixed_asset2` varchar(50) NOT NULL DEFAULT '',
+  `fixed_asset3` varchar(50) NOT NULL DEFAULT '',
+  `in_use` varchar(50) NOT NULL DEFAULT '',
+  `idle` varchar(50) NOT NULL DEFAULT '',
+  `damage` varchar(50) NOT NULL DEFAULT '',
+  `label` varchar(50) NOT NULL DEFAULT '',
+  `status` varchar(50) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `cap_date` date NOT NULL,
+  `note` varchar(200) NOT NULL,
+  `network_ot` varchar(50) NOT NULL,
+  `network_it` varchar(50) NOT NULL,
+  `mac_address` varchar(100) NOT NULL,
+  `ip_address` varchar(50) NOT NULL,
+  `nead` varchar(50) NOT NULL,
+  `sccm` varchar(50) NOT NULL,
+  `sep` varchar(50) NOT NULL,
+  `osversion` varchar(100) NOT NULL,
+  `latitude` varchar(200) DEFAULT NULL,
+  `longitude` varchar(200) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `ot_asset`
+--
+
+INSERT INTO `ot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asset_number`, `asset_description`, `serial_number`, `model`, `computer_name`, `qty`, `acquis_val`, `accum_dep`, `book_val`, `fixed_asset1`, `fixed_asset2`, `fixed_asset3`, `in_use`, `idle`, `damage`, `label`, `status`, `location`, `user`, `cap_date`, `note`, `network_ot`, `network_it`, `mac_address`, `ip_address`, `nead`, `sccm`, `sep`, `osversion`, `latitude`, `longitude`, `photo`) VALUES
+(4, 'Yes', '', 'waeg', 'waef', 'waefawg', 'ewafwag', 'Cekf', '', '', '', 0, 0, -342425, 0, '', '', '', '1', '', '', '', 'Active', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.4344903117505154', '106.92795753479005', '2.jpg'),
+(5, 'Yes', '', 'afewa', 'wag', 'aweg', 'waeg', 'Cekf', 'awegaweg', 'Cisco', 'awegaw', 0, 0, 0, 0, '1', '', '', '1', '', '', '1', 'Active', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.435455154071475', '106.92588686943056', '2.jpg'),
+(6, '', 'Yes', 'test', 'wag', 'awg', 'waeg', 'Cekf', 'weag', 'Cisco', 'weag', 0, 0, 0, 0, '1', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434122498449617', '106.92632138729095', 'Picture1.jpg'),
+(7, 'Yes', '', 'galang', 'asfgweag', 'weag', 'waeg', 'Cekf', '', 'Cisco', '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Linux', '-6.43403187774039', '106.92819356918336', 'Picture1.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `potongan_gaji`
 --
 
@@ -460,6 +551,38 @@ CREATE TABLE `potongan_gaji` (
   `potongan` varchar(225) NOT NULL,
   `jml_potongan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `switchpoint`
+--
+
+CREATE TABLE `switchpoint` (
+  `id` int(11) NOT NULL,
+  `asset_description` varchar(200) NOT NULL,
+  `hostname` varchar(200) NOT NULL,
+  `model` varchar(200) NOT NULL,
+  `serial_number` varchar(200) NOT NULL,
+  `ip_address` varchar(200) NOT NULL,
+  `mac_address` varchar(100) NOT NULL,
+  `switch` varchar(50) NOT NULL,
+  `port` varchar(50) DEFAULT NULL,
+  `location` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `switchpoint`
+--
+
+INSERT INTO `switchpoint` (`id`, `asset_description`, `hostname`, `model`, `serial_number`, `ip_address`, `mac_address`, `switch`, `port`, `location`) VALUES
+(1, 'f', 'test switch', 'TP Link', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt2'),
+(3, 'Cekf', 'galang', 'Cisco', '', '', 'aweg', 'awf', '0', 'Area Office Lt3'),
+(6, 'Cekf', 'awef', 'Cisco', 'waeg', '8.8.8.8', 'awg', 'afa', '', 'Area Office Lt3'),
+(7, 'f', 'aweg', 'TP Link', 'waeg', '', 'aweg', 'aweg', '0', ''),
+(8, '', 'awef', '', '', 'waeg', 'aweg', '', '0', ''),
+(9, 'Cekf', '', '', 'waeg', 'waeg', 'aweg', 'aweg', '0', 'Area Office Lt3'),
+(10, '', '', '', '', 'waeg', 'waeg', 'awef', '0', '');
 
 -- --------------------------------------------------------
 
@@ -499,6 +622,12 @@ INSERT INTO `task_list` (`id`, `description`, `requester`, `start_date`, `due_da
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `accesspoint`
+--
+ALTER TABLE `accesspoint`
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `area_location`
@@ -601,11 +730,23 @@ ALTER TABLE `osversion`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ot_asset`
+--
+ALTER TABLE `ot_asset`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Indexes for table `potongan_gaji`
 --
 ALTER TABLE `potongan_gaji`
   ADD PRIMARY KEY (`id_potongan`),
   ADD UNIQUE KEY `potongan` (`potongan`);
+
+--
+-- Indexes for table `switchpoint`
+--
+ALTER TABLE `switchpoint`
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `task_list`
@@ -616,6 +757,12 @@ ALTER TABLE `task_list`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `accesspoint`
+--
+ALTER TABLE `accesspoint`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `area_location`
@@ -675,7 +822,7 @@ ALTER TABLE `ipstatic`
 -- AUTO_INCREMENT for table `itot_asset`
 --
 ALTER TABLE `itot_asset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `logbook`
@@ -714,10 +861,22 @@ ALTER TABLE `osversion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `ot_asset`
+--
+ALTER TABLE `ot_asset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `potongan_gaji`
 --
 ALTER TABLE `potongan_gaji`
   MODIFY `id_potongan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `switchpoint`
+--
+ALTER TABLE `switchpoint`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `task_list`

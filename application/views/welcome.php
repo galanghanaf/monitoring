@@ -44,30 +44,31 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - Logout -->
+            <!-- Nav Item - Logout
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
                     <i class=" fas fa-fw fa-signal"></i>
                     <span>Acces Point</span></a>
             </li>
-            <!-- Nav Item - Logout -->
+         
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
                     <i class=" fas fa-fw fa-share-alt-square"></i>
                     <span>Switch</span></a>
             </li>
-            <!-- Nav Item - Logout -->
+          
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
                     <i class=" fas fa-fw fa-sitemap"></i>
                     <span>Ip Static</span></a>
             </li>
-            <!-- Nav Item - Logout -->
+           
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
                     <i class=" fas fa-fw fa-tasks"></i>
                     <span>IT/OT Asset</span></a>
             </li>
+            -->
             <!-- Nav Item - Logout -->
             <li class="nav-item">
                 <a class="nav-link" href="#loginModal" data-bs-toggle="modal">
