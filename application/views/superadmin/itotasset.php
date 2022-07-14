@@ -17,7 +17,7 @@
 
         <?php foreach ($itotasset as $t) : ?>
             L.marker([<?php echo $t['latitude']; ?>, <?php echo $t['longitude']; ?>]).addTo(map)
-                .bindPopup('IT : <b><?php echo $t['it']; ?></b><br/>OT : <b><?php echo $t['ot']; ?></b><br/>Plant Code : <b><?php echo $t['plant_code']; ?></b><br/>Location : <b><?php echo $t['location']; ?></b><br/ <img src="<?= base_url() . 'assets/team/' . $t['photo'] ?>');
+                .bindPopup('IT : <b><?php echo $t['it']; ?></b><br/>OT : <b><?php echo $t['ot']; ?></b><br/>Plant Code : <b><?php echo $t['plant_code']; ?></b><br/>CBU : <b><?php echo $t['cbu']; ?></b><br/>Asset Number : <b><?php echo $t['asset_number']; ?></b><br/>Asset Description : <b><?php echo $t['asset_description']; ?></b><br/>Serial Number : <b><?php echo $t['serial_number']; ?></b><br/>Model/Type : <b><?php echo $t['model']; ?></b><br/>Computer Name : <b><?php echo $t['computer_name']; ?></b><br/>Location : <b><?php echo $t['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $t['photo']; ?>" width="200px"></center> ');
         <?php endforeach; ?>
     </script>
     <br>

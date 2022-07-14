@@ -172,7 +172,7 @@
 
                                         <?php foreach ($mappingitotasset as $itot) : ?>
                                             L.marker([<?php echo $itot['latitude']; ?>, <?php echo $itot['longitude']; ?>]).addTo(map4)
-                                                .bindPopup('IP Address : <b><?php echo $itot['ip_address']; ?></b><br/>');
+                                                .bindPopup('IT : <b><?php echo $itot['it']; ?></b><br/>OT : <b><?php echo $itot['ot']; ?></b><br/>Plant Code : <b><?php echo $itot['plant_code']; ?></b><br/>CBU : <b><?php echo $itot['cbu']; ?></b><br/>Asset Number : <b><?php echo $itot['asset_number']; ?></b><br/>Asset Description : <b><?php echo $itot['asset_description']; ?></b><br/>Serial Number : <b><?php echo $itot['serial_number']; ?></b><br/>Model/Type : <b><?php echo $itot['model']; ?></b><br/>Computer Name : <b><?php echo $itot['computer_name']; ?></b><br/>Location : <b><?php echo $itot['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $itot['photo']; ?>" width="150px"></center> ');
                                         <?php endforeach; ?>
                                     </script>
 

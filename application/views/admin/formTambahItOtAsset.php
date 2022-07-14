@@ -16,7 +16,7 @@
                                     <select name="it" class="form-control">
                                         <option value="">Pilih</option>
                                         <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                        <option value="">No</option>
                                     </select>
                                     <?php echo form_error('it', '<div class="text small text-danger"></div>') ?>
                                 </div>
@@ -25,7 +25,7 @@
                                     <select name="ot" class="form-control">
                                         <option value="">Pilih</option>
                                         <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                        <option value="">No</option>
                                     </select>
                                     <?php echo form_error('ot', '<div class="text small text-danger"></div>') ?>
                                 </div>
@@ -106,42 +106,76 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Fixed Asset 01</label>
-                                    <input type="text" name="fixed_asset1" class="form-control">
+                                    <select name="fixed_asset1" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('fixed_asset1', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Fixed Asset 02</label>
-                                    <input type="text" name="fixed_asset2" class="form-control">
+                                    <select name="fixed_asset2" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('fixed_asset2', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Fixed Asset 03</label>
-                                    <input type="text" name="fixed_asset3" class="form-control">
+                                    <select name="fixed_asset3" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('fixed_asset3', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>In Use</label>
-                                    <input type="text" name="in_use" class="form-control">
+                                    <select name="in_use" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('in_use', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Idle</label>
-                                    <input type="text" name="idle" class="form-control">
+                                    <select name="idle" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('idle', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Damage</label>
-                                    <input type="text" name="damage" class="form-control">
+                                    <select name="damage" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('damage', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Label</label>
-                                    <input type="text" name="label" class="form-control">
+                                    <select name="label" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('label', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input type="text" name="status" class="form-control">
+                                    <select name="status" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                        <option value="Offline">Offline</option>
+                                        <option value="Broken">Broken</option>
+                                    </select>
                                     <?php echo form_error('status', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
@@ -230,7 +264,20 @@
                                     </select>
                                     <?php echo form_error('osversion', '<div class="text small text-danger"></div>') ?>
                                 </div>
+                                <div id="map" style="height: 600px;"></div>
+                                <br>
+                                <div class="form-group">
+                                    <label>Latitude</label>
+                                    <input type="text" name="latitude" id="latitude" class="form-control" readonly>
+                                    <?php echo form_error('latitude', '<div class="text small text-danger"></div>') ?>
+                                </div>
 
+
+                                <div class=" form-group">
+                                    <label>Longitude</label>
+                                    <input type="text" name="longitude" id="longitude" class="form-control" readonly>
+                                    <?php echo form_error('longitude', '<div class="text small text-danger"></div>') ?>
+                                </div>
                                 <button type="submit" class="btn btn-primary">Save</button>
                                 <?php echo form_close(); ?>
 
@@ -243,4 +290,35 @@
                 <br>
                 <br>
                 <br>
+                <script>
+                    var map = L.map('map').setView([-6.434244857960943, 106.92771446855967], 18);
+
+                    var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                        maxZoom: 20,
+                        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                    }).addTo(map);
+
+                    var theMarker = {};
+
+                    map.on('click', function(e) {
+                        lat = e.latlng.lat;
+                        lon = e.latlng.lng;
+
+                        console.log("You clicked the map at LAT: " + lat + " and LONG: " + lon);
+                        //Clear existing marker, 
+
+
+                        if (theMarker != undefined) {
+                            map.removeLayer(theMarker);
+                        };
+
+                        //Add a marker to show where you clicked.
+                        theMarker = L.marker([lat, lon]).addTo(map);
+
+                        document.getElementById("latitude").value =
+                            lat;
+                        document.getElementById("longitude").value =
+                            lon;
+                    });
+                </script>
                 <!-- End of Main Content -->

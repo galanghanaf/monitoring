@@ -17,7 +17,7 @@
 
         <?php foreach ($itotasset as $t) : ?>
             L.marker([<?php echo $t['latitude']; ?>, <?php echo $t['longitude']; ?>]).addTo(map)
-                .bindPopup('<b>Hello world!</b><br />I am a popup.');
+                .bindPopup('IT : <b><?php echo $t['it']; ?></b><br/>OT : <b><?php echo $t['ot']; ?></b><br/>Plant Code : <b><?php echo $t['plant_code']; ?></b><br/>CBU : <b><?php echo $t['cbu']; ?></b><br/>Asset Number : <b><?php echo $t['asset_number']; ?></b><br/>Asset Description : <b><?php echo $t['asset_description']; ?></b><br/>Serial Number : <b><?php echo $t['serial_number']; ?></b><br/>Model/Type : <b><?php echo $t['model']; ?></b><br/>Computer Name : <b><?php echo $t['computer_name']; ?></b><br/>Location : <b><?php echo $t['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $t['photo']; ?>" width="200px"></center> ');
         <?php endforeach; ?>
     </script>
     <br>
@@ -43,45 +43,52 @@
     <table style="white-space:nowrap;" class="table-responsive table table-bordered table-hover" style="overflow-y: scroll; overflow-x: auto">
 
         <tr>
-            <th class="text-center bg-primary text-white">No</th>
+            <th class="text-center bg-primary text-white" rowspan="2">No</th>
+            <th class="text-center bg-primary text-white" colspan="2">Assets</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Plant Code</th>
+            <th class="text-center bg-primary text-white" rowspan="2">CBU</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Cost Ctr</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Asset Number</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Asset Description</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Serial Number</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Model/Type</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Computer Name</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Qty</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Acquis.val</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Accum.dep</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Book val.</th>
+            <th class="text-center bg-primary text-white" colspan="3">Fixed Asset</th>
+            <th class="text-center bg-primary text-white" colspan="3">Codition</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Label</th>
+
+            <th class="text-center bg-primary text-white" rowspan="2">Status</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Location</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Photo</th>
+            <th class="text-center bg-primary text-white" rowspan="2">User</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Cap.date</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Note</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Network OT</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Network IT</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Mac Address</th>
+            <th class="text-center bg-primary text-white" rowspan="2">IP Address</th>
+            <th class="text-center bg-primary text-white" rowspan="2">NEAD</th>
+            <th class="text-center bg-primary text-white" rowspan="2">SEP</th>
+            <th class="text-center bg-primary text-white" rowspan="2">SCCM</th>
+            <th class="text-center bg-primary text-white" rowspan="2">OS Version</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Latitude</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Longitude</th>
+            <th class="text-center bg-warning text-white" rowspan="2">Update</th>
+            <th class="text-center bg-danger text-white" rowspan="2">Delete</th>
+        <tr>
             <th class="text-center bg-primary text-white">IT</th>
             <th class="text-center bg-primary text-white">OT</th>
-            <th class="text-center bg-primary text-white">Plant Code</th>
-            <th class="text-center bg-primary text-white">CBU</th>
-            <th class="text-center bg-primary text-white">Cost Ctr</th>
-            <th class="text-center bg-primary text-white">Asset Number</th>
-            <th class="text-center bg-primary text-white">Asset Description</th>
-            <th class="text-center bg-primary text-white">Serial Number</th>
-            <th class="text-center bg-primary text-white">Model/Type</th>
-            <th class="text-center bg-primary text-white">Computer Name</th>
-            <th class="text-center bg-primary text-white">Qty</th>
-            <th class="text-center bg-primary text-white">Acquis.val</th>
-            <th class="text-center bg-primary text-white">Accum.dep</th>
-            <th class="text-center bg-primary text-white">Book val.</th>
-            <th class="text-center bg-primary text-white">Fixed Asset 01</th>
-            <th class="text-center bg-primary text-white">Fixed Asset 02</th>
-            <th class="text-center bg-primary text-white">Fixed Asset 03</th>
+            <th class="text-center bg-primary text-white">FA.01</th>
+            <th class="text-center bg-primary text-white">FA.02</th>
+            <th class="text-center bg-primary text-white">FA.03</th>
             <th class="text-center bg-primary text-white">In Use</th>
             <th class="text-center bg-primary text-white">Idle</th>
             <th class="text-center bg-primary text-white">Damage</th>
-            <th class="text-center bg-primary text-white">Label</th>
-            <th class="text-center bg-primary text-white">Status</th>
-            <th class="text-center bg-primary text-white">Location</th>
-            <th class="text-center bg-primary text-white">User</th>
-            <th class="text-center bg-primary text-white">Cap.date</th>
-            <th class="text-center bg-primary text-white">Note</th>
-            <th class="text-center bg-primary text-white">Network OT</th>
-            <th class="text-center bg-primary text-white">Network IT</th>
-            <th class="text-center bg-primary text-white">Mac Address</th>
-            <th class="text-center bg-primary text-white">IP Address</th>
-            <th class="text-center bg-primary text-white">NEAD</th>
-            <th class="text-center bg-primary text-white">SEP</th>
-            <th class="text-center bg-primary text-white">SCCM</th>
-            <th class="text-center bg-primary text-white">OS Version</th>
-            <th class="text-center bg-primary text-white">Latitude</th>
-            <th class="text-center bg-primary text-white">Longitude</th>
-            <th class="text-center bg-warning text-white">Update</th>
-            <th class="text-center bg-danger text-white">Delete</th>
+        </tr>
 
         </tr>
         <?php if (empty($itotasset)) : ?>
@@ -119,6 +126,7 @@
                 <td class="text-center"><?php echo $t['label']; ?></td>
                 <td class="text-center"><?php echo $t['status']; ?></td>
                 <td class="text-center"><?php echo $t['location']; ?></td>
+                <td class="text-center"><img src="<?= base_url() . 'assets/team/' . $t['photo'] ?>" width="75px"></td>
                 <td class="text-center"><?php echo $t['user']; ?></td>
                 <td class="text-center"><?php echo $t['cap_date']; ?></td>
                 <td class="text-center"><?php echo $t['note']; ?></td>

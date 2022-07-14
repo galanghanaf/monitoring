@@ -125,6 +125,7 @@ class ItOtAsset extends CI_Controller
             $label              = $this->input->post('label');
             $status             = $this->input->post('status');
             $location           = $this->input->post('location');
+            $photo           = $this->input->post('photo');
             $user               = $this->input->post('user');
             $cap_date           = $this->input->post('cap_date');
             $note               = $this->input->post('note');
@@ -163,6 +164,7 @@ class ItOtAsset extends CI_Controller
                 'label'             => $label,
                 'status'            => $status,
                 'location'          => $location,
+                'photo'          => $photo,
                 'user'              => $user,
                 'cap_date'          => $cap_date,
                 'note'              => $note,
@@ -235,6 +237,7 @@ class ItOtAsset extends CI_Controller
             $label              = $this->input->post('label');
             $status             = $this->input->post('status');
             $location           = $this->input->post('location');
+            $photo           = $this->input->post('photo');
             $user               = $this->input->post('user');
             $cap_date           = $this->input->post('cap_date');
             $note               = $this->input->post('note');
@@ -273,6 +276,7 @@ class ItOtAsset extends CI_Controller
                 'label'             => $label,
                 'status'            => $status,
                 'location'          => $location,
+                'photo'          => $photo,
                 'user'              => $user,
                 'cap_date'          => $cap_date,
                 'note'              => $note,

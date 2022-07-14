@@ -19,7 +19,7 @@
                                     <select name="it" class="form-control">
                                         <option value="<?php echo $i->it ?>"><?php echo $i->it ?></option>
                                         <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                        <option value="">No</option>
                                     </select>
                                     <?php echo form_error('it', '<div class="text small text-danger"></div>') ?>
                                 </div>
@@ -28,7 +28,7 @@
                                     <select name="ot" class="form-control">
                                         <option value="<?php echo $i->ot ?>"><?php echo $i->ot ?></option>
                                         <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                        <option value="">No</option>
                                     </select>
                                     <?php echo form_error('ot', '<div class="text small text-danger"></div>') ?>
                                 </div>
@@ -88,62 +88,96 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Qty</label>
-                                    <input type="text" name="qty" class="form-control" value="<?php echo $i->qty ?>">
+                                    <input type="number" name="qty" class="form-control" value="<?php echo $i->qty ?>">
                                     <?php echo form_error('qty', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Acquis.val</label>
-                                    <input type="text" name="acquis_val" class="form-control" value="<?php echo $i->acquis_val ?>">
+                                    <input type="number" name="acquis_val" class="form-control" value="<?php echo $i->acquis_val ?>">
                                     <?php echo form_error('acquis_val', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Accum.dep</label>
-                                    <input type="text" name="accum_dep" class="form-control" value="<?php echo $i->accum_dep ?>">
+                                    <input type="number" name="accum_dep" class="form-control" value="<?php echo $i->accum_dep ?>">
                                     <?php echo form_error('accum_dep', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Book val.</label>
-                                    <input type="text" name="book_val" class="form-control" value="<?php echo $i->book_val ?>">
+                                    <input type="number" name="book_val" class="form-control" value="<?php echo $i->book_val ?>">
                                     <?php echo form_error('book_val', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Fixed Asset 01</label>
-                                    <input type="text" name="fixed_asset1" class="form-control" value="<?php echo $i->fixed_asset1 ?>">
+                                    <select name="fixed_asset1" class="form-control">
+                                        <option value="<?php echo $i->fixed_asset1 ?>"><?php echo $i->fixed_asset1 ?></option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('fixed_asset1', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Fixed Asset 02</label>
-                                    <input type="text" name="fixed_asset2" class="form-control" value="<?php echo $i->fixed_asset2 ?>">
+                                    <select name="fixed_asset2" class="form-control">
+                                        <option value="<?php echo $i->fixed_asset2 ?>"><?php echo $i->fixed_asset2 ?></option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('fixed_asset2', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Fixed Asset 03</label>
-                                    <input type="text" name="fixed_asset3" class="form-control" value="<?php echo $i->fixed_asset2 ?>">
+                                    <select name="fixed_asset3" class="form-control">
+                                        <option value="<?php echo $i->fixed_asset3 ?>"><?php echo $i->fixed_asset3 ?></option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('fixed_asset3', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>In Use</label>
-                                    <input type="text" name="in_use" class="form-control" value="<?php echo $i->in_use ?>">
+                                    <select name="in_use" class="form-control">
+                                        <option value="<?php echo $i->in_use ?>"><?php echo $i->in_use ?></option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('in_use', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Idle</label>
-                                    <input type="text" name="idle" class="form-control" value="<?php echo $i->idle ?>">
+                                    <select name="idle" class="form-control">
+                                        <option value="<?php echo $i->idle ?>"><?php echo $i->idle ?></option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('idle', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Damage</label>
-                                    <input type="text" name="damage" class="form-control" value="<?php echo $i->damage ?>">
+                                    <select name="damage" class="form-control">
+                                        <option value="<?php echo $i->damage ?>"><?php echo $i->damage ?></option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('damage', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Label</label>
-                                    <input type="text" name="label" class="form-control" value="<?php echo $i->label ?>">
+                                    <select name="label" class="form-control">
+                                        <option value="<?php echo $i->label ?>"><?php echo $i->label ?></option>
+                                        <option value="1">1</option>
+                                        <option value="">0</option>
+                                    </select>
                                     <?php echo form_error('label', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input type="text" name="status" class="form-control" value="<?php echo $i->status ?>">
+                                    <select name="status" class="form-control">
+                                        <option value="<?php echo $i->status ?>"><?php echo $i->status ?></option>
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                        <option value="Offline">Offline</option>
+                                        <option value="Broken">Broken</option>
+                                    </select>
                                     <?php echo form_error('status', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
