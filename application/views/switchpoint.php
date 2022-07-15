@@ -62,14 +62,16 @@
                     <i class="fas fa-fw fa-sitemap"></i>
                     <span>IP Static</span></a>
             </li>
-            <!--
-
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
+                <a class="nav-link" href="<?php echo base_url('itotasset') ?>">
                     <i class=" fas fa-fw fa-tasks"></i>
                     <span>IT/OT Asset</span></a>
             </li>
-            -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('otasset') ?>">
+                    <i class=" fas fa-fw fa-tasks"></i>
+                    <span>OT Asset</span></a>
+            </li>
             <!-- Nav Item - Logout -->
             <li class="nav-item">
                 <a class="nav-link" href="#loginModal" data-bs-toggle="modal">
