@@ -44,7 +44,7 @@ class OtAsset extends CI_Controller
         $this->db->from('ot_asset');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
-        $config['per_page'] = 10;
+        $config['per_page'] = 9999999999999999;
 
 
         //styling
