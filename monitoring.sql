@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2022 at 11:22 PM
+-- Generation Time: Jul 15, 2022 at 06:04 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -72,12 +72,11 @@ CREATE TABLE `area_location` (
 INSERT INTO `area_location` (`id`, `location`, `photo`) VALUES
 (1, 'Area Office Lt2', '2.jpg'),
 (2, 'Area Office Lt3', 'Picture1.jpg'),
-(7, 'wagawg', ''),
-(8, 'afwag', ''),
 (9, 'waeg', '5.png'),
-(10, 'afweafe', '2.jpg'),
+(10, 'afweafe', 'Picture1.jpg'),
 (11, 'afewawg', '1.png'),
-(12, 'faf', '11.png');
+(12, 'faf', '11.png'),
+(13, 'Cek Location', 'IMG_20220314_084103.jpg');
 
 -- --------------------------------------------------------
 
@@ -250,27 +249,25 @@ CREATE TABLE `ipstatic` (
   `asset_number` varchar(150) DEFAULT NULL,
   `location` varchar(300) DEFAULT NULL,
   `user` varchar(150) DEFAULT NULL,
-  `password` varchar(150) DEFAULT NULL,
-  `latitude` varchar(200) DEFAULT NULL,
-  `longitude` varchar(200) DEFAULT NULL
+  `password` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ipstatic`
 --
 
-INSERT INTO `ipstatic` (`id`, `vlan`, `up_link`, `port`, `ip_address`, `mac_address`, `host_name`, `equipment`, `manufacture`, `model`, `serial_number`, `asset_number`, `location`, `user`, `password`, `latitude`, `longitude`) VALUES
-(131, '', '', '', 'wfe2f2', 'wafewf', '', 'Laptop HP 840 G1', 'Cisco', 'TP Link', '', '', '', '', '', NULL, NULL),
-(132, '', '', '', 'afeawf', 'waefawf', '', 'Laptop HP 840 G1', '', 'asffqf', '', '', 'Area Office Lt3', '', '', '-6.434841591528314', '106.92835986614229'),
-(133, '', '', '', '8.8.8.8', 'asdfwag', '', '', '', '', '', '', '', '', '', NULL, NULL),
-(134, '', '', '8000', '127.0.0.1', 'sadfawg', '', '', '', '', '', '', '', '', '', NULL, NULL),
-(135, '', '', '', '127.0.0.1', 'asfweg', '', '', '', '', '', '', '', '', '', NULL, NULL),
-(136, '', '', '80', '127.0.0.1', 'asfwef', '', '', '', '', '', '', '', '', '', '-6.434831471675636', '106.92852079868318'),
-(137, '', '', '', 'awgaweg', 'awgeaweg', '', 'Laptop HP 840 G3', 'Cisco', 'Cisco', 'awegawg', 'awegwaeg', 'Area Office Lt2', '', '', '-6.434175804741606', '106.9263106584549'),
-(138, '', '', '', 'waef', 'wafe', 'awf', 'Laptop HP 840 G1', 'Cisco', 'Cisco', 'waeg', 'aweg', 'wagawg', 'waef', 'awfe', '-6.433610757761918', '106.92772150039674'),
-(139, '', '', '', 'test', 'asdfaweg', '', '', '', '', '', '', '', '', '', '-6.434357046092543', '106.9276785850525'),
-(140, '', '', '345', '3454254', 'dfsfgshserh', 'galang', '', '', '', '', '', '', '', '', NULL, NULL),
-(141, '', '', '34', 'rgse', 'esrgse', '', '', '', '', '', '', '', '', '', NULL, NULL);
+INSERT INTO `ipstatic` (`id`, `vlan`, `up_link`, `port`, `ip_address`, `mac_address`, `host_name`, `equipment`, `manufacture`, `model`, `serial_number`, `asset_number`, `location`, `user`, `password`) VALUES
+(131, '', '', '', 'wfe2f2', 'wafewf', '', 'Laptop HP 840 G1', 'Cisco', 'TP Link', '', '', '', '', ''),
+(132, '', '', '', 'afeawf', 'waefawf', '', 'Laptop HP 840 G1', '', 'asffqf', '', '', 'Area Office Lt3', '', ''),
+(133, '', '', '', '8.8.8.8', 'asdfwag', '', '', '', '', '', '', '', '', ''),
+(134, '', '', '8000', '127.0.0.1', 'sadfawg', '', '', '', '', '', '', '', '', ''),
+(135, '', '', '', '127.0.0.1', 'asfweg', '', '', '', '', '', '', '', '', ''),
+(136, '', '', '80', '127.0.0.1', 'asfwef', '', '', '', '', '', '', '', '', ''),
+(137, '', '', '', 'awgaweg', 'awgeaweg', '', 'Laptop HP 840 G3', 'Cisco', 'Cisco', 'awegawg', 'awegwaeg', 'Area Office Lt2', '', ''),
+(138, '', '', '', 'waef', 'wafe', 'awf', 'Laptop HP 840 G1', 'Cisco', 'Cisco', 'waeg', 'aweg', 'wagawg', 'waef', 'awfe'),
+(139, '', '', '', 'test', 'asdfaweg', '', '', '', '', '', '', '', '', ''),
+(140, '', '', '345', '3454254', 'dfsfgshserh', 'galang', '', '', '', '', '', '', '', ''),
+(141, '', '', '34', 'rgse', 'esrgse', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -538,7 +535,8 @@ INSERT INTO `ot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asse
 (4, 'Yes', '', 'waeg', 'waef', 'waefawg', 'ewafwag', 'Cekf', '', '', '', 0, 0, -342425, 0, '', '', '', '1', '', '', '', 'Active', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.4344903117505154', '106.92795753479005', '2.jpg'),
 (5, 'Yes', '', 'afewa', 'wag', 'aweg', 'waeg', 'Cekf', 'awegaweg', 'Cisco', 'awegaw', 0, 0, 0, 0, '1', '', '', '1', '', '', '1', 'Active', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.435455154071475', '106.92588686943056', '2.jpg'),
 (6, '', 'Yes', 'test', 'wag', 'awg', 'waeg', 'Cekf', 'weag', 'Cisco', 'weag', 0, 0, 0, 0, '1', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434122498449617', '106.92632138729095', 'Picture1.jpg'),
-(7, 'Yes', '', 'galang', 'asfgweag', 'weag', 'waeg', 'Cekf', '', 'Cisco', '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Linux', '-6.43403187774039', '106.92819356918336', 'Picture1.jpg');
+(7, 'Yes', '', 'galang', 'asfgweag', 'weag', 'waeg', 'Cekf', '', 'Cisco', '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Linux', '-6.43403187774039', '106.92819356918336', 'Picture1.jpg'),
+(8, 'Yes', '', 'waeg', 'aweg', 'waeg', 'waeg', 'Cekf', 'waeg', 'Cisco', '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434602254876203', '106.92881584167482', 'Picture1.jpg');
 
 -- --------------------------------------------------------
 
@@ -576,13 +574,14 @@ CREATE TABLE `switchpoint` (
 --
 
 INSERT INTO `switchpoint` (`id`, `asset_description`, `hostname`, `model`, `serial_number`, `ip_address`, `mac_address`, `switch`, `port`, `location`) VALUES
-(1, 'f', 'test switch', 'TP Link', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt2'),
+(1, 'f', 'oke', 'TP Link', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt3'),
 (3, 'Cekf', 'galang', 'Cisco', '', '', 'aweg', 'awf', '0', 'Area Office Lt3'),
 (6, 'Cekf', 'awef', 'Cisco', 'waeg', '8.8.8.8', 'awg', 'afa', '', 'Area Office Lt3'),
 (7, 'f', 'aweg', 'TP Link', 'waeg', '', 'aweg', 'aweg', '0', ''),
 (8, '', 'awef', '', '', 'waeg', 'aweg', '', '0', ''),
 (9, 'Cekf', '', '', 'waeg', 'waeg', 'aweg', 'aweg', '0', 'Area Office Lt3'),
-(10, '', '', '', '', 'waeg', 'waeg', 'awef', '0', '');
+(10, '', '', '', '', 'waeg', 'waeg', 'awef', '0', ''),
+(11, '', 'galanga', '', '', 'ewgaawg', 'weagweag', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -768,7 +767,7 @@ ALTER TABLE `accesspoint`
 -- AUTO_INCREMENT for table `area_location`
 --
 ALTER TABLE `area_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `assetdescription`
@@ -864,7 +863,7 @@ ALTER TABLE `osversion`
 -- AUTO_INCREMENT for table `ot_asset`
 --
 ALTER TABLE `ot_asset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `potongan_gaji`
@@ -876,7 +875,7 @@ ALTER TABLE `potongan_gaji`
 -- AUTO_INCREMENT for table `switchpoint`
 --
 ALTER TABLE `switchpoint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `task_list`

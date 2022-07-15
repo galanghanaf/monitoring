@@ -44,8 +44,6 @@
             <th class="text-center bg-primary text-white">Serial Number</th>
             <th class="text-center bg-primary text-white">Asset Number</th>
             <th class="text-center bg-primary text-white">Location</th>
-            <th class="text-center bg-primary text-white">Latitude</th>
-            <th class="text-center bg-primary text-white">Longitude</th>
             <th class="text-center bg-primary text-white">User</th>
             <th class="text-center bg-primary text-white">Password</th>
             <th class="text-center bg-warning text-white">Update</th>
@@ -120,8 +118,7 @@
                 <td class="text-center"><?php echo $t['serial_number']; ?></td>
                 <td class="text-center"><?php echo $t['asset_number']; ?></td>
                 <td class="text-center"><?php echo $t['location']; ?></td>
-                <td class="text-center"><?php echo $t['latitude']; ?></td>
-                <td class="text-center"><?php echo $t['longitude']; ?></td>
+
                 <td class="text-center"><?php echo $t['user']; ?></td>
                 <td class="text-center"><?php echo $t['password']; ?></td>
                 <td>
