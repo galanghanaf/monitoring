@@ -51,12 +51,13 @@
                     <span>Acces Point</span></a>
             </li>
 
+
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('switchpoint') ?>">
                     <i class=" fas fa-fw fa-share-alt-square"></i>
                     <span>Switch</span></a>
             </li>
-            <!-- 
+            <!--
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
                     <i class=" fas fa-fw fa-sitemap"></i>
@@ -121,138 +122,129 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid ">
 
-                <div class="container-fluid">
-
-
-                    <?php echo $this->session->flashdata('pesan') ?> <form class="user" method="POST" action="<?php echo base_url('Welcome') ?>">
-
-
-                        <!-- Content Row -->
-                        <div class="row">
-
-
-                            <!-- Pending Requests Card Example -->
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-info shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                    Access Point </div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $accesspoint ?></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-signal fa-2x text-gray-300"></i>
-
-                                            </div>
-                                        </div>
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
+                    </div>
+                    <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('switchpoint/tambahData') ?>">
+                        <i class="fas fa-plus"> Add Data</i></a>
+                    <?php echo $this->session->flashdata('pesan') ?>
+                    <div class="row">
+                        <div class="col-md">
+                            <form action="<?= base_url('switchpoint') ?>" method="POST">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Search Data..." name="keyword" autocomplete="off" autofocus>
+                                    <div class="input-group-append">
+                                        <input class="btn btn-primary" type="submit" name="submit">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-success shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    IP Static </div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $ipstatic ?></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-sitemap fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Switch </div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $switch ?></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-share-alt-square fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-danger shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                                    IT/OT Asset </div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $itot_asset ?></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-tasks fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-xl-6 col-md-6 mb-4">
-                                <div class="card border-left-success border-bottom-success shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="text-xs text-center font-weight-bold text-success mb-2">
-                                            <h5><b>Mapping IT/OT Asset</b></h5>
-                                        </div>
-                                        <div id="map4" style="height: 350px;"></div>
-                                        <script>
-                                            var map4 = L.map('map4').setView([-6.434244857960943, 106.92771446855967], 18);
-
-                                            var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                                                maxZoom: 20,
-                                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-                                            }).addTo(map4);
-
-                                            <?php foreach ($mappingitotasset as $itot) : ?>
-                                                L.marker([<?php echo $itot['latitude']; ?>, <?php echo $itot['longitude']; ?>]).addTo(map4)
-                                                    .bindPopup('IT : <b><?php echo $itot['it']; ?></b><br/>OT : <b><?php echo $itot['ot']; ?></b><br/>Plant Code : <b><?php echo $itot['plant_code']; ?></b><br/>CBU : <b><?php echo $itot['cbu']; ?></b><br/>Asset Number : <b><?php echo $itot['asset_number']; ?></b><br/>Asset Description : <b><?php echo $itot['asset_description']; ?></b><br/>Serial Number : <b><?php echo $itot['serial_number']; ?></b><br/>Model/Type : <b><?php echo $itot['model']; ?></b><br/>Computer Name : <b><?php echo $itot['computer_name']; ?></b><br/>Location : <b><?php echo $itot['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $itot['photo']; ?>" width="150px"></center> ');
-                                            <?php endforeach; ?>
-                                        </script>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-md-6 mb-4">
-                                <div class="card border-left-danger border-bottom-danger shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="text-xs text-center font-weight-bold text-danger mb-2">
-                                            <h5><b>Mapping OT Asset</b></h5>
-                                        </div>
-                                        <div id="map2" style="height: 350px;"></div>
-                                        <script>
-                                            var map2 = L.map('map2').setView([-6.434244857960943, 106.92771446855967], 18);
-
-                                            var tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                                                maxZoom: 20,
-                                                subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-                                            }).addTo(map2);
-
-                                            <?php foreach ($mappingotasset as $ot) : ?>
-                                                L.marker([<?php echo $ot['latitude']; ?>, <?php echo $ot['longitude']; ?>]).addTo(map2)
-                                                    .bindPopup('IT : <b><?php echo $ot['it']; ?></b><br/>OT : <b><?php echo $ot['ot']; ?></b><br/>Plant Code : <b><?php echo $ot['plant_code']; ?></b><br/>CBU : <b><?php echo $ot['cbu']; ?></b><br/>Asset Number : <b><?php echo $ot['asset_number']; ?></b><br/>Asset Description : <b><?php echo $ot['asset_description']; ?></b><br/>Serial Number : <b><?php echo $ot['serial_number']; ?></b><br/>Model/Type : <b><?php echo $ot['model']; ?></b><br/>Computer Name : <b><?php echo $ot['computer_name']; ?></b><br/>Location : <b><?php echo $ot['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $ot['photo']; ?>" width="150px"></center> ');
-                                            <?php endforeach; ?>
-                                        </script>
-
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                </div>
+                    </div>
+                    <h6>Result : <?= $total_rows ?></h6>
+                    <table style="white-space:nowrap;" class="table-responsive table table-bordered table-hover" style="overflow-y: scroll; overflow-x: auto">
 
+                        <tr>
+                            <th class="text-center bg-primary text-white" rowspan="2">No</th>
+                            <th class="text-center bg-primary text-white" rowspan="2">Status</th>
+
+                            <th class="text-center bg-primary text-white" rowspan="2">Asset Description</th>
+                            <th class="text-center bg-primary text-white" rowspan="2">Hostname</th>
+                            <th class="text-center bg-primary text-white" rowspan="2">Model</th>
+                            <th class="text-center bg-primary text-white" rowspan="2">Serial Number</th>
+                            <th class="text-center bg-primary text-white" rowspan="2">IP Address</th>
+                            <th class="text-center bg-primary text-white" rowspan="2">Mac Address</th>
+                            <th class="text-center bg-primary text-white" colspan="2">Up Link</th>
+
+                            <th class="text-center bg-primary text-white" rowspan="2">Location</th>
+
+                        </tr>
+                        <tr>
+                            <th class="text-center bg-primary text-white">Switch</th>
+                            <th class="text-center bg-primary text-white">Port</th>
+                        </tr>
+                        <?php if (empty($switchpoint)) : ?>
+                            <tr>
+                                <td colspan="17">
+                                    <div class="alert alert-danger" role="alert">
+                                        Data not found!
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php foreach ($switchpoint as $t) : ?>
+                            <tr>
+                                <td class="text-center"><?php echo ++$start; ?></td>
+
+                                <?php
+
+                                // Initialisierung der Ziele / Wenn Port leer -> ICMP (Ping), sonst Portcheck
+
+                                $ServerList = array(
+                                    "Server1" => $t['ip_address'],
+                                    "Port1" => $t['port']
+                                );
+
+
+                                for ($i = 1; $i <= (count($ServerList) / 2); $i++) {
+
+                                    $Server = $ServerList["Server" . $i];
+                                    $Port = $ServerList["Port" . $i];
+
+
+
+                                    // ICMP (Ping) oder Portcheck
+                                    if ($Port <> "") {
+                                        if (!$socket = @fsockopen($Server, $Port, $errno, $errstr, 30)) {
+                                            $tdStyle = '#e74a3b';
+                                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Offline</td>";
+                                        } else {
+                                            $tdStyle = '#1cc88a';
+                                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Online</td>";
+                                            fclose($socket);
+                                        }
+                                    } else {
+                                        $str = exec("ping -n 1 -w 1 " . $Server, $input, $result);
+                                        if ($result == 0) {
+                                            $tdStyle = '#1cc88a';
+                                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Online</td>";
+                                        } else {
+                                            $tdStyle = '#e74a3b';
+                                            echo "<td class='text-center text-white' style='background-color:{$tdStyle};'>Offline</td>";
+                                        }
+                                    }
+                                }
+
+                                ?>
+
+
+                                <td class="text-center"><?php echo $t['asset_description']; ?></td>
+                                <td class="text-center"><?php echo $t['hostname']; ?></td>
+                                <td class="text-center"><?php echo $t['model']; ?></td>
+                                <td class="text-center"><?php echo $t['serial_number']; ?></td>
+                                <td class="text-center"><?php echo $t['ip_address']; ?></td>
+                                <td class="text-center"><?php echo $t['mac_address']; ?></td>
+                                <td class="text-center"><?php echo $t['switch']; ?></td>
+                                <td class="text-center"><?php echo $t['port']; ?></td>
+                                <td class="text-center"><?php echo $t['location']; ?></td>
+
+
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                    <?= $this->pagination->create_links(); ?>
+
+
+                </div>
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
 
         </div>
         <br><br>
