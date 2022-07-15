@@ -57,13 +57,13 @@
                     <i class=" fas fa-fw fa-share-alt-square"></i>
                     <span>Switch</span></a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('ipstatic') ?>">
                     <i class="fas fa-fw fa-sitemap"></i>
                     <span>IP Static</span></a>
             </li>
             <!--
-
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
                     <i class=" fas fa-fw fa-tasks"></i>
@@ -124,17 +124,20 @@
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
                 <!-- Begin Page Content -->
-                <div class="container-fluid ">
+                <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h4 mb-0 text-gray-800"><?php echo $title ?></h1>
                     </div>
 
+
+
                     <?php echo $this->session->flashdata('pesan') ?>
+
                     <div class="row">
                         <div class="col-md">
-                            <form action="<?= base_url('switchpoint') ?>" method="POST">
+                            <form action="<?= base_url('ipstatic') ?>" method="POST">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder="Search Data..." name="keyword" autocomplete="off" autofocus>
                                     <div class="input-group-append">
@@ -145,29 +148,30 @@
                             </form>
                         </div>
                     </div>
-                    <h6>Result : <?= $total_rows ?></h6>
+                    <h6> Result : <?= $total_rows ?></h6>
                     <table style="white-space:nowrap;" class="table-responsive table table-bordered table-hover" style="overflow-y: scroll; overflow-x: auto">
 
                         <tr>
-                            <th class="text-center bg-primary text-white" rowspan="2">No</th>
-                            <th class="text-center bg-primary text-white" rowspan="2">Status</th>
-
-                            <th class="text-center bg-primary text-white" rowspan="2">Asset Description</th>
-                            <th class="text-center bg-primary text-white" rowspan="2">Hostname</th>
-                            <th class="text-center bg-primary text-white" rowspan="2">Model</th>
-                            <th class="text-center bg-primary text-white" rowspan="2">Serial Number</th>
-                            <th class="text-center bg-primary text-white" rowspan="2">IP Address</th>
-                            <th class="text-center bg-primary text-white" rowspan="2">Mac Address</th>
-                            <th class="text-center bg-primary text-white" colspan="2">Up Link</th>
-
-                            <th class="text-center bg-primary text-white" rowspan="2">Location</th>
-
-                        </tr>
-                        <tr>
-                            <th class="text-center bg-primary text-white">Switch</th>
+                            <th class="text-center bg-primary text-white">No</th>
+                            <th class="text-center bg-primary text-white">Status</th>
+                            <th class="text-center bg-primary text-white">Vlan</th>
+                            <th class="text-center bg-primary text-white">Up Link</th>
                             <th class="text-center bg-primary text-white">Port</th>
+                            <th class="text-center bg-primary text-white">Ip Address</th>
+                            <th class="text-center bg-primary text-white">Mac Address</th>
+                            <th class="text-center bg-primary text-white">Hostname</th>
+                            <th class="text-center bg-primary text-white">Equipment</th>
+                            <th class="text-center bg-primary text-white">Manufacture</th>
+                            <th class="text-center bg-primary text-white">Model/Type</th>
+                            <th class="text-center bg-primary text-white">Serial Number</th>
+                            <th class="text-center bg-primary text-white">Asset Number</th>
+                            <th class="text-center bg-primary text-white">Location</th>
+
+                            <th class="text-center bg-primary text-white">User</th>
+
                         </tr>
-                        <?php if (empty($switchpoint)) : ?>
+
+                        <?php if (empty($ipstatic)) : ?>
                             <tr>
                                 <td colspan="17">
                                     <div class="alert alert-danger" role="alert">
@@ -176,7 +180,7 @@
                                 </td>
                             </tr>
                         <?php endif ?>
-                        <?php foreach ($switchpoint as $t) : ?>
+                        <?php foreach ($ipstatic as $t) : ?>
                             <tr>
                                 <td class="text-center"><?php echo ++$start; ?></td>
 
@@ -222,38 +226,37 @@
                                 ?>
 
 
-                                <td class="text-center"><?php echo $t['asset_description']; ?></td>
-                                <td class="text-center"><?php echo $t['hostname']; ?></td>
-                                <td class="text-center"><?php echo $t['model']; ?></td>
-                                <td class="text-center"><?php echo $t['serial_number']; ?></td>
+                                <td class="text-center"><?php echo $t['vlan']; ?></td>
+                                <td class="text-center"><?php echo $t['up_link']; ?></td>
+                                <td class="text-center"><?php echo $t['port']; ?></td>
                                 <td class="text-center"><?php echo $t['ip_address']; ?></td>
                                 <td class="text-center"><?php echo $t['mac_address']; ?></td>
-                                <td class="text-center"><?php echo $t['switch']; ?></td>
-                                <td class="text-center"><?php echo $t['port']; ?></td>
+                                <td class="text-center"><?php echo $t['host_name']; ?></td>
+                                <td class="text-center"><?php echo $t['equipment']; ?></td>
+                                <td class="text-center"><?php echo $t['manufacture']; ?></td>
+                                <td class="text-center"><?php echo $t['model']; ?></td>
+                                <td class="text-center"><?php echo $t['serial_number']; ?></td>
+                                <td class="text-center"><?php echo $t['asset_number']; ?></td>
                                 <td class="text-center"><?php echo $t['location']; ?></td>
 
+                                <td class="text-center"><?php echo $t['user']; ?></td>
 
                             </tr>
                         <?php endforeach; ?>
                     </table>
                     <?= $this->pagination->create_links(); ?>
-
-
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
+            <br><br>
+
             <!-- End of Main Content -->
 
+
+
         </div>
-        <br><br>
-
-        <!-- End of Main Content -->
-
-
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

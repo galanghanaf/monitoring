@@ -56,12 +56,14 @@
                     <i class=" fas fa-fw fa-share-alt-square"></i>
                     <span>Switch</span></a>
             </li>
-            <!-- 
+
+
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
-                    <i class=" fas fa-fw fa-sitemap"></i>
-                    <span>Ip Static</span></a>
+                <a class="nav-link" href="<?php echo base_url('ipstatic') ?>">
+                    <i class="fas fa-fw fa-sitemap"></i>
+                    <span>IP Static</span></a>
             </li>
+            <!--
 
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Welcome') ?>">
