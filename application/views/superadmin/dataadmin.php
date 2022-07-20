@@ -8,6 +8,20 @@
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('superadmin/dataadmin/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
+    <div class="row">
+        <div class="col-md">
+            <form action="<?= base_url('superadmin/dataadmin') ?>" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Data..." name="keyword" autocomplete="off" autofocus>
+                    <div class="input-group-append">
+                        <input class="btn btn-primary" type="submit" name="submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <h6>Result : <?= $total_rows ?></h6>
     <table class="table table-bordered table-hover">
 
         <tr>

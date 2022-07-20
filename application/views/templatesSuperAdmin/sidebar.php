@@ -35,6 +35,8 @@
                         <a class="collapse-item" href="<?php echo base_url('superadmin/manufacture') ?>">Manufacture</a>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/modelasset') ?>">Model/Type</a>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/osversion') ?>">OS Version</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/plantcode') ?>">Plant Code</a>
+
                     </div>
                 </div>
             </li>

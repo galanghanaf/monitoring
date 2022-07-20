@@ -42,9 +42,12 @@ class Monitoring_model extends CI_Model
         return $this->db->get('data_admin')->result_array();
     }
 
-    public function getDataAdmin($limit, $start)
+    public function getDataAdmin($limit, $start, $keyword = null)
     {
-
+        if ($keyword) {
+            $this->db->like('nama_admin', $keyword);
+            $this->db->or_like('username', $keyword);
+        }
         return $this->db->get('data_admin', $limit, $start)->result_array();
     }
 
@@ -130,6 +133,25 @@ class Monitoring_model extends CI_Model
         return $this->db->get('department')->num_rows();
     }
     // End Department
+
+    // Opening Plant Code
+    public function getAllPlantCode()
+    {
+        return $this->db->get('plantcode')->result_array();
+    }
+
+    public function getPlantCode($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('plantcode', $keyword);
+        }
+        return $this->db->get('plantcode', $limit, $start)->result_array();
+    }
+    public function countAllPlantCode()
+    {
+        return $this->db->get('plantcode')->num_rows();
+    }
+    // End Plant Code
 
     // Opening Manufacture
     public function getAllManufacture()

@@ -1,6 +1,6 @@
 <?php
 
-class DataAdmin extends CI_Controller
+class Cbu extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class DataAdmin extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Data Admin";
+        $data['title'] = "Data CBU";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
@@ -25,12 +25,12 @@ class DataAdmin extends CI_Controller
         } else {
             $data['keyword'] =  $this->session->userdata('keyword');
         }
+
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('superadmin/department/index');
-        $this->db->like('nama_admin', $data['keyword']);
-        $this->db->or_like('username', $data['keyword']);
-        $this->db->from('data_admin');
+        $config['base_url'] = site_url('superadmin/cbu/index');
+        $this->db->like('cbu', $data['keyword']);
+        $this->db->from('cbu');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 10;
@@ -69,106 +69,95 @@ class DataAdmin extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['dataadmin'] = $this->monitoring->getDataAdmin($config['per_page'], $data['start'], $data['keyword']);
-        //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['cbu'] = $this->monitoring->getCBU($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesSuperAdmin/header', $data);
         $this->load->view('templatesSuperAdmin/sidebar');
-        $this->load->view('superadmin/dataadmin', $data);
+        $this->load->view('superadmin/cbu', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
     public function tambahData()
     {
-        $data['title'] = "Tambah Data Admin";
+        $data['title'] = "Add Data CBU";
         $this->load->view('templatesSuperAdmin/header', $data);
         $this->load->view('templatesSuperAdmin/sidebar');
-        $this->load->view('superadmin/formTambahDataAdmin', $data);
+        $this->load->view('superadmin/formTambahPlantCode', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
     public function tambahDataAksi()
     {
-        $this->_rules(); //function ini berfungsi untuk melakukan form_validation
-        if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
             $this->tambahData();
         } else {
             $id             = $this->input->post('id');
-            $nama_admin     = $this->input->post('nama_admin');
-            $hak_akses      = $this->input->post('hak_akses');
-            $username       = $this->input->post('username');
-            $password       = $this->input->post('password');
+            $cbu    = $this->input->post('cbu');
 
 
             $data = array(
-                'nama_admin'    => $nama_admin,
-                'hak_akses'     => $hak_akses,
-                'username'      => $username,
-                'password'      => $password,
+                'cbu'   => $cbu,
+
             );
 
-            $this->Monitoring_model->insert_data($data, 'data_admin');
+            $this->Monitoring_model->insert_data($data, 'cbu');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('superadmin/dataadmin');
+            redirect('superadmin/plantcode');
         }
     }
-    /*
-    fungsi function ini untuk melakukan form_validation, tujuan untuk menentukan rules dari setiap input yang ada pada views 
-        //disini kita men set rules dengan required, artinya form wajib di isi
-    */
+
     public function updateData($id)
     {
-        $data['title'] = 'Update Data Admin';
-        $data['dataadmin'] = $this->db->query("SELECT * FROM data_admin WHERE id='$id'")->result();
+        $data['cbu'] = $this->db->query("SELECT * FROM cbu WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['title'] = "Update Plant Code";
         $this->load->view('templatesSuperAdmin/header', $data);
         $this->load->view('templatesSuperAdmin/sidebar');
-        $this->load->view('superadmin/formUpdateDataAdmin', $data);
+        $this->load->view('superadmin/formUpdateCBU', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
+
     public function updateDataAksi()
     {
-        $this->_rules(); //function ini berfungsi untuk melakukan form_validation
-        if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
-            redirect('superadmin/dataadmin');
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data Yang Anda Inputkan, Telah Digunakan!</strong></div>');
+            redirect('superadmin/plantcode');
         } else {
             $id             = $this->input->post('id');
-            $nama_admin     = $this->input->post('nama_admin');
-            $hak_akses      = $this->input->post('hak_akses');
-            $username       = $this->input->post('username');
-            $password       = $this->input->post('password');
+            $plantcode    = $this->input->post('plantcode');
+
 
             $data = array(
-                'nama_admin  '  => $nama_admin,
-                'hak_akses'     => $hak_akses,
-                'username'      => $username,
-                'password'      => $password,
+                'plantcode'   => $plantcode,
+
+
 
             );
-
             $where = array(
                 'id' => $id
             );
-            $this->Monitoring_model->update_data('data_admin', $data, $where);
+
+            $this->Monitoring_model->update_data('plantcode', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Data Berhasil Diupdate!</strong>
-            </div>');
-            redirect('superadmin/dataadmin');
+            <strong>Data Berhasil Diupdate!</strong></div>');
+            redirect('superadmin/plantcode');
         }
     }
 
     public function _rules()
     {
-        $this->form_validation->set_rules('nama_admin', 'Nama Admin', 'required');
-        $this->form_validation->set_rules('hak_akses', 'hak akses', 'required');
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->form_validation->set_rules('plantcode', 'plantcode', 'required|trim|is_unique[plantcode.plantcode]');
     }
 
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'data_admin');
+        $this->Monitoring_model->delete_data($where, 'plantcode');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('superadmin/dataadmin');
+        redirect('superadmin/plantcode');
     }
 }

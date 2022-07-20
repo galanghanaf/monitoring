@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2022 at 06:04 AM
+-- Generation Time: Jul 20, 2022 at 12:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -94,8 +94,38 @@ CREATE TABLE `assetdescription` (
 --
 
 INSERT INTO `assetdescription` (`id`, `asset_description`) VALUES
-(1, 'Cekf'),
-(3, 'f');
+(4, 'Software SAP Program'),
+(5, 'SAP & DB2 Licence'),
+(6, 'HP SCAN JET G3010 - R. Finance'),
+(7, 'EXTERNAL HDD 250GB'),
+(8, 'HP 840G1 A6-840m 14.0 8GB/500 HASPAPC'),
+(10, 'HP 840G2 A6-840m 12.0 8GB/500 HASPAPC'),
+(11, 'HP 600PD SFFG3220 500G 8.0G 28 PC'),
+(12, 'Laptop HP 840G2 i5-2520M 12.5 8GB/500 HSPAPC'),
+(13, 'Desktop HP Pro6300 + LCD'),
+(14, 'Laptop 840 G1 + Bag'),
+(15, 'SCS for Finger access Door'),
+(16, 'Desktop HP 600PD SFFG3220 500G 8.0G 28 PC'),
+(17, 'IT30_APC Smart UPS 5000VA'),
+(18, 'Cisco WS-C2960X-24TS-L'),
+(19, 'Laptop HP 840G3 i5-2520M 14.0 8GB/256 HSPAPC'),
+(20, 'SCS Citereup Plant'),
+(21, 'CATALYST 2960-X 48 GIGE POE 740W,4X1G,LAN BASE'),
+(22, 'Laptop HP 840G3 i5-6300U 14.0 8GB/256 HSPAPC'),
+(23, 'ID0037-Electric Grounding Plant Citereup'),
+(24, 'Laptop HP 840G4 i5-7300U 14.0 8GB/256 HSPAPC'),
+(25, 'Desktop HP 600G3 SFFG4560 500G 8.0G 28 PC'),
+(26, 'ThinkSysytem SR650 1xIntel Xeon Bronze 3'),
+(27, 'Desktop HP 600G3 SFFG4400 500G 8.0G 28 PC + Monitor'),
+(28, 'Laptop HP 840G5 i5-7300U 14.0 8GB/256 HSPAPC'),
+(29, 'C9200L-24P-4G Cisco Catalyst Port 4503185922'),
+(30, 'Printer Laser Jet 1220 Gd Evian'),
+(31, 'FIBER OPTIC & STRUCTURE CABLING'),
+(32, 'Catalyst 2960-X 48 GigE PoE 740W, 4 x 1G SFP, LAN'),
+(33, 'Data Monitoring on line meter - INDOTEHNIK CIPTA S'),
+(34, 'ACCESS POINT & CORE SWITCH_CITEUREUP PLANT'),
+(35, 'ADOP Digitalization Citeureup'),
+(36, 'RADAR QR Code');
 
 -- --------------------------------------------------------
 
@@ -105,7 +135,6 @@ INSERT INTO `assetdescription` (`id`, `asset_description`) VALUES
 
 CREATE TABLE `data_admin` (
   `id` int(11) NOT NULL,
-  `email` varchar(200) NOT NULL,
   `nama_admin` varchar(200) DEFAULT NULL,
   `username` varchar(200) NOT NULL,
   `hak_akses` int(11) NOT NULL,
@@ -116,10 +145,11 @@ CREATE TABLE `data_admin` (
 -- Dumping data for table `data_admin`
 --
 
-INSERT INTO `data_admin` (`id`, `email`, `nama_admin`, `username`, `hak_akses`, `password`) VALUES
-(60, 'galanghanafi8@gmail.com', 'Galang Hanafi', 'galang', 2, 'galang'),
-(62, 'budi@gmail.comd', 'Budis', 'budi', 1, 'budi'),
-(63, 'ctr@gmail.com', 'ctr', 'ctr', 2, 'ctr');
+INSERT INTO `data_admin` (`id`, `nama_admin`, `username`, `hak_akses`, `password`) VALUES
+(60, 'Galang', 'galang', 2, 'galang'),
+(62, 'Budi', 'budi', 1, 'budi'),
+(65, 'ctr', 'ctr', 2, 'ctr'),
+(66, 'tgs', 'tgs', 3, 'tgs');
 
 -- --------------------------------------------------------
 
@@ -159,8 +189,9 @@ CREATE TABLE `equipment` (
 --
 
 INSERT INTO `equipment` (`id`, `equipment`) VALUES
-(2, 'Laptop HP 840 G1s'),
-(3, 'Laptop HP 840 G3');
+(2, 'CoreSwitch'),
+(3, 'Laptop HP 840 G1'),
+(5, 'Laptop HP 840 G3');
 
 -- --------------------------------------------------------
 
@@ -458,8 +489,11 @@ CREATE TABLE `model_asset` (
 --
 
 INSERT INTO `model_asset` (`id`, `model`) VALUES
-(2, 'Cisco'),
-(3, 'TP Link');
+(2, 'Other'),
+(3, '840G1'),
+(4, '840G2'),
+(5, '600PD'),
+(6, '6300P');
 
 -- --------------------------------------------------------
 
@@ -477,8 +511,8 @@ CREATE TABLE `osversion` (
 --
 
 INSERT INTO `osversion` (`id`, `osversion`) VALUES
-(1, 'Linux'),
-(2, 'Windows');
+(2, 'Windows 21H2'),
+(4, 'Windows 21H1');
 
 -- --------------------------------------------------------
 
@@ -537,6 +571,24 @@ INSERT INTO `ot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asse
 (6, '', 'Yes', 'test', 'wag', 'awg', 'waeg', 'Cekf', 'weag', 'Cisco', 'weag', 0, 0, 0, 0, '1', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434122498449617', '106.92632138729095', 'Picture1.jpg'),
 (7, 'Yes', '', 'galang', 'asfgweag', 'weag', 'waeg', 'Cekf', '', 'Cisco', '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Linux', '-6.43403187774039', '106.92819356918336', 'Picture1.jpg'),
 (8, 'Yes', '', 'waeg', 'aweg', 'waeg', 'waeg', 'Cekf', 'waeg', 'Cisco', '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434602254876203', '106.92881584167482', 'Picture1.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `plantcode`
+--
+
+CREATE TABLE `plantcode` (
+  `id` int(11) NOT NULL,
+  `plantcode` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `plantcode`
+--
+
+INSERT INTO `plantcode` (`id`, `plantcode`) VALUES
+(1, '9013');
 
 -- --------------------------------------------------------
 
@@ -604,7 +656,7 @@ CREATE TABLE `task_list` (
 --
 
 INSERT INTO `task_list` (`id`, `description`, `requester`, `start_date`, `due_date`, `status`, `notes`) VALUES
-(1, 'Moving Server Roomagewafeawgewafawe', 'Networkawgeeawgawgaweg', '2022-07-05', '2022-07-25', 'In Progress', 'Improvement Serverewagawgwagweahwa3r2g'),
+(1, 'Moving Server Room', 'Network', '2022-07-05', '2022-07-25', 'In Progress', 'Improvement Server'),
 (3, 'rweq', 'fwef', '2022-07-05', '2022-07-05', 'Completed', 'fsad'),
 (4, 'awfe', 'awef', '2022-07-03', '2022-07-04', 'Completed', 'awfe'),
 (5, 'awef', 'gwaeg', '2022-07-08', '2022-07-11', 'In Progress', 'fawefg'),
@@ -617,6 +669,24 @@ INSERT INTO `task_list` (`id`, `description`, `requester`, `start_date`, `due_da
 (12, 'awgwagawgawegawgwaegawegwag', 'waegweagwag', '2022-07-08', '2022-07-09', 'In Progress', 'awegawg'),
 (13, 'wageaw', 'fweqf', '2022-07-10', '2022-07-10', 'In Progress', 'waeg'),
 (14, 'sadsv', 'sdvsav', '2022-07-15', '2022-07-30', 'Completed', 'sdv');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `topology`
+--
+
+CREATE TABLE `topology` (
+  `id` int(11) NOT NULL,
+  `photo` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `topology`
+--
+
+INSERT INTO `topology` (`id`, `photo`) VALUES
+(1, 'unknowng.png');
 
 --
 -- Indexes for dumped tables
@@ -645,7 +715,6 @@ ALTER TABLE `assetdescription`
 --
 ALTER TABLE `data_admin`
   ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -735,6 +804,12 @@ ALTER TABLE `ot_asset`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `plantcode`
+--
+ALTER TABLE `plantcode`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `potongan_gaji`
 --
 ALTER TABLE `potongan_gaji`
@@ -751,6 +826,12 @@ ALTER TABLE `switchpoint`
 -- Indexes for table `task_list`
 --
 ALTER TABLE `task_list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `topology`
+--
+ALTER TABLE `topology`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -773,13 +854,13 @@ ALTER TABLE `area_location`
 -- AUTO_INCREMENT for table `assetdescription`
 --
 ALTER TABLE `assetdescription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `data_admin`
 --
 ALTER TABLE `data_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -791,7 +872,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `hak_akses`
@@ -851,19 +932,25 @@ ALTER TABLE `mapping_networkap`
 -- AUTO_INCREMENT for table `model_asset`
 --
 ALTER TABLE `model_asset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `osversion`
 --
 ALTER TABLE `osversion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ot_asset`
 --
 ALTER TABLE `ot_asset`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `plantcode`
+--
+ALTER TABLE `plantcode`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `potongan_gaji`
@@ -882,6 +969,12 @@ ALTER TABLE `switchpoint`
 --
 ALTER TABLE `task_list`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `topology`
+--
+ALTER TABLE `topology`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

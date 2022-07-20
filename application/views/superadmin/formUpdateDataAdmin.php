@@ -30,35 +30,35 @@
                                     <label>Hak Akses</label>
                                     <select name="hak_akses" class="form-control">
                                         <option value="<?php echo $t->hak_akses ?>">
-                                            <?php if ($t['hak_akses'] == '1') { ?>
+                                            <?php if ($t->hak_akses == '1') { ?>
                                                 <td class="text-center">Super Admin</td>
-                                            <?php } elseif ($t['hak_akses'] == '2') { ?>
+                                            <?php } elseif ($t->hak_akses == '2') { ?>
                                                 <td class="text-center">Admin Plant Citeureup</td>
-                                            <?php } elseif ($t['hak_akses'] == '3') { ?>
+                                            <?php } elseif ($t->hak_akses == '3') { ?>
                                                 <td class="text-center">Admin Plant Tanggamus</td>
-                                            <?php } elseif ($t['hak_akses'] == '4') { ?>
+                                            <?php } elseif ($t->hak_akses == '4') { ?>
                                                 <td class="text-center">Admin DC Lampung</td>
-                                            <?php } elseif ($t['hak_akses'] == '5') { ?>
+                                            <?php } elseif ($t->hak_akses == '5') { ?>
                                                 <td class="text-center">Admin Plant Babakanpari</td>
-                                            <?php } elseif ($t['hak_akses'] == '6') { ?>
+                                            <?php } elseif ($t->hak_akses == '6') { ?>
                                                 <td class="text-center">Admin Plant Legos</td>
-                                            <?php } elseif ($t['hak_akses'] == '7') { ?>
+                                            <?php } elseif ($t->hak_akses == '7') { ?>
                                                 <td class="text-center">Admin Plant Caringin</td>
-                                            <?php } elseif ($t['hak_akses'] == '8') { ?>
+                                            <?php } elseif ($t->hak_akses == '8') { ?>
                                                 <td class="text-center">Admin DC Bandung</td>
-                                            <?php } elseif ($t['hak_akses'] == '9') { ?>
+                                            <?php } elseif ($t->hak_akses == '9') { ?>
                                                 <td class="text-center">Admin Plant Cianjur</td>
-                                            <?php } elseif ($t['hak_akses'] == '10') { ?>
+                                            <?php } elseif ($t->hak_akses == '10') { ?>
                                                 <td class="text-center">Admin Plant Mekarsari</td>
-                                            <?php } elseif ($t['hak_akses'] == '11') { ?>
+                                            <?php } elseif ($t->hak_akses == '11') { ?>
                                                 <td class="text-center">Admin Plant Bekasi</td>
-                                            <?php } elseif ($t['hak_akses'] == '12') { ?>
+                                            <?php } elseif ($t->hak_akses == '12') { ?>
                                                 <td class="text-center">Admin DC Cikarang</td>
-                                            <?php } elseif ($t['hak_akses'] == '13') { ?>
+                                            <?php } elseif ($t->hak_akses == '13') { ?>
                                                 <td class="text-center">Admin Plant Sentul</td>
-                                            <?php } elseif ($t['hak_akses'] == '14') { ?>
+                                            <?php } elseif ($t->hak_akses == '14') { ?>
                                                 <td class="text-center">Admin Plant Ciherang</td>
-                                            <?php } elseif ($t['hak_akses'] == '15') { ?>
+                                            <?php } elseif ($t->hak_akses == '15') { ?>
                                                 <td class="text-center">Admin DC Cibinong</td>
                                             <?php }  ?>
                                         </option>
