@@ -119,7 +119,6 @@ class MyProfile extends CI_Controller
         if ($this->form_validation->run() == FALSE) { //disini apabila form yang sudah kita buat ternyata pada saat di validasi false maka, akan dikembalikan ke tambahData
             redirect('admin/myprofile');
         } else {
-            $email     = $this->input->post('email');
 
             $id             = $this->input->post('id');
             $nama_admin     = $this->input->post('nama_admin');
@@ -129,7 +128,6 @@ class MyProfile extends CI_Controller
             $password       = $this->input->post('password');
 
             $data = array(
-                'email'      => $email,
                 'nama_admin  '  => $nama_admin,
                 'hak_akses'     => $hak_akses,
                 'username'      => $username,
@@ -153,7 +151,6 @@ class MyProfile extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('nama_admin', 'Nama Admin', 'required');
         $this->form_validation->set_rules('hak_akses', 'hak akses', 'required');
         $this->form_validation->set_rules('username', 'Username', 'required');

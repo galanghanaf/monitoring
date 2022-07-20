@@ -1,5 +1,14 @@
            </div>
            <!-- End of Content Wrapper -->
+           <!-- Footer -->
+           <footer class="sticky-footer bg-white">
+               <div class="container my-auto">
+                   <div class="copyright text-center my-auto">
+                       <span>Copyright &copy; <a href="https://github.com/galanghanaf" target="_blank">galanghanaf</a> <?php echo date("Y"); ?></span>
+                   </div>
+               </div>
+           </footer>
+           <!-- End of Footer -->
 
            </div>
            <!-- End of Page Wrapper -->
@@ -28,7 +37,7 @@
            <script src="<?php echo base_url() ?>/assets/js/demo/chart-area-demo.js"></script>
            <script src="<?php echo base_url() ?>/assets/js/demo/chart-pie-demo.js"></script>
 
-           
+
 
            </body>
 
