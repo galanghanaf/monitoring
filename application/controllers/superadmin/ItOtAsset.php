@@ -89,6 +89,12 @@ class ItOtAsset extends CI_Controller
         $this->load->view('superadmin/itotasset', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data List IT/OT Asset";
+        $data['itotasset'] = $this->Monitoring_model->getAllItOtAsset();
+        $this->load->view('superadmin/exportItOtAsset', $data);
+    }
     public function tambahData()
     {
         $data['title'] = "Add Data IT/OT Asset";

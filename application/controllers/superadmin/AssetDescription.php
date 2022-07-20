@@ -79,6 +79,12 @@ class AssetDescription extends CI_Controller
         $this->load->view('superadmin/assetdescription', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data Asset Description";
+        $data['assetdescription'] = $this->Monitoring_model->getAllAssetDescription();
+        $this->load->view('superadmin/exportAssetDescription', $data);
+    }
     public function tambahData()
     {
         $data['title'] = "Add Data Asset";

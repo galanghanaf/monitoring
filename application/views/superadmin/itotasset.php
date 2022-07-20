@@ -25,6 +25,8 @@
 
     <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('superadmin/itotasset/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
+    <a class="btn btn-sm btn-primary mb-3 float-right" href="<?php echo base_url('superadmin/itotasset/export_csv') ?>">
+        <i class="fas fa-download"> Export CSV</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
     <div class="row">
         <div class="col-md">

@@ -44,7 +44,7 @@ class IpStatic extends CI_Controller
         $this->db->from('ipstatic');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
-        $config['per_page'] = 99999999999999999999999;
+        $config['per_page'] = 10;
 
 
         //styling
@@ -86,6 +86,12 @@ class IpStatic extends CI_Controller
         $this->load->view('templatesSuperAdmin/sidebar');
         $this->load->view('superadmin/ipstatic', $data);
         $this->load->view('templatesSuperAdmin/footer');
+    }
+    public function export_csv()
+    {
+        $data['title'] = "Data Ip Static";
+        $data['ipstatic'] = $this->Monitoring_model->getAllIpStatic();
+        $this->load->view('superadmin/exportIpStatic', $data);
     }
     public function tambahData()
     {
