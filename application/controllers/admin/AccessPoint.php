@@ -40,6 +40,8 @@ class AccessPoint extends CI_Controller
         $this->db->or_like('port', $data['keyword']);
         $this->db->or_like('location', $data['keyword']);
 
+
+
         $this->db->from('accesspoint');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
@@ -85,6 +87,12 @@ class AccessPoint extends CI_Controller
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/accesspoint', $data);
         $this->load->view('templatesAdmin/footer');
+    }
+    public function export_csv()
+    {
+        $data['title'] = "Data Access Point";
+        $data['accesspoint'] = $this->Monitoring_model->getAllAccessPoint();
+        $this->load->view('admin/exportAccessPoint', $data);
     }
     public function tambahData()
     {

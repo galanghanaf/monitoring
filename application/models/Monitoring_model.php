@@ -10,7 +10,7 @@ class Monitoring_model extends CI_Model
     }
 
     // Opening Task List
-    public function getAllTaksList()
+    public function getAllTaskList()
     {
 
         return $this->db->get('task_list')->result_array();

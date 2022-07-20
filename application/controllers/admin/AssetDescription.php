@@ -70,10 +70,20 @@ class AssetDescription extends CI_Controller
 
         $data['start'] = $this->uri->segment(4);
         $data['assetdescription'] = $this->monitoring->getAssetDescription($config['per_page'], $data['start'], $data['keyword']);
+
+
+
+
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
         $this->load->view('admin/assetdescription', $data);
         $this->load->view('templatesAdmin/footer');
+    }
+    public function export_csv()
+    {
+        $data['title'] = "Data Asset Description";
+        $data['assetdescription'] = $this->Monitoring_model->getAllAssetDescription();
+        $this->load->view('admin/exportAssetDescription', $data);
     }
     public function tambahData()
     {
@@ -120,7 +130,8 @@ class AssetDescription extends CI_Controller
     public function updateDataAksi()
     {
         $this->_rules();
-
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data Yang Anda Inputkan, Telah Digunakan!</strong></div>');
         if ($this->form_validation->run() == FALSE) {
             redirect('admin/assetdescription');
         } else {
@@ -147,7 +158,7 @@ class AssetDescription extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('asset_description', 'Asset Description', 'required');
+        $this->form_validation->set_rules('asset_description', 'Asset Description', 'required|trim|is_unique[assetdescription.asset_description]');
     }
 
     public function deleteData($id)
