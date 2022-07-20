@@ -74,6 +74,25 @@ class Monitoring_model extends CI_Model
     }
     // End Location
 
+    // Opening Topology
+    public function getAllTopology()
+    {
+        return $this->db->get('topology')->result_array();
+    }
+
+    public function getTopology($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('topology', $keyword);
+        }
+        return $this->db->get('topology', $limit, $start)->result_array();
+    }
+    public function countAllTopology()
+    {
+        return $this->db->get('topology')->num_rows();
+    }
+    // End Location
+
     // Opening Equipment
     public function getAllEquipment()
     {

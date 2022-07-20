@@ -9,17 +9,18 @@
                     <!-- /.container-fluid -->
                     <div class="card">
                         <div class="card-body">
-                            <?php foreach ($assetdescription as $e) : ?>
+                            <?php foreach ($topology as $l) : ?>
                                 <!--foreach/perulangan berguna untuk mengambil data dari query table-->
                                 <!-- Disini kita baca datanya dengan method POST sesuai pada controllers/admin/dataJabatan-->
-                                <?php echo form_open_multipart('superadmin/assetdescription/updateDataAksi') ?>
+                                <?php echo form_open_multipart('superadmin/topology/updateDataAksi') ?>
 
                                 <div class="form-group">
-                                    <label>Asset Description</label>
-                                    <input type="hidden" name="id" class="form-control" value="<?php echo $e->id ?>">
-                                    <input type="text" name="asset_description" class="form-control" value="<?php echo $e->asset_description ?>">
-                                    <?php echo form_error('asset_description', '<div class="text small text-danger"></div>') ?>
+                                    <label>Topology</label>
+                                    <input type="hidden" name="id" class="form-control" value="<?php echo $l->id ?>">
+                                    <input type="file" name="photo" class="form-control" value="<?php echo $l->photo ?>">
+
                                 </div>
+
 
 
 
@@ -31,8 +32,8 @@
                     </div>
                 </div>
                 </div>
+                <br>
+                <br>
+                <br>
 
-                <br>
-                <br>
-                <br>
                 <!-- End of Main Content -->

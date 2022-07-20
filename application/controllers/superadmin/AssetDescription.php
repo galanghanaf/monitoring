@@ -70,6 +70,10 @@ class AssetDescription extends CI_Controller
 
         $data['start'] = $this->uri->segment(4);
         $data['assetdescription'] = $this->monitoring->getAssetDescription($config['per_page'], $data['start'], $data['keyword']);
+
+
+
+
         $this->load->view('templatesSuperAdmin/header', $data);
         $this->load->view('templatesSuperAdmin/sidebar');
         $this->load->view('superadmin/assetdescription', $data);
@@ -120,7 +124,8 @@ class AssetDescription extends CI_Controller
     public function updateDataAksi()
     {
         $this->_rules();
-
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data Yang Anda Inputkan, Telah Digunakan!</strong></div>');
         if ($this->form_validation->run() == FALSE) {
             redirect('superadmin/assetdescription');
         } else {
@@ -147,7 +152,7 @@ class AssetDescription extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('assetdescription', 'Asset Description', 'required');
+        $this->form_validation->set_rules('asset_description', 'Asset Description', 'required|trim|is_unique[assetdescription.asset_description]');
     }
 
     public function deleteData($id)

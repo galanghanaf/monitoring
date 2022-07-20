@@ -18,7 +18,7 @@ class Dashboard extends CI_Controller
 
         $superadmin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
         $data['superadmin'] = $superadmin->num_rows();
-        $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '2'");
+        $admin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses != '1'");
         $data['admin'] = $admin->num_rows();
 
         $task_list = $this->db->query("SELECT * FROM task_list");

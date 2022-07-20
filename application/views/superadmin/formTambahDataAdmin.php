@@ -16,13 +16,29 @@
                                     <label>Nama Admin</label>
                                     <input type="text" name="nama_admin" class="form-control">
                                     <?php echo form_error('nama_admin', '<div class="text small text-danger"></div>') ?>
-                                    <input type="hidden" name="hak_akses" class="form-control" value="2">
-                                    <?php echo form_error('hak_akses', '<div class="text small text-danger"></div>') ?>
+
                                 </div>
                                 <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" class="form-control">
-                                    <?php echo form_error('email', '<div class="text small text-danger"></div>') ?>
+                                    <label>Hak Akses</label>
+                                    <select name="hak_akses" class="form-control">
+                                        <option value="">Pilih Hak Akses</option>
+                                        <option value="2">Admin Plant Citeureup</option>
+                                        <option value="3">Admin Plant Tanggamus</option>
+                                        <option value="4">Admin DC Lampung</option>
+                                        <option value="5">Admin Plant Babakanpari</option>
+                                        <option value="6">Admin Plant Legos</option>
+                                        <option value="7">Admin Plant Caringin</option>
+                                        <option value="8">Admin DC Bandung</option>
+                                        <option value="9">Admin Plant Cianjur</option>
+                                        <option value="10">Admin Plant Mekarsari</option>
+                                        <option value="11">Admin Plant Bekasi</option>
+                                        <option value="12">Admin DC Cikarang</option>
+                                        <option value="13">Admin Plant Sentul</option>
+                                        <option value="14">Admin Plant Ciherang</option>
+                                        <option value="15">Admin DC Cibinong</option>
+
+                                    </select>
+                                    <?php echo form_error('hak_akses', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Username</label>

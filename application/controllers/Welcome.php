@@ -55,7 +55,6 @@ class Welcome extends CI_Controller
 				<strong>Username Atau Password Salah!</strong></div>');
 				redirect('Welcome');
 			} else {
-				$this->session->set_userdata('email', $cek->email); //menyimpan session yang login
 				$this->session->set_userdata('username', $cek->username); //menyimpan session yang login
 				$this->session->set_userdata('hak_akses', $cek->hak_akses); //menyimpan session yang login
 				$this->session->set_userdata('nama_admin', $cek->nama_admin);

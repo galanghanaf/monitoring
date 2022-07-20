@@ -68,6 +68,8 @@
                         <a class="collapse-item" href="<?php echo base_url('superadmin/accesspoint') ?>">Access Point</a>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/ipstatic') ?>">Ip Static</a>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/switchpoint') ?>">Switch</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/topology') ?>">Topology</a>
+
                         <br>
                         <h6 class="collapse-header">Asset</h6>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/itotasset') ?>">List IT/OT Asset</a>
