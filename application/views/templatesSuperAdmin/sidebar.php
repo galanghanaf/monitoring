@@ -29,6 +29,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Data</h6>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/assetdescription') ?>">Asset Description</a>
+                        <a class="collapse-item" href="<?php echo base_url('superadmin/cbu') ?>">CBU</a>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/department') ?>">Department</a>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/equipment') ?>">Equipment</a>
                         <a class="collapse-item" href="<?php echo base_url('superadmin/location') ?>">Location</a>

@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             <?php echo form_open_multipart('superadmin/cbu/tambahDataAksi') ?>
-                            <form method="post" action="<?php echo base_url('superadmin/plantcode/tambahDataAksi') ?>" enctype="multipart/form-data">
+                            <form method="post" action="<?php echo base_url('superadmin/cbu/tambahDataAksi') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>CBU</label>
                                     <input type="text" name="cbu" class="form-control">

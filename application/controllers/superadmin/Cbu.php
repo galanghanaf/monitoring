@@ -80,7 +80,7 @@ class Cbu extends CI_Controller
         $data['title'] = "Add Data CBU";
         $this->load->view('templatesSuperAdmin/header', $data);
         $this->load->view('templatesSuperAdmin/sidebar');
-        $this->load->view('superadmin/formTambahPlantCode', $data);
+        $this->load->view('superadmin/formTambahCBU', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
     public function tambahDataAksi()
@@ -103,14 +103,14 @@ class Cbu extends CI_Controller
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('superadmin/plantcode');
+            redirect('superadmin/cbu');
         }
     }
 
     public function updateData($id)
     {
         $data['cbu'] = $this->db->query("SELECT * FROM cbu WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
-        $data['title'] = "Update Plant Code";
+        $data['title'] = "Update CBU";
         $this->load->view('templatesSuperAdmin/header', $data);
         $this->load->view('templatesSuperAdmin/sidebar');
         $this->load->view('superadmin/formUpdateCBU', $data);
@@ -124,14 +124,14 @@ class Cbu extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Yang Anda Inputkan, Telah Digunakan!</strong></div>');
-            redirect('superadmin/plantcode');
+            redirect('superadmin/cbu');
         } else {
             $id             = $this->input->post('id');
-            $plantcode    = $this->input->post('plantcode');
+            $cbu    = $this->input->post('cbu');
 
 
             $data = array(
-                'plantcode'   => $plantcode,
+                'cbu'   => $cbu,
 
 
 
@@ -140,24 +140,24 @@ class Cbu extends CI_Controller
                 'id' => $id
             );
 
-            $this->Monitoring_model->update_data('plantcode', $data, $where);
+            $this->Monitoring_model->update_data('cbu', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong></div>');
-            redirect('superadmin/plantcode');
+            redirect('superadmin/cbu');
         }
     }
 
     public function _rules()
     {
-        $this->form_validation->set_rules('plantcode', 'plantcode', 'required|trim|is_unique[plantcode.plantcode]');
+        $this->form_validation->set_rules('cbu', 'cbu', 'required|trim|is_unique[cbu.cbu]');
     }
 
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'plantcode');
+        $this->Monitoring_model->delete_data($where, 'cbu');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('superadmin/plantcode');
+        redirect('superadmin/cbu');
     }
 }

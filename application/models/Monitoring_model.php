@@ -153,6 +153,25 @@ class Monitoring_model extends CI_Model
     }
     // End Plant Code
 
+    // Opening CBU
+    public function getAllCBU()
+    {
+        return $this->db->get('cbu')->result_array();
+    }
+
+    public function getCBU($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('cbu', $keyword);
+        }
+        return $this->db->get('cbu', $limit, $start)->result_array();
+    }
+    public function countAllCBU()
+    {
+        return $this->db->get('cbu')->num_rows();
+    }
+    // End CBU
+
     // Opening Manufacture
     public function getAllManufacture()
     {
