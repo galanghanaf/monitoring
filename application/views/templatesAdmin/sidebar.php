@@ -29,12 +29,14 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Data</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/assetdescription') ?>">Asset Description</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/cbu') ?>">CBU</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/department') ?>">Department</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/equipment') ?>">Equipment</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/location') ?>">Location</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/manufacture') ?>">Manufacture</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/modelasset') ?>">Model/Type</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/osversion') ?>">OS Version</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/plantcode') ?>">Plant Code</a>
                     </div>
                 </div>
             </li>

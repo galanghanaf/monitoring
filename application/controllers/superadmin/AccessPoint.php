@@ -88,6 +88,12 @@ class AccessPoint extends CI_Controller
         $this->load->view('superadmin/accesspoint', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data Access Point";
+        $data['accesspoint'] = $this->Monitoring_model->getAllAccessPoint();
+        $this->load->view('superadmin/exportAccessPoint', $data);
+    }
     public function tambahData()
     {
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();

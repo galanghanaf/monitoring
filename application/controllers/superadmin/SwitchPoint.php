@@ -85,6 +85,12 @@ class SwitchPoint extends CI_Controller
         $this->load->view('superadmin/switchpoint', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data Switch";
+        $data['switchpoint'] = $this->Monitoring_model->getAllSwitchPoint();
+        $this->load->view('superadmin/exportSwitch', $data);
+    }
     public function tambahData()
     {
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();

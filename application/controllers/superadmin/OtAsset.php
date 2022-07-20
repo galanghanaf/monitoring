@@ -87,9 +87,17 @@ class OtAsset extends CI_Controller
         $this->load->view('superadmin/otasset', $data);
         $this->load->view('templatesSuperAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data List OT Asset";
+        $data['itotasset'] = $this->Monitoring_model->getAllOtAsset();
+        $this->load->view('superadmin/exportOtAsset', $data);
+    }
     public function tambahData()
     {
         $data['title'] = "Add Data OT Asset";
+        $data['cbu'] = $this->Monitoring_model->get_data('cbu')->result();
+        $data['plantcode'] = $this->Monitoring_model->get_data('plantcode')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
         $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
@@ -201,6 +209,8 @@ class OtAsset extends CI_Controller
     {
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['otasset'] = $this->db->query("SELECT * FROM ot_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['cbu'] = $this->Monitoring_model->get_data('cbu')->result();
+        $data['plantcode'] = $this->Monitoring_model->get_data('plantcode')->result();
         $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
         $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
         $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();

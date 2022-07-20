@@ -98,6 +98,8 @@ class ItOtAsset extends CI_Controller
     public function tambahData()
     {
         $data['title'] = "Add Data IT/OT Asset";
+        $data['cbu'] = $this->Monitoring_model->get_data('cbu')->result();
+        $data['plantcode'] = $this->Monitoring_model->get_data('plantcode')->result();
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
         $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
@@ -209,6 +211,8 @@ class ItOtAsset extends CI_Controller
     {
         $data['location'] = $this->Monitoring_model->get_data('area_location')->result();
         $data['itotasset'] = $this->db->query("SELECT * FROM itot_asset WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['cbu'] = $this->Monitoring_model->get_data('cbu')->result();
+        $data['plantcode'] = $this->Monitoring_model->get_data('plantcode')->result();
         $data['osversion'] = $this->Monitoring_model->get_data('osversion')->result();
         $data['modelasset'] = $this->Monitoring_model->get_data('model_asset')->result();
         $data['assetdescription'] = $this->Monitoring_model->get_data('assetdescription')->result();

@@ -31,12 +31,26 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Plant Code</label>
-                                    <input type="text" name="plant_code" class="form-control">
-                                    <?php echo form_error('plant_code', '<div class="text small text-danger"></div>') ?>
+                                    <select name="plantcode" class="form-control">
+                                        <option value="">Plant Code</option>
+                                        <?php foreach ($plantcode as $pc) : ?>
+                                            <option value="<?php echo $pc->plantcode ?>">
+                                                <?php echo $pc->plantcode ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php echo form_error('plantcode', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>CBU</label>
-                                    <input type="text" name="cbu" class="form-control">
+                                    <select name="cbu" class="form-control">
+                                        <option value="">Pilih CBU</option>
+                                        <?php foreach ($cbu as $cb) : ?>
+                                            <option value="<?php echo $cb->cbu ?>">
+                                                <?php echo $cb->cbu ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?php echo form_error('cbu', '<div class="text small text-danger"></div>') ?>
                                 </div>
 
