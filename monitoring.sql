@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2022 at 12:06 PM
+-- Generation Time: Jul 21, 2022 at 01:28 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -46,12 +46,10 @@ CREATE TABLE `accesspoint` (
 --
 
 INSERT INTO `accesspoint` (`id`, `asset_description`, `hostname`, `model`, `pcb`, `assembly`, `ip_address`, `mac_address`, `switch`, `port`, `location`) VALUES
-(1, 'f', 'awe', 'Cisco', 'wag', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt2'),
-(3, 'Cekf', 'galang', 'Cisco', '', '', '', 'aweg', 'awf', '0', 'Area Office Lt3'),
-(6, 'Cekf', 'awef', 'Cisco', 'aweg', 'waeg', '8.8.8.8', 'awg', 'afa', '', 'Area Office Lt3'),
-(7, 'f', 'aweg', 'TP Link', 'aweg', 'waeg', '', 'aweg', 'aweg', '0', ''),
-(8, '', 'galang', '', '', '', 'waeg', 'aweg', '', '0', ''),
-(9, '', '', '', '', '', 'test', 'agaw', '', '0', 'Area Office Lt3');
+(1, 'Software SAP Program', 'awe', 'Cisco', 'wag', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt2'),
+(6, 'HP 840G2 A6-840m 12.0 8GB/500 HASPAPC', 'awef', 'Cisco', 'aweg', 'waeg', '8.8.8.8', 'awg', 'afa', '', 'Area Office Lt3'),
+(8, 'HP 600PD SFFG3220 500G 8.0G 28 PC', 'galang', '', '', '', 'waeg', 'aweg', '', '0', ''),
+(9, 'IT30_APC Smart UPS 5000VA', '', '', '', '', 'test', 'agaw', '', '0', 'Area Office Lt3');
 
 -- --------------------------------------------------------
 
@@ -72,11 +70,7 @@ CREATE TABLE `area_location` (
 INSERT INTO `area_location` (`id`, `location`, `photo`) VALUES
 (1, 'Area Office Lt2', '2.jpg'),
 (2, 'Area Office Lt3', 'Picture1.jpg'),
-(9, 'waeg', '5.png'),
-(10, 'afweafe', 'Picture1.jpg'),
-(11, 'afewawg', '1.png'),
-(12, 'faf', '11.png'),
-(13, 'Cek Location', 'IMG_20220314_084103.jpg');
+(14, 'test', '9688606339_bf7b48ec1e_o.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,6 +124,24 @@ INSERT INTO `assetdescription` (`id`, `asset_description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cbu`
+--
+
+CREATE TABLE `cbu` (
+  `id` int(11) NOT NULL,
+  `cbu` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cbu`
+--
+
+INSERT INTO `cbu` (`id`, `cbu`) VALUES
+(1, 'test');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `data_admin`
 --
 
@@ -168,10 +180,7 @@ CREATE TABLE `department` (
 
 INSERT INTO `department` (`id`, `department`) VALUES
 (1, 'HR'),
-(14, 'Logistik'),
-(15, 'awff'),
-(16, 'a'),
-(17, 'cekd');
+(14, 'Logistik');
 
 -- --------------------------------------------------------
 
@@ -353,7 +362,7 @@ CREATE TABLE `itot_asset` (
 
 INSERT INTO `itot_asset` (`id`, `it`, `ot`, `plant_code`, `cbu`, `cost_ctr`, `asset_number`, `asset_description`, `serial_number`, `model`, `computer_name`, `qty`, `acquis_val`, `accum_dep`, `book_val`, `fixed_asset1`, `fixed_asset2`, `fixed_asset3`, `in_use`, `idle`, `damage`, `label`, `status`, `location`, `user`, `cap_date`, `note`, `network_ot`, `network_it`, `mac_address`, `ip_address`, `nead`, `sccm`, `sep`, `osversion`, `latitude`, `longitude`, `photo`) VALUES
 (4, 'Yes', '', 'waeg', 'waef', 'waefawg', 'ewafwag', 'Cekf', '', '', '', 0, 0, -342425, 0, '', '', '', '1', '', '', '', 'Active', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.4344903117505154', '106.92795753479005', 'Picture1.jpg'),
-(5, 'Yes', '', 'afewa', 'wag', 'aweg', 'waeg', 'Cekf', 'awegaweg', 'Cisco', 'awegaw', 0, 0, 0, 0, '1', '', '', '1', '', '', '1', 'Active', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.435455154071475', '106.92588686943056', 'Picture1.jpg'),
+(5, 'Yes', '', '9013', 'wag', 'aweg', 'waeg', 'Cekf', 'awegaweg', 'Cisco', 'awegaw', 0, 0, 0, 0, '1', '', '', '1', '', '', '1', 'Active', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '-6.435455154071475', '106.92588686943056', 'Picture1.jpg'),
 (6, '', 'Yes', 'galang', 'wag', 'awg', 'waeg', 'Cekf', 'weag', 'Cisco', 'weag', 0, 0, 0, 0, '1', '', '', '', '', '', '', '', 'Area Office Lt3', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Windows', '-6.434122498449617', '106.92632138729095', 'Picture1.jpg'),
 (7, 'Yes', '', 'weag', 'weaf', '', 'wefeaw', 'Cekf', '', '', '', 0, 0, 0, 0, '', '', '', '', '', '', '', 'Active', 'Area Office Lt2', '', '0000-00-00', '', '', '', '', '', '', '', '', 'Linux', '-6.433834644376195', '106.9264179468155', '2.jpg');
 
@@ -626,7 +635,7 @@ CREATE TABLE `switchpoint` (
 --
 
 INSERT INTO `switchpoint` (`id`, `asset_description`, `hostname`, `model`, `serial_number`, `ip_address`, `mac_address`, `switch`, `port`, `location`) VALUES
-(1, 'f', 'oke', 'TP Link', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt3'),
+(1, 'HP 840G1 A6-840m 14.0 8GB/500 HASPAPC', 'oke', 'TP Link', 'wag', '8.8.8.8', 'awg', 'afwef', '', 'Area Office Lt3'),
 (3, 'Cekf', 'galang', 'Cisco', '', '', 'aweg', 'awf', '0', 'Area Office Lt3'),
 (6, 'Cekf', 'awef', 'Cisco', 'waeg', '8.8.8.8', 'awg', 'afa', '', 'Area Office Lt3'),
 (7, 'f', 'aweg', 'TP Link', 'waeg', '', 'aweg', 'aweg', '0', ''),
@@ -708,6 +717,12 @@ ALTER TABLE `area_location`
 -- Indexes for table `assetdescription`
 --
 ALTER TABLE `assetdescription`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cbu`
+--
+ALTER TABLE `cbu`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -848,13 +863,19 @@ ALTER TABLE `accesspoint`
 -- AUTO_INCREMENT for table `area_location`
 --
 ALTER TABLE `area_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `assetdescription`
 --
 ALTER TABLE `assetdescription`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `cbu`
+--
+ALTER TABLE `cbu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `data_admin`
@@ -950,7 +971,7 @@ ALTER TABLE `ot_asset`
 -- AUTO_INCREMENT for table `plantcode`
 --
 ALTER TABLE `plantcode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `potongan_gaji`
