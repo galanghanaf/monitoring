@@ -31,7 +31,7 @@
                                     <?php echo form_error('hostname', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Model</label>
+                                    <label>Model/Type</label>
                                     <select name="model" class="form-control">
                                         <option value="<?php echo $t->model ?>"><?php echo $t->model ?></option>
                                         <?php foreach ($modelasset as $m) : ?>

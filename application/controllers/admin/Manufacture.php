@@ -122,6 +122,8 @@ class Manufacture extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data Yang Anda Inputkan, Telah Digunakan!</strong></div>');
             redirect('admin/manufacture');
         } else {
             $id             = $this->input->post('id');
@@ -147,7 +149,7 @@ class Manufacture extends CI_Controller
 
     public function _rules()
     {
-        $this->form_validation->set_rules('manufacture', 'Manufacture', 'required');
+        $this->form_validation->set_rules('manufacture', 'Manufacture', 'required|trim|is_unique[manufacture.manufacture]');
     }
 
     public function deleteData($id)

@@ -76,6 +76,12 @@ class LogBook extends CI_Controller
         $this->load->view('admin/logbook', $data);
         $this->load->view('templatesAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data Log Book IT Equipment";
+        $data['logbook'] = $this->Monitoring_model->getAllLogBook();
+        $this->load->view('admin/exportLogBook', $data);
+    }
     public function tambahData()
     {
         $data['title'] = "Tambah Log Book IT Equipment";

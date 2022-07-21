@@ -87,6 +87,12 @@ class IpStatic extends CI_Controller
         $this->load->view('admin/ipstatic', $data);
         $this->load->view('templatesAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data Ip Static";
+        $data['ipstatic'] = $this->Monitoring_model->getAllIpStatic();
+        $this->load->view('admin/exportIpStatic', $data);
+    }
     public function tambahData()
     {
         $data['title'] = "Tambah Data Ip Static";
@@ -184,6 +190,7 @@ class IpStatic extends CI_Controller
             $serial_number   = $this->input->post('serial_number');
             $asset_number    = $this->input->post('asset_number');
             $location        = $this->input->post('location');
+
             $user            = $this->input->post('user');
             $password        = $this->input->post('password');
 

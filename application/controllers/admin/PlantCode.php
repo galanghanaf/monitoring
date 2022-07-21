@@ -1,6 +1,6 @@
 <?php
 
-class Location extends CI_Controller
+class PlantCode extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class Location extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Data Location";
+        $data['title'] = "Data Plant Code";
 
         //Load model
         $this->load->model('Monitoring_model', 'monitoring');
@@ -28,9 +28,9 @@ class Location extends CI_Controller
 
         //Pagination
         $this->load->library('pagination');
-        $config['base_url'] = site_url('admin/location/index');
-        $this->db->like('location', $data['keyword']);
-        $this->db->from('area_location');
+        $config['base_url'] = site_url('admin/plantcode/index');
+        $this->db->like('plantcode', $data['keyword']);
+        $this->db->from('plantcode');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 10;
@@ -69,19 +69,18 @@ class Location extends CI_Controller
 
 
         $data['start'] = $this->uri->segment(4);
-        $data['location'] = $this->monitoring->getLocation($config['per_page'], $data['start'], $data['keyword']);
-        $data['area_location'] = $this->monitoring->getAllLocation();
+        $data['plantcode'] = $this->monitoring->getPlantCode($config['per_page'], $data['start'], $data['keyword']);
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/location', $data);
+        $this->load->view('admin/plantcode', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahData()
     {
-        $data['title'] = "Add Data Location";
+        $data['title'] = "Add Data Plant Code";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formTambahLocation', $data);
+        $this->load->view('admin/formTambahPlantCode', $data);
         $this->load->view('templatesAdmin/footer');
     }
     public function tambahDataAksi()
@@ -92,47 +91,29 @@ class Location extends CI_Controller
             $this->tambahData();
         } else {
             $id             = $this->input->post('id');
-            $location    = $this->input->post('location');
-            $photo              = $_FILES['photo']['name'];
-            if ($photo = '') {
-            } else {
-                $config['upload_path']  = './assets/team';
-                $config['allowed_types']  = 'jpg|jpeg|png|tiff';
-
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('photo')) {
-                    echo "Photo Gagal diUpload!";
-                    die();
-                } else {
-                    $photo = $this->upload->data('file_name');
-                }
-            }
-
+            $plantcode    = $this->input->post('plantcode');
 
 
             $data = array(
-                'location'   => $location,
-                'photo'   => $photo,
-
-
+                'plantcode'   => $plantcode,
 
             );
 
-            $this->Monitoring_model->insert_data($data, 'area_location');
+            $this->Monitoring_model->insert_data($data, 'plantcode');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Ditambahkan!</strong>
             </div>');
-            redirect('admin/location');
+            redirect('admin/plantcode');
         }
     }
 
     public function updateData($id)
     {
-        $data['location'] = $this->db->query("SELECT * FROM area_location WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
-        $data['title'] = "Update Location";
+        $data['plantcode'] = $this->db->query("SELECT * FROM plantcode WHERE id='$id'")->result(); //result berfungsi untuk menggenerate/menampung/menampilkan query(data)
+        $data['title'] = "Update Plant Code";
         $this->load->view('templatesAdmin/header', $data);
         $this->load->view('templatesAdmin/sidebar');
-        $this->load->view('admin/formUpdateLocation', $data);
+        $this->load->view('admin/formUpdatePlantCode', $data);
         $this->load->view('templatesAdmin/footer');
     }
 
@@ -141,28 +122,16 @@ class Location extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            redirect('admin/logbook');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data Yang Anda Inputkan, Telah Digunakan!</strong></div>');
+            redirect('admin/plantcode');
         } else {
             $id             = $this->input->post('id');
-            $location    = $this->input->post('location');
-            $photo              = $_FILES['photo']['name'];
-            if ($photo) {
-                $config['upload_path']  = './assets/team';
-                $config['allowed_types']  = 'jpg|jpeg|png|tiff';
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('photo')) {
-                    $photo = $this->upload->data('file_name');
-                    $this->db->set('photo', $photo);
-                } else {
-                    echo $this->upload->display_errors();
-                }
-            }
+            $plantcode    = $this->input->post('plantcode');
 
 
             $data = array(
-                'location'   => $location,
-                'photo'   => $photo,
-
+                'plantcode'   => $plantcode,
 
 
 
@@ -171,24 +140,24 @@ class Location extends CI_Controller
                 'id' => $id
             );
 
-            $this->Monitoring_model->update_data('area_location', $data, $where);
+            $this->Monitoring_model->update_data('plantcode', $data, $where);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Data Berhasil Diupdate!</strong></div>');
-            redirect('admin/location');
+            redirect('admin/plantcode');
         }
     }
 
     public function _rules()
     {
-        $this->form_validation->set_rules('location', 'Location', 'required');
+        $this->form_validation->set_rules('plantcode', 'plantcode', 'required|trim|is_unique[plantcode.plantcode]');
     }
 
     public function deleteData($id)
     {
         $where = array('id' => $id);
-        $this->Monitoring_model->delete_data($where, 'area_location');
+        $this->Monitoring_model->delete_data($where, 'plantcode');
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Data Berhasil Dihapus!</strong></div>');
-        redirect('admin/location');
+        redirect('admin/plantcode');
     }
 }

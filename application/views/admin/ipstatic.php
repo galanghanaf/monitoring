@@ -8,8 +8,11 @@
 
 
 
+
     <a class="btn btn-sm btn-success mb-3 text-white" href="<?php echo base_url('admin/ipstatic/tambahData') ?>">
         <i class="fas fa-plus"> Add Data</i></a>
+    <a class="btn btn-sm btn-primary mb-3 float-right" href="<?php echo base_url('admin/ipstatic/export_csv') ?>">
+        <i class="fas fa-download"> Export CSV</i></a>
     <?php echo $this->session->flashdata('pesan') ?>
 
     <div class="row">
@@ -43,7 +46,6 @@
             <th class="text-center bg-primary text-white">Serial Number</th>
             <th class="text-center bg-primary text-white">Asset Number</th>
             <th class="text-center bg-primary text-white">Location</th>
-
             <th class="text-center bg-primary text-white">User</th>
             <th class="text-center bg-primary text-white">Password</th>
             <th class="text-center bg-warning text-white">Update</th>

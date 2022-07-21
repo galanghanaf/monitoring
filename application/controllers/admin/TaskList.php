@@ -79,6 +79,12 @@ class TaskList extends CI_Controller
         $this->load->view('admin/tasklist', $data);
         $this->load->view('templatesAdmin/footer');
     }
+    public function export_csv()
+    {
+        $data['title'] = "Data Task List ITOS-CTR";
+        $data['task_list'] = $this->Monitoring_model->getAllTaskList();
+        $this->load->view('admin/exportTaskList', $data);
+    }
     public function tambahData()
     {
         $data['title'] = "Tambah Data Task List ITOS-CTR";

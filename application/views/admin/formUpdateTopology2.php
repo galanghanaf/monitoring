@@ -685,7 +685,7 @@
                                     <?php foreach ($topology as $l) : ?>
                                         <!--foreach/perulangan berguna untuk mengambil data dari query table-->
                                         <!-- Disini kita baca datanya dengan method POST sesuai pada controllers/admin/dataJabatan-->
-                                        <?php echo form_open_multipart('superadmin/topology/updateDataAksi') ?>
+                                        <?php echo form_open_multipart('admin/topology/updateDataAksi') ?>
                                         <br>
                                         <br>
                                         <div class="form-group">

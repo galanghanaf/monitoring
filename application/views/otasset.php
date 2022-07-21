@@ -75,6 +75,11 @@
                     <i class=" fas fa-fw fa-tasks"></i>
                     <span>OT Asset</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('topology') ?>">
+                    <i class=" fas fa-fw fa-globe"></i>
+                    <span>Topology</span></a>
+            </li>
 
             <!-- Nav Item - Logout -->
             <li class="nav-item">
@@ -112,7 +117,6 @@
 
 
                         <li class="nav-item"><a class="btn btn-success btn-md active mt-1" role="button" aria-pressed="true" href="#loginModal" data-bs-toggle="modal">Login</a></li>
-                        <li class="nav-item"><a class="btn btn-secondary btn-md active mt-1 ml-2 mr-1" role="button" aria-pressed="true" href="#loginModal" data-bs-toggle="modal">Forgot Password?</a></li>
 
 
 
@@ -155,11 +159,19 @@
                 <!-- /.container-fluid -->
 
             </div>
-            <br><br>
+            <br>
 
             <!-- End of Main Content -->
 
-
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; <a href="https://github.com/galanghanaf" target="_blank">galanghanaf</a> <?php echo date("Y"); ?></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->

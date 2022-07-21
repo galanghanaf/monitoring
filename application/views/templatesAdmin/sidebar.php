@@ -71,6 +71,8 @@
                         <a class="collapse-item" href="<?php echo base_url('admin/accesspoint') ?>">Access Point</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/ipstatic') ?>">Ip Static</a>
                         <a class="collapse-item" href="<?php echo base_url('admin/switchpoint') ?>">Switch</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/topology') ?>">Topology</a>
+
                         <br>
                         <h6 class="collapse-header">Asset</h6>
                         <a class="collapse-item" href="<?php echo base_url('admin/itotasset') ?>">List IT/OT Asset</a>

@@ -73,6 +73,11 @@
                     <i class=" fas fa-fw fa-tasks"></i>
                     <span>OT Asset</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('topology') ?>">
+                    <i class=" fas fa-fw fa-globe"></i>
+                    <span>Topology</span></a>
+            </li>
             <!-- Nav Item - Logout -->
             <li class="nav-item">
                 <a class="nav-link" href="#loginModal" data-bs-toggle="modal">
@@ -109,7 +114,6 @@
 
 
                         <li class="nav-item"><a class="btn btn-success btn-md active mt-1" role="button" aria-pressed="true" href="#loginModal" data-bs-toggle="modal">Login</a></li>
-                        <li class="nav-item"><a class="btn btn-secondary btn-md active mt-1 ml-2 mr-1" role="button" aria-pressed="true" href="#loginModal" data-bs-toggle="modal">Forgot Password?</a></li>
 
 
 
@@ -251,6 +255,33 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-xl-12 col-md-6 mb-4">
+                                <div class="card border-left-primary border-bottom-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="text-xs text-center font-weight-bold text-primary mb-2">
+                                            <h2><b>Topology</b></h2>
+                                        </div>
+                                        <div>
+
+                                            <?php foreach ($topology as $l) : ?>
+
+                                                <center>
+
+                                                    <iframe src="<?= base_url() . 'assets/team/' . $l['photo'] ?>" style="border: 0; width: 100%; height: 550px"></iframe>
+                                                <?php endforeach; ?>
+                                                </center>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
                         </div>
                 </div>
 
@@ -258,15 +289,23 @@
             </div>
             <!-- /.container-fluid -->
 
+
+            <br>
+
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; <a href="https://github.com/galanghanaf" target="_blank">galanghanaf</a> <?php echo date("Y"); ?></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
         </div>
-        <br><br>
-
-        <!-- End of Main Content -->
-
-
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

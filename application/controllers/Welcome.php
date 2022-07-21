@@ -36,6 +36,7 @@ class Welcome extends CI_Controller
 		$data['ipstatic2'] = $this->monitoring->getAllIpStatic();
 		$data['mappingitotasset'] = $this->monitoring->getAllItOtAsset();
 		$data['mappingotasset'] = $this->monitoring->getAllOtAsset();
+		$data['topology'] = $this->monitoring->getAllTopology();
 
 
 
