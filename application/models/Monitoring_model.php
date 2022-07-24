@@ -383,6 +383,7 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('ip_address', $keyword);
             $this->db->or_like('osversion', $keyword);
             $this->db->or_like('location', $keyword);
+            $this->db->or_like('assets', $keyword);
         }
         return $this->db->get('itot_asset', $limit, $start)->result_array();
     }
@@ -415,6 +416,7 @@ class Monitoring_model extends CI_Model
             $this->db->or_like('ip_address', $keyword);
             $this->db->or_like('osversion', $keyword);
             $this->db->or_like('location', $keyword);
+            $this->db->or_like('assets', $keyword);
         }
         return $this->db->get('ot_asset', $limit, $start)->result_array();
     }

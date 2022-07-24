@@ -41,6 +41,8 @@ class ItOtAsset extends CI_Controller
         $this->db->or_like('ip_address', $data['keyword']);
         $this->db->or_like('osversion', $data['keyword']);
         $this->db->or_like('location', $data['keyword']);
+        $this->db->or_like('assets', $data['keyword']);
+
 
 
         $this->db->from('itot_asset');
@@ -118,8 +120,7 @@ class ItOtAsset extends CI_Controller
             $this->tambahData();
         } else {
             $id                 = $this->input->post('id');
-            $it                 = $this->input->post('it');
-            $ot                 = $this->input->post('ot');
+            $assets                 = $this->input->post('assets');
             $plant_code         = $this->input->post('plant_code');
             $cbu                = $this->input->post('cbu');
             $cost_ctr           = $this->input->post('cost_ctr');
@@ -157,8 +158,7 @@ class ItOtAsset extends CI_Controller
             $longitude         = $this->input->post('longitude');
 
             $data = array(
-                'it'                => $it,
-                'ot'                => $ot,
+                'assets'                => $assets,
                 'plant_code'        => $plant_code,
                 'cbu'               => $cbu,
                 'cost_ctr'          => $cost_ctr,
@@ -232,8 +232,7 @@ class ItOtAsset extends CI_Controller
             redirect('admin/itotasset');
         } else {
             $id                 = $this->input->post('id');
-            $it                 = $this->input->post('it');
-            $ot                 = $this->input->post('ot');
+            $assets                 = $this->input->post('assets');
             $plant_code         = $this->input->post('plant_code');
             $cbu                = $this->input->post('cbu');
             $cost_ctr           = $this->input->post('cost_ctr');
@@ -272,8 +271,7 @@ class ItOtAsset extends CI_Controller
             $longitude         = $this->input->post('longitude');
 
             $data = array(
-                'it'                => $it,
-                'ot'                => $ot,
+                'assets'                => $assets,
                 'plant_code'        => $plant_code,
                 'cbu'               => $cbu,
                 'cost_ctr'          => $cost_ctr,

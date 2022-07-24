@@ -14,23 +14,14 @@
                                 <!-- Disini kita baca datanya dengan method POST sesuai pada controllers/admin/dataJabatan-->
                                 <?php echo form_open_multipart('admin/otasset/updateDataAksi') ?>
                                 <div class="form-group">
-                                    <label>IT</label>
+                                    <label>Assets</label>
                                     <input type="hidden" name="id" class="form-control" value="<?php echo $i->id ?>">
-                                    <select name="it" class="form-control">
-                                        <option value="<?php echo $i->it ?>"><?php echo $i->it ?></option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="">No</option>
+                                    <select name="assets" class="form-control">
+                                        <option value="<?php echo $i->assets ?>"><?php echo $i->assets ?></option>
+                                        <option value="IT">IT</option>
+                                        <option value="OT">OT</option>
                                     </select>
-                                    <?php echo form_error('it', '<div class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>OT</label>
-                                    <select name="ot" class="form-control">
-                                        <option value="<?php echo $i->ot ?>"><?php echo $i->ot ?></option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="">No</option>
-                                    </select>
-                                    <?php echo form_error('ot', '<div class="text small text-danger"></div>') ?>
+                                    <?php echo form_error('assets', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Plant Code</label>

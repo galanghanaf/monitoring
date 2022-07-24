@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Dashboard"; //untuk title pada dasboard
+        $data['title'] = "Plant Citeureup"; //untuk title pada dasboard
 
 
         $superadmin = $this->db->query("SELECT * FROM data_admin WHERE hak_akses = '1'");
@@ -51,6 +51,8 @@ class Dashboard extends CI_Controller
         $data['ipstatic2'] = $this->monitoring->getAllIpStatic();
         $data['mappingitotasset'] = $this->monitoring->getAllItOtAsset();
         $data['mappingotasset'] = $this->monitoring->getAllOtAsset();
+        $data['topology'] = $this->monitoring->getAllTopology();
+
 
 
 

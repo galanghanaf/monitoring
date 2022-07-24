@@ -17,7 +17,7 @@
 
         <?php foreach ($otasset as $t) : ?>
             L.marker([<?php echo $t['latitude']; ?>, <?php echo $t['longitude']; ?>]).addTo(map)
-                .bindPopup('IT : <b><?php echo $t['it']; ?></b><br/>OT : <b><?php echo $t['ot']; ?></b><br/>Plant Code : <b><?php echo $t['plant_code']; ?></b><br/>CBU : <b><?php echo $t['cbu']; ?></b><br/>Asset Number : <b><?php echo $t['asset_number']; ?></b><br/>Asset Description : <b><?php echo $t['asset_description']; ?></b><br/>Serial Number : <b><?php echo $t['serial_number']; ?></b><br/>Model/Type : <b><?php echo $t['model']; ?></b><br/>Computer Name : <b><?php echo $t['computer_name']; ?></b><br/>Location : <b><?php echo $t['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $t['photo']; ?>" width="200px"></center> ');
+                .bindPopup('Assets : <b><?php echo $t['assets']; ?></b><br/>Plant Code : <b><?php echo $t['plant_code']; ?></b><br/>CBU : <b><?php echo $t['cbu']; ?></b><br/>Asset Number : <b><?php echo $t['asset_number']; ?></b><br/>Asset Description : <b><?php echo $t['asset_description']; ?></b><br/>Serial Number : <b><?php echo $t['serial_number']; ?></b><br/>Model/Type : <b><?php echo $t['model']; ?></b><br/>Computer Name : <b><?php echo $t['computer_name']; ?></b><br/>Location : <b><?php echo $t['location']; ?></b><br/><br/> <center><img src="<?php echo base_url() . 'assets/team/' . $t['photo']; ?>" width="200px"></center> ');
         <?php endforeach; ?>
     </script>
     <br>
@@ -46,7 +46,7 @@
 
         <tr>
             <th class="text-center bg-primary text-white" rowspan="2">No</th>
-            <th class="text-center bg-primary text-white" colspan="2">Assets</th>
+            <th class="text-center bg-primary text-white" rowspan="2">Assets</th>
             <th class="text-center bg-primary text-white" rowspan="2">Plant Code</th>
             <th class="text-center bg-primary text-white" rowspan="2">CBU</th>
             <th class="text-center bg-primary text-white" rowspan="2">Cost Ctr</th>
@@ -82,8 +82,7 @@
             <th class="text-center bg-warning text-white" rowspan="2">Update</th>
             <th class="text-center bg-danger text-white" rowspan="2">Delete</th>
         <tr>
-            <th class="text-center bg-primary text-white">IT</th>
-            <th class="text-center bg-primary text-white">OT</th>
+
             <th class="text-center bg-primary text-white">FA.01</th>
             <th class="text-center bg-primary text-white">FA.02</th>
             <th class="text-center bg-primary text-white">FA.03</th>
@@ -105,8 +104,7 @@
         <?php foreach ($otasset as $t) : ?>
             <tr>
                 <td class="text-center"><?php echo ++$start; ?></td>
-                <td class="text-center"><?php echo $t['it']; ?></td>
-                <td class="text-center"><?php echo $t['ot']; ?></td>
+                <td class="text-center"><?php echo $t['assets']; ?></td>
                 <td class="text-center"><?php echo $t['plant_code']; ?></td>
                 <td class="text-center"><?php echo $t['cbu']; ?></td>
                 <td class="text-center"><?php echo $t['cost_ctr']; ?></td>

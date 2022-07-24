@@ -11,8 +11,7 @@
         <table border="1" cellspacing="0" cellpadding="10">
             <tr>
                 <th>No</th>
-                <th>IT</th>
-                <th>OT</th>
+                <th>Assets</th>
                 <th>Plant Code</th>
                 <th>CBU</th>
                 <th>Cost Ctr</th>
@@ -51,8 +50,7 @@
             foreach ($itotasset as $t) : ?>
                 <tr>
                     <td><?php echo $no++; ?></td>
-                    <td><?php echo $t['it']; ?></td>
-                    <td><?php echo $t['ot']; ?></td>
+                    <td><?php echo $t['assets']; ?></td>
                     <td><?php echo $t['plant_code']; ?></td>
                     <td><?php echo $t['cbu']; ?></td>
                     <td><?php echo $t['cost_ctr']; ?></td>

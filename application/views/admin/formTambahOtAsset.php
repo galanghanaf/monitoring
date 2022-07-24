@@ -12,26 +12,17 @@
                             <?php echo form_open_multipart('admin/otasset/tambahDataAksi') ?>
                             <form method="post" action="<?php echo base_url('admin/otasset/tambahDataAksi') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label>IT</label>
-                                    <select name="it" class="form-control">
-                                        <option value="">Pilih</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="">No</option>
+                                    <label>Assets</label>
+                                    <select name="assets" class="form-control">
+                                        <option value="">Pilih Assets</option>
+                                        <option value="IT">IT</option>
+                                        <option value="OT">OT</option>
                                     </select>
-                                    <?php echo form_error('it', '<div class="text small text-danger"></div>') ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>OT</label>
-                                    <select name="ot" class="form-control">
-                                        <option value="">Pilih</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="">No</option>
-                                    </select>
-                                    <?php echo form_error('ot', '<div class="text small text-danger"></div>') ?>
+                                    <?php echo form_error('assets', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Plant Code</label>
-                                    <select name="plantcode" class="form-control">
+                                    <select name="plant_code" class="form-control">
                                         <option value="">Plant Code</option>
                                         <?php foreach ($plantcode as $pc) : ?>
                                             <option value="<?php echo $pc->plantcode ?>">
@@ -39,7 +30,7 @@
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <?php echo form_error('plantcode', '<div class="text small text-danger"></div>') ?>
+                                    <?php echo form_error('plant_code', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>CBU</label>
@@ -100,22 +91,22 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Qty</label>
-                                    <input type="text" name="qty" class="form-control">
+                                    <input type="number" name="qty" class="form-control">
                                     <?php echo form_error('qty', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Acquis.val</label>
-                                    <input type="text" name="acquis_val" class="form-control">
+                                    <input type="number" name="acquis_val" class="form-control">
                                     <?php echo form_error('acquis_val', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Accum.dep</label>
-                                    <input type="text" name="accum_dep" class="form-control">
+                                    <input type="number" name="accum_dep" class="form-control">
                                     <?php echo form_error('accum_dep', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Book val.</label>
-                                    <input type="text" name="book_val" class="form-control">
+                                    <input type="number" name="book_val" class="form-control">
                                     <?php echo form_error('book_val', '<div class="text small text-danger"></div>') ?>
                                 </div>
                                 <div class="form-group">
